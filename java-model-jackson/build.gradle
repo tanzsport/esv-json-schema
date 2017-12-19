@@ -1,0 +1,55 @@
+buildscript {
+    ext {
+        js2pVersion = '0.5.1'
+    }
+    repositories {
+        jcenter()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+        mavenLocal()
+    }
+    dependencies {
+        classpath "org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:$js2pVersion"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'jsonschema2pojo'
+
+group = 'de.tanzsport.esv'
+archivesBaseName = 'api-model-jackson'
+
+dependencies {
+    compile 'org.apache.commons:commons-lang3:3.7'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.8'
+}
+
+tasks.withType(JavaCompile) {
+    sourceCompatibility '1.8'
+    targetCompatibility '1.8'
+}
+
+jsonSchema2Pojo {
+    includeAdditionalProperties = false
+    generateBuilders = true
+    usePrimitives = false
+    source = files('../schema/v1')
+    targetDirectory = file("src/main/js2p")
+    targetPackage = 'de.tanzsport.esv.api.v1.model'
+    includeHashcodeAndEquals = true
+    includeToString = true
+    annotationStyle = 'jackson2'
+    sourceType = 'jsonschema'
+    removeOldOutput = true
+    outputEncoding = 'UTF-8'
+    dateType = "java.time.LocalDate"
+    dateTimeType = "java.time.ZonedDateTime"
+    useCommonsLang3 = true
+    classNameSuffix = "Model"
+    serializable = true
+    initializeCollections = true
+    fileExtensions = [".bundle.json"] as String[]
+    inclusionLevel = org.jsonschema2pojo.InclusionLevel.ALWAYS
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://schema.tanzsport.de/json/esv/v1/ranglisten.json",
+  "title": "Ranglisten V1",
+  "description": "JSON-Schema für die Response des Endpunktes /api/v1/ranglisten/:id1,:id2...",
+  "type": "array",
+  "items": {
+    "$ref": "common.json#/definitions/rangliste"
+  }
+}

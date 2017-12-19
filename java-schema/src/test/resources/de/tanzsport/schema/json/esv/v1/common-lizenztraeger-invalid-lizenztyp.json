@@ -1,0 +1,19 @@
+{
+  "lizenztraeger": {
+    "id": "DE10014",
+    "vorname": "Max",
+    "nachname": "Mustermann",
+    "club": {
+      "id": 1,
+      "name": "club",
+      "ltv": {
+        "id": 2,
+        "name": "ltv"
+      }
+    },
+    "staat": "GER",
+    "lizenzen": [
+      "abc"
+    ]
+  }
+}

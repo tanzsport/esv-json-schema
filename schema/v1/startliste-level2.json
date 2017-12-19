@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://schema.tanzsport.de/json/esv/v1/startliste-level2.json",
+  "title": "Startliste V1, Level 2",
+  "description": "JSON-Schema Level 2 für die Response des Endpunktes /api/v1/startliste/veranstaltung/:id und /api/v1/startliste/wettbewerbsart/:wettbewerbsart",
+  "type": "object",
+  "$ref": "common.json#/definitions/startliste-l2"
+}

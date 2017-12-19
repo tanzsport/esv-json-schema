@@ -1,0 +1,49 @@
+{
+  "turnier": {
+    "id": 10000,
+    "datumVon": "2014-04-18T00:00:00+02:00",
+    "datumBis": "2014-04-18T00:00:00+02:00",
+    "startzeitPlan": "10:00",
+    "startzeitPlanKorrigiert": "11:10",
+    "titel": "Titel",
+    "veranstalter": {
+      "id": 8000,
+      "name": "Landestanzsportverband Berlin e.V.",
+      "ltv": {
+        "id": 3,
+        "name": "LTV Berlin"
+      }
+    },
+    "ausrichter": {
+      "id": 9000,
+      "name": "Ausrichtergemeinschaft Blaues Band der Spree",
+      "ltv": {
+        "id": 3,
+        "name": "LTV Berlin"
+      }
+    },
+    "flaechenId": "Fläche 1",
+    "wettbewerbsart": "Einzel",
+    "turnierform": "OT",
+    "startgruppe": "Hgr",
+    "startklasseLiga": "D",
+    "turnierart": "Lat",
+    "zulassung": [
+      "LTVBerlin",
+      "TRP"
+    ],
+    "wanderpokal": false,
+    "turnierrang": 1,
+    "aufstiegsturnier": true,
+    "ranglistenId": "Hgr-Std",
+    "wdsfTurnierId": 12356,
+    "startgebuehr": "10€ pro Paar für das 1. Turnier, 6€ für jedes weitere Turnier; WDSF-Turniere 25€",
+    "bemerkungen": "Bemerkungen",
+    "wertungsrichter": [
+      "DE10014"
+    ],
+    "turnierleiter": "DE10014",
+    "beisitzer": "DE10014",
+    "chairman": "DE10014"
+  }
+}

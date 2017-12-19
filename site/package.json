@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "build-validator": "webpack --hide-modules --config validator/webpack.config.js"
+  },
+  "dependencies": {
+    "ajv": "^5.5.2",
+    "axios": "^0.17.1",
+    "json-schema-ref-parser": "^4.0.4",
+    "webpack": "^3.10.0"
+  }
+}

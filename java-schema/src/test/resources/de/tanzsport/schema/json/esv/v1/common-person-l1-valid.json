@@ -1,0 +1,11 @@
+{
+  "person-l1": {
+    "id": "DE1004",
+    "titel": "Dr.",
+    "vorname": "Max",
+    "nachname": "Mustermann",
+    "geschlecht": "m",
+    "wdsfMin": 123456,
+    "nationalitaet": "AUT"
+  }
+}

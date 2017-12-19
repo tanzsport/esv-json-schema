@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://schema.tanzsport.de/json/esv/v1/funktionaer.json",
+  "title": "Funktionär V1",
+  "description": "JSON-Schema für die Response des Endpunktes /api/v1/funktionaer/:id",
+  "type": "object",
+  "$ref": "common.json#/definitions/lizenztraeger"
+}

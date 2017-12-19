@@ -1,0 +1,12 @@
+{
+  "veranstalter-ausrichter": {
+    "id": 1,
+    "name": "name",
+    "ltv": {
+      "id": 1,
+      "name": "name"
+    },
+    "kontaktTelefon": "kontaktTelefon",
+    "kontaktEmail": "kontakt@email.de"
+  }
+}

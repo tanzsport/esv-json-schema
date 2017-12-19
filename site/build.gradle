@@ -1,0 +1,38 @@
+plugins {
+    id 'org.ajoberstar.git-publish' version '0.3.2'
+}
+
+task bundleSchemas(type: Exec) {
+    commandLine 'node', 'bundle.js'
+}
+
+task buildValidator(type: Exec) {
+    commandLine 'yarn', 'build-validator'
+}
+
+task buildSite(type: Exec) {
+    workingDir 'hugo'
+    commandLine 'hugo'
+    doFirst {
+        bundleSchemas.execute()
+        buildValidator.execute()
+    }
+}
+
+task serveSite(type: Exec) {
+    workingDir 'hugo'
+    commandLine 'hugo', 'server'
+    doFirst {
+        bundleSchemas.execute()
+        buildValidator.execute()
+    }
+}
+
+gitPublish {
+    repoUri = 'ssh://git@github.com/tanzsport/esv-json-schema.git'
+    branch = 'gh-pages'
+    contents {
+        from 'hugo/public'
+    }
+}
+gitPublishCopy.dependsOn buildSite

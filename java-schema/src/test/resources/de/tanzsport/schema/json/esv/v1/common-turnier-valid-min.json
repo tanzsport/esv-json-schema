@@ -1,0 +1,20 @@
+{
+  "turnier": {
+    "id": 10000,
+    "datumVon": "2014-04-18T00:00:00+02:00",
+    "datumBis": "2014-04-18T00:00:00+02:00",
+    "startzeitPlan": "10:00",
+    "wettbewerbsart": "Einzel",
+    "turnierform": "OT",
+    "startgruppe": "Hgr",
+    "startklasseLiga": "D",
+    "turnierart": "Lat",
+    "zulassung": [
+      "LTVBerlin",
+      "TRP"
+    ],
+    "wanderpokal": false,
+    "turnierrang": 1,
+    "aufstiegsturnier": true
+  }
+}

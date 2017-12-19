@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://schema.tanzsport.de/json/esv/v1/veranstaltung.json",
+  "title": "Veranstaltung V1",
+  "description": "JSON-Schema für die Response des Endpunktes /api/v1/turniere/:id",
+  "type": "object",
+  "$ref": "common.json#/definitions/veranstaltung"
+}

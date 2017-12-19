@@ -1,0 +1,5 @@
+/node_modules/
+/hugo/public/
+/hugo/static/js/validator/validator.js
+/hugo/static/schema-bundles/v1/*.json
+yarn-error.log

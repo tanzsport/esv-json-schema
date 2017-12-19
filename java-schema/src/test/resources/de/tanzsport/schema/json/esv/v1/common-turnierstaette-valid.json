@@ -1,0 +1,8 @@
+{
+  "turnierstaette": {
+    "ort": "ort",
+    "name": "name",
+    "anschrift": "anschrift",
+    "plz": "plz"
+  }
+}

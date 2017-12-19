@@ -1,0 +1,1940 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://schema.tanzsport.de/json/esv/v1/common.json",
+  "title": "Gemeinsame Typen V1",
+  "description": "Gemeinsame Typen der ESV-Schemas V1",
+  "definitions": {
+    "iso8601-date-time": {
+      "description": "ISO8601 Datum/Zeit",
+      "type": "string",
+      "javaType": "java.time.ZonedDateTime",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:Z|[\\+\\-]+\\d{2}(:\\d{2})?)$",
+      "example": "2014-04-18T00:00:00+02:00"
+    },
+    "turnierstaette": {
+      "description": "Daten einer Turnierstätte",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.veranstaltung.Turnierstaette",
+      "properties": {
+        "ort": {
+          "description": "Ort",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name",
+          "type": "string"
+        },
+        "anschrift": {
+          "description": "Anschrift",
+          "type": "string"
+        },
+        "plz": {
+          "description": "PLZ",
+          "type": "string"
+        }
+      },
+      "required": [
+        "ort",
+        "name",
+        "anschrift",
+        "plz"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "ort": "Berlin",
+        "name": "Sporthalle Muster",
+        "anschrift": "Musterstr. 1",
+        "plz": "12345"
+      }
+    },
+    "landesverband": {
+      "description": "Daten eines Landesverbandes",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.Landesverband",
+      "properties": {
+        "id": {
+          "description": "ID des Landesverbandes",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name des Landesverbandes",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": 1,
+        "name": "Landestanzsportverband Berlin e.V."
+      }
+    },
+    "veranstalter-ausrichter": {
+      "description": "Daten eines Veranstalters/Ausrichters",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.veranstaltung.VeranstalterAusrichter",
+      "properties": {
+        "id": {
+          "description": "ID des Veranstalters/Ausrichters",
+          "type": "integer"
+        },
+        "name": {
+          "description": "Name des Veranstalters/Ausrichters",
+          "type": "string"
+        },
+        "ltv": {
+          "description": "Landesverband des Veranstalters/Ausrichters (sofern vorhanden)",
+          "$ref": "#/definitions/landesverband"
+        },
+        "kontaktTelefon": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "kontaktEmail": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": 123,
+        "name": "TC Ocker-Umbra Musterstadt",
+        "ltv": {
+          "id": 1,
+          "name": "Hessicher Tanzsportverband e.V."
+        },
+        "kontaktTelefon": "069 - 12345",
+        "kontaktEmail": "ocker-umbra@email.de"
+      }
+    },
+    "verein": {
+      "description": "Daten eines Vereins",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.Verein",
+      "properties": {
+        "id": {
+          "description": "ID des Vereins, null bei ausländischen Vereinen",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "description": "Name des Vereins",
+          "type": "string"
+        },
+        "ltv": {
+          "$comment": "Landesverband des Vereins, null bei ausländischen Vereinen",
+          "$ref": "#/definitions/landesverband"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "ltv"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": 123,
+        "name": "TC Ocker-Umbra Musterstadt",
+        "ltv": {
+          "id": 1,
+          "name": "Hessischer Tanzsportverband e.V."
+        }
+      }
+    },
+    "lizenztyp": {
+      "description": "Lizenztyp",
+      "enum": [
+        "TL",
+        "TL-JMD",
+        "WR-D",
+        "WR-C",
+        "WR-B-Std",
+        "WR-B-Lat",
+        "WR-A-Std",
+        "WR-A-Lat",
+        "WR-S-Std",
+        "WR-S-Lat",
+        "WR-S-RL-Std",
+        "WR-S-RL-Lat",
+        "WR-S-DM-Std",
+        "WR-S-DM-Lat",
+        "WR-F1",
+        "WR-F2",
+        "WR-F-BL",
+        "WR-F-DM",
+        "WR-J1",
+        "WR-J2",
+        "WR-J1-DM",
+        "WR-J2-DM"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.LizenzTyp"
+    },
+    "ioc-code": {
+      "description": "dreibuchstabiger IOC-Code, repräsentiert das Land, für das ein Starter startet oder die Staatsangehörigkeit einer Person",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "lizenztraeger": {
+      "description": "Daten eines Lizenzträgers",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.Lizenztraeger",
+      "properties": {
+        "id": {
+          "description": "DTV-Nummer des Lizenzträgers",
+          "type": "string"
+        },
+        "wdsfMin": {
+          "description": "WDSF-MIN sofern vorhanden",
+          "$comment": "FIXME - ESV gibt aktuell String zurück",
+          "type": [
+            "null",
+            "integer",
+            "string"
+          ]
+        },
+        "lizenzNr": {
+          "description": "alte Lizenz-Nr. sofern vorhanden",
+          "$comment": "FIXME - ESV gibt aktuell String zurück",
+          "type": [
+            "null",
+            "integer",
+            "string"
+          ]
+        },
+        "titel": {
+          "description": "Titel sofern vorhanden",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "vorname": {
+          "description": "Vorname des Lizenzträgers",
+          "type": "string"
+        },
+        "nachname": {
+          "description": "Nachname des Lizenzträgers",
+          "type": "string"
+        },
+        "club": {
+          "description": "Verein des Lizenzträgers",
+          "javaName": "verein",
+          "$ref": "#/definitions/verein"
+        },
+        "staat": {
+          "description": "Land, für das der Lizenzträger aktiv ist (IOC-Code)",
+          "$ref": "#/definitions/ioc-code"
+        },
+        "lizenzen": {
+          "description": "Lizenzen des Lizenzträgers",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/lizenztyp"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "vorname",
+        "nachname",
+        "club",
+        "staat",
+        "lizenzen"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": "DE10009",
+        "wdsfMin": 123456,
+        "lizenzNr": 998877,
+        "titel": "Dr.",
+        "vorname": "Max",
+        "nachname": "Mustermann",
+        "club": {
+          "id": 1,
+          "name": "TC Ocker-Umbra Musterstadt",
+          "ltv": {
+            "id": 1,
+            "name": "Hessischer Tanzsportverband e.V."
+          }
+        },
+        "staat": "GER",
+        "lizenzen": [
+          "TL"
+        ]
+      }
+    },
+    "flaeche": {
+      "description": "Daten einer Turnierfläche",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.veranstaltung.Flaeche",
+      "properties": {
+        "id": {
+          "description": "ID der Fläche zur Referenzierung; eindeutig innerhalb einer Veranstaltung",
+          "type": "string"
+        },
+        "typ": {
+          "description": "Typ der Fläche (Parkett, PVC etc.)",
+          "type": "string"
+        },
+        "laenge": {
+          "description": "Flächenlänge",
+          "type": "number"
+        },
+        "breite": {
+          "description": "Flächenbreite",
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "typ",
+        "laenge",
+        "breite"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": "Fläche 1",
+        "typ": "PVC",
+        "laenge": 10.5,
+        "breite": 7.5
+      }
+    },
+    "wettbewerbsart": {
+      "description": "Wettbewerbsart",
+      "enum": [
+        "Einzel",
+        "FormationStdLat",
+        "Mannschaft",
+        "Solo",
+        "SoloMaennlich",
+        "SoloWeiblich",
+        "Duo",
+        "SmallGroup",
+        "FormationJMD"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.WettbewerbsartTyp"
+    },
+    "turnierform": {
+      "description": "Turnierform",
+      "enum": [
+        "DM",
+        "DP",
+        "DC",
+        "RLT",
+        "RS",
+        "GM",
+        "LM",
+        "OT",
+        "ET",
+        "IET",
+        "IM",
+        "IT",
+        "PDT",
+        "LT",
+        "IMK",
+        "Mk",
+        "RM"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.TurnierformTyp"
+    },
+    "startgruppe": {
+      "description": "Startgruppe",
+      "enum": [
+        "KinI",
+        "KinII",
+        "Kin",
+        "JunI",
+        "JunII",
+        "Jug",
+        "Hgr",
+        "HgrII",
+        "SenI",
+        "SenII",
+        "SenIII",
+        "SenIV",
+        "U21",
+        "MCI",
+        "MCII"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.StartgruppeTyp"
+    },
+    "startklasse": {
+      "description": "Startklasse",
+      "type": [
+        "null",
+        "string"
+      ],
+      "enum": [
+        null,
+        "BSW",
+        "D",
+        "C",
+        "B",
+        "A",
+        "S",
+        "PD"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.StartklasseTyp"
+    },
+    "startliga": {
+      "description": "Startliga",
+      "enum": [
+        null,
+        "1BL",
+        "2BL",
+        "RL",
+        "OL",
+        "LL",
+        "VL"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.StartligaTyp"
+    },
+    "startklasse-liga": {
+      "description": "Startklasse oder -liga",
+      "type": [
+        "null",
+        "string"
+      ],
+      "enum": [
+        null,
+        "BSW",
+        "D",
+        "C",
+        "B",
+        "A",
+        "S",
+        "PD",
+        "1BL",
+        "2BL",
+        "RL",
+        "OL",
+        "LL",
+        "VL"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.StartklasseLigaTyp"
+    },
+    "turnierart": {
+      "description": "Turnierart",
+      "enum": [
+        "Std",
+        "Lat",
+        "Kmb",
+        "JMD",
+        "SD-Std",
+        "SD-Lat"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.TurnierartTyp"
+    },
+    "zulassungsbereich": {
+      "description": "Zulassungsbereich",
+      "enum": [
+        "WDSF",
+        "EU",
+        "DTV",
+        "HATV",
+        "HTV",
+        "LTVBerlin",
+        "LTVBr",
+        "LTVBremen",
+        "LTVB",
+        "LTVS",
+        "LTVSA",
+        "NTV",
+        "SLT",
+        "TBW",
+        "TMV",
+        "TNW",
+        "TRP",
+        "TSH",
+        "TTSV"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.ZulassungsbereichTyp"
+    },
+    "ranglisten-id": {
+      "description": "Ranglisten-ID",
+      "$comment": "FIXME: ESV gibt Leerstring, nicht null zurück",
+      "javaType": "de.tanzsport.esv.api.v1.model.RanglistenId",
+      "enum": [
+        null,
+        "",
+        "JunII-Std",
+        "JunII-Lat",
+        "Jug-Std",
+        "Jug-Lat",
+        "Hgr-Std",
+        "Hgr-RS-Std",
+        "Hgr-RS-Lat",
+        "SenI-Std",
+        "SenII-Std",
+        "G55-Std",
+        "LS66-Std",
+        "Jug-SoloM-JMD",
+        "Jug-SoloW-JMD",
+        "Jug-Duo-JMD",
+        "Jug-SG-JMD",
+        "Hgr-SoloM-JMD",
+        "Hgr-SoloW-JMD",
+        "Hgr-Duo-JMD",
+        "Hgr-SG-JMD"
+      ]
+    },
+    "turnier": {
+      "description": "Daten eines Turniers",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.veranstaltung.Turnier",
+      "properties": {
+        "id": {
+          "description": "ID des Turniers",
+          "type": "integer"
+        },
+        "datumVon": {
+          "description": "Beginndatum des Turniers",
+          "$ref": "#/definitions/iso8601-date-time"
+        },
+        "datumBis": {
+          "description": "Enddatum des Turniers",
+          "$ref": "#/definitions/iso8601-date-time"
+        },
+        "startzeitPlan": {
+          "description": "Geplante Startzeit des Turniers (veröffentlicht im Tanzspiegel)",
+          "type": "string"
+        },
+        "startzeitPlanKorrigiert": {
+          "description": "Ggf. vom Veranstalter/Ausrichter korrigierte Startzeit",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "titel": {
+          "description": "Titel des Turniers",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "veranstalter": {
+          "description": "Veranstalter des Turniers wenn abweichend von der Veranstaltung",
+          "$ref": "#/definitions/veranstalter-ausrichter"
+        },
+        "ausrichter": {
+          "description": "Ausrichter des Turniers wenn abweichend von der Veranstaltung",
+          "$ref": "#/definitions/veranstalter-ausrichter"
+        },
+        "flaechenId": {
+          "description": "ID der Fläche",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "wettbewerbsart": {
+          "description": "Wettbewerbsart des Turniers",
+          "$ref": "#/definitions/wettbewerbsart"
+        },
+        "turnierform": {
+          "description": "Turnierform des Turniers",
+          "$ref": "#/definitions/turnierform"
+        },
+        "startgruppe": {
+          "description": "Startgruppe des Turniers",
+          "$ref": "#/definitions/startgruppe"
+        },
+        "startklasseLiga": {
+          "description": "Startklasse oder -liga des Turniers",
+          "$ref": "#/definitions/startklasse-liga"
+        },
+        "turnierart": {
+          "description": "Turnierart des Turniers",
+          "$ref": "#/definitions/turnierart"
+        },
+        "zulassung": {
+          "description": "Zulassungsbereiche des Turniers",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/zulassungsbereich"
+          }
+        },
+        "wanderpokal": {
+          "description:": "Flag Wanderpokal",
+          "type": "boolean"
+        },
+        "turnierrang": {
+          "description": "Turnierrang (numerisch 1 oder 2)",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2
+        },
+        "aufstiegsturnier": {
+          "description": "Flag für Vergabe von Aufstiegspunkten",
+          "type": "boolean"
+        },
+        "ranglistenId": {
+          "description": "Ranglisten-ID für das Turnier (sofern vorhanden)",
+          "$ref": "#/definitions/ranglisten-id"
+        },
+        "wdsfTurnierId": {
+          "description": "WDSF-ID des Turniers (sofern vorhanden)",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "startgebuehr": {
+          "description": "Startgebühr (sofern vorhanden); Zahl in EUR oder Freitext",
+          "type": [
+            "null",
+            "number",
+            "string"
+          ]
+        },
+        "bemerkungen": {
+          "description": "Bemerkungen zum Turnier (sofern vorhanden)",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "wertungsrichter": {
+          "description": "DTV-Nummern der für dieses Turnier eingesetzten Wertungsrichter",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "turnierleiter": {
+          "description": "DTV-Nummer des für dieses Turnier eingesetzten Turnierleiters",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "beisitzer": {
+          "description": "DTV-Nummer des für dieses Turnier eingesetzten Beisitzers",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "chairman": {
+          "description": "DTV-Nummer der für dieses Turnier eingesetzten Chairperson",
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "datumVon",
+        "datumBis",
+        "startzeitPlan",
+        "wettbewerbsart",
+        "turnierform",
+        "startgruppe",
+        "startklasseLiga",
+        "turnierart",
+        "zulassung",
+        "wanderpokal",
+        "turnierrang",
+        "aufstiegsturnier"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": 1234,
+        "datumVon": "2017-01-01T00:00:00+02:00",
+        "datumBis": "2017-01-01T00:00:00+02:00",
+        "startzeitPlan": "10:00",
+        "startzeitPlanKorrigiert": "11:15",
+        "titel": "Pokal des Bürgermeisters",
+        "veranstalter": {
+          "id": 1,
+          "name": "TC Ocker Umbra Musterstadt",
+          "ltv": {
+            "id": 1,
+            "name": "Landestanzsportverband Berlin e.V."
+          }
+        },
+        "ausrichter": {
+          "id": 1,
+          "name": "TC Ocker Umbra Musterstadt",
+          "ltv": {
+            "id": 1,
+            "name": "Landestanzsportverband Berlin e.V."
+          }
+        },
+        "flaechenId": "Fläche 1",
+        "wettbewerbsart": "Einzel",
+        "turnierform": "OT",
+        "startgruppe": "Hgr",
+        "startklasseLiga": "S",
+        "turnierart": "Lat",
+        "zulassung": [
+          "DTV"
+        ],
+        "wanderpokal": false,
+        "turnierrang": 1,
+        "aufstiegsturnier": true,
+        "ranglistenId": null,
+        "wdsfTurnierId": null,
+        "startgebuehr": "10 EUR/Paar",
+        "bemerkungen": "Abendveranstaltung mit Ball",
+        "wertungsrichter": [
+          "DE10017",
+          "DE10025",
+          "DE10033"
+        ],
+        "turnierleiter": "DE10041",
+        "beisitzer": "DE10050",
+        "chairman": "DE10068"
+      }
+    },
+    "team-l1": {
+      "description": "Daten eines Teams in der Startliste (Level 1) [wurde nicht verwendet]",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.TeamLevel1",
+      "properties": {
+        "name": {
+          "description": "Name des Teams",
+          "type": "string"
+        },
+        "kapitaen": {
+          "description": "Kapitän des Teams sofern angegeben",
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "kapitaen"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "name": "a",
+        "kapitaen": "Max Mustermann"
+      }
+    },
+    "team-l2": {
+      "description": "Daten eines Teams in der Startliste (Level 2)",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.TeamLevel2",
+      "properties": {
+        "name": {
+          "description": "Name des Teams",
+          "type": "string"
+        },
+        "kapitaen": {
+          "description": "Kapitän des Teams sofern angegeben",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "trainer": {
+          "description": "Trainer des Teams sofern angegeben",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "musikTitel": {
+          "description": "Titel der Choreographie/des Tanzes",
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "name",
+        "kapitaen",
+        "trainer",
+        "musikTitel"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "name": "A",
+        "kapitaen": "Max Mustermann",
+        "trainer": "Sabine Musterfrau",
+        "musikTitel": "Dance Unlimited"
+      }
+    },
+    "geschlecht": {
+      "description": "Geschlecht einer Person (m = männlich, w = weiblich)",
+      "enum": [
+        "m",
+        "w"
+      ]
+    },
+    "person-l1": {
+      "description": "Person in einer Startliste (Level 1)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.PersonLevel1",
+      "properties": {
+        "id": {
+          "description": "DTV-Nummer der Person",
+          "type": "string"
+        },
+        "titel": {
+          "description": "Titel der Person (sofern vorhanden)",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "vorname": {
+          "description": "Vorname der Person",
+          "type": "string"
+        },
+        "nachname": {
+          "description": "Nachname der Person",
+          "type": "string"
+        },
+        "geschlecht": {
+          "description": "Geschlecht der Person",
+          "$ref": "#/definitions/geschlecht"
+        },
+        "wdsfMin": {
+          "description": "WDSF-MIN der Person sofern vorhanden",
+          "$comment": "FIXME - ESV gibt String zurück",
+          "type": [
+            "null",
+            "integer",
+            "string"
+          ]
+        },
+        "nationalitaet": {
+          "description": "Staatsangehörigkeit der Person (IOC-Code)",
+          "$ref": "#/definitions/ioc-code"
+        }
+      },
+      "required": [
+        "id",
+        "titel",
+        "vorname",
+        "nachname",
+        "geschlecht",
+        "wdsfMin",
+        "nationalitaet"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": "DE10076",
+        "titel": "Dr.",
+        "vorname": "Max",
+        "nachname": "Mustermann",
+        "geschlecht": "m",
+        "wdsfMin": 12345,
+        "nationalitaet": "GER"
+      }
+    },
+    "person-l2": {
+      "description": "Person in einer Startliste (Level 2)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.PersonLevel2",
+      "properties": {
+        "id": {
+          "description": "DTV-Nummer der Person",
+          "type": "string"
+        },
+        "titel": {
+          "description": "Titel der Person",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "vorname": {
+          "description": "Vorname der Person",
+          "type": "string"
+        },
+        "nachname": {
+          "description": "Nachname der Person",
+          "type": "string"
+        },
+        "geschlecht": {
+          "description": "Geschlecht der Person",
+          "$ref": "#/definitions/geschlecht"
+        },
+        "wdsfMin": {
+          "description": "WDSF-MIN der Person sofern vorhanden",
+          "type": [
+            "null",
+            "integer",
+            "string"
+          ]
+        },
+        "nationalitaet": {
+          "description": "Staatsangehörigkeit der Person (IOC-Code)",
+          "$ref": "#/definitions/ioc-code"
+        },
+        "startaufstellung": {
+          "description": "Aktiver in Startaufstellung, nur relevant bei Formations- und Gruppenwettbewerben (A=aktiv in der Startaufstellung)",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "titel",
+        "vorname",
+        "nachname",
+        "geschlecht",
+        "wdsfMin",
+        "nationalitaet",
+        "startaufstellung"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": "DE10076",
+        "titel": "Dr.",
+        "vorname": "Max",
+        "nachname": "Mustermann",
+        "geschlecht": "m",
+        "wdsfMin": 12345,
+        "nationalitaet": "GER",
+        "startaufstellung": true
+      }
+    },
+    "meldung": {
+      "description": "Meldung in einer Startliste",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.Meldung",
+      "properties": {
+        "turnierId": {
+          "description": "ID des Turniers",
+          "type": "integer"
+        },
+        "meldung": {
+          "description": "Flag für Meldung (true = Meldung, false = Abmeldung)",
+          "type": "boolean"
+        },
+        "bestaetigt": {
+          "description": "Zeitstempel der Meldebestätigung durch den Verein",
+          "$ref": "#/definitions/iso8601-date-time"
+        },
+        "startNr": {
+          "description": "Von der ESV vergebene Start-Nr., relevant nur für Formationen und Gruppen",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "startsperre": {
+          "description": "Flag für Startsperre (true = gesperrt, false = nicht gesperrt)",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "turnierId",
+        "meldung",
+        "startNr",
+        "startsperre"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "turnierId": 12345,
+        "meldung": true,
+        "bestaetigt": "2017-01-01T12:12+02:00",
+        "startNr": 3,
+        "startersperre": false
+      }
+    },
+    "punkte-platzierungen-ist-ziel": {
+      "description": "Ist- und Zielpunkte bzw. -platzierungen",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.IstZiel",
+      "properties": {
+        "ist": {
+          "type": "integer"
+        },
+        "ziel": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "ist",
+        "ziel"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "ist": 23,
+        "ziel": 100
+      }
+    },
+    "aufstiegsregeln": {
+      "description": "Aufstiegsregeln für Einzelwettbewerbe Std/Lat, später ggf. JMD",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.Aufstiegsregel",
+      "properties": {
+        "minPunkte": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "platzierungBis": {
+          "type": [
+            "integer",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "minPunkte",
+        "platzierungBis"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "minPunkte": 2,
+        "platzierungBis": 6
+      }
+    },
+    "startbuch-flags": {
+      "description": "Flags für Startbücher",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.StartbuchFlags",
+      "properties": {
+        "laufzettel": {
+          "description": "Laufzettel drucken",
+          "type": [
+            "boolean",
+            "integer"
+          ]
+        },
+        "verwarnungSchrittbegrenzung": {
+          "description": "Verwarnung wg. Schrittbegrenzung liegt vor",
+          "type": [
+            "boolean",
+            "integer"
+          ]
+        }
+      },
+      "required": [
+        "laufzettel",
+        "verwarnungSchrittbegrenzung"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "laufzettel": true,
+        "verwarnungSchrittbegrenzung": false
+      }
+    },
+    "startbuch": {
+      "description": "Startbuch eines Starters in einer Startliste",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.Startbuch",
+      "properties": {
+        "turnierart": {
+          "description": "Turnierart des Startbuchs",
+          "$ref": "#/definitions/turnierart"
+        },
+        "startgruppe": {
+          "description": "Startgruppe des Startbuchs",
+          "$ref": "#/definitions/startgruppe"
+        },
+        "startliga": {
+          "description": "Ist-Startliga des Starters (nur Formationen und Gruppen)",
+          "$ref": "#/definitions/startliga"
+        },
+        "startklasse": {
+          "description": "Ist-Startklasse des Starters (nur Einzelwettbewerbe Std/Lat und JMD)",
+          "$ref": "#/definitions/startklasse"
+        },
+        "naechsteStartklasse": {
+          "description": "Ziel-Startklasse für Einzelwettbewerbe",
+          "$ref": "#/definitions/startklasse"
+        },
+        "punkte": {
+          "description": "Punktestand für Einzelwettbewerbe Std/Lat, später ggf. JMD",
+          "$ref": "#/definitions/punkte-platzierungen-ist-ziel"
+        },
+        "platzierungen": {
+          "description": "Stand der Platzierungen für Einzelwettbewerbe Std/Lat, später ggf. JMD",
+          "$ref": "#/definitions/punkte-platzierungen-ist-ziel"
+        },
+        "regeln": {
+          "description": "Aufstiegsregeln für Einzelwettbewerbe Std/Lat, später ggf. JMD",
+          "$ref": "#/definitions/aufstiegsregeln"
+        },
+        "flags": {
+          "description": "Flags für Startbuch",
+          "$ref": "#/definitions/startbuch-flags"
+        }
+      },
+      "required": [
+        "turnierart",
+        "startgruppe",
+        "startliga",
+        "startklasse",
+        "naechsteStartklasse",
+        "punkte",
+        "platzierungen",
+        "regeln",
+        "flags"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "turnierart": "Lat",
+        "startgruppe": "Hgr",
+        "startliga": null,
+        "startklasse": "A",
+        "naechsteStartklasse": "S",
+        "punkte": 100,
+        "platzierungen": 7,
+        "regeln": {
+          "minPunkte": 2,
+          "platzierungBis": 3
+        }
+      }
+    },
+    "starter-l1": {
+      "description": "Starter in einer Startliste (Schema-Level 1)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.StarterLevel1",
+      "properties": {
+        "id": {
+          "description": "ID des Starters (Solist, Paar, Duo, Formation, Small Group)",
+          "type": "integer",
+          "example": 224488
+        },
+        "team": {
+          "description": "Daten eines Teams bei Formations- und Gruppenwettbewerben",
+          "$ref": "#/definitions/team-l1"
+        },
+        "personen": {
+          "description": "Zum Starter zugehörige Personen; enthält bei Formations- und Gruppenwettbewerben alle Tänzer inkl. Ersatztänzer, bei Paaren und Duos die beiden Partner und bei Solisten die jeweilige Person.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/person-l1"
+          }
+        },
+        "club": {
+          "description": "Verein bei deutschen und Grenzverkehrsstartern, sonst optional",
+          "$ref": "#/definitions/verein"
+        },
+        "staat": {
+          "description": "Staat, für den der Starter starter (IOC-Code)",
+          "$ref": "#/definitions/ioc-code"
+        },
+        "meldungen": {
+          "description": "Alle Meldungen dieses Starters in der Veranstaltung",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meldung"
+          }
+        },
+        "startbuch": {
+          "description": "Startbücher des Starters",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/startbuch"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "team",
+        "personen",
+        "club",
+        "meldungen",
+        "startbuch"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": 12345,
+        "team": {
+          "name": "A",
+          "kapitaen": "Max Mustermann"
+        },
+        "personen": [
+          {
+            "id": "DE10084",
+            "titel": null,
+            "vorname": "Max",
+            "nachname": "Mustermann",
+            "geschlecht": "m",
+            "wdsfMin": 12345,
+            "nationalitaet": "GER"
+          },
+          {
+            "id": "DE10092",
+            "titel": null,
+            "vorname": "Sabine",
+            "nachname": "Musterfrau",
+            "geschlecht": "w",
+            "wdsfMin": 12346,
+            "nationalitaet": "GER"
+          }
+        ],
+        "club": {
+          "id": 123,
+          "name": "TC Ocker-Umbra Musterstadt",
+          "ltv": {
+            "id": 1,
+            "name": "Hessischer Tanzsportverband e.V."
+          }
+        },
+        "staat": "GER",
+        "meldungen": [
+          {
+            "turnierId": 12345,
+            "meldung": true,
+            "bestaetigt": "2017-01-01T12:12+02:00",
+            "startNr": 3,
+            "startersperre": false
+          }
+        ],
+        "startbuch": [
+          {
+            "turnierart": "Lat",
+            "startgruppe": "Hgr",
+            "startliga": null,
+            "startklasse": "A",
+            "naechsteStartklasse": "S",
+            "punkte": 100,
+            "platzierungen": 7,
+            "regeln": {
+              "minPunkte": 2,
+              "platzierungBis": 3
+            }
+          }
+        ]
+      }
+    },
+    "aufstellung-l2": {
+      "description": "Regeln für die Aufstellungen bei Formations- und Gruppenwettbewerben",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.AufstellungLevel2",
+      "properties": {
+        "min": {
+          "type": "integer"
+        },
+        "max": {
+          "type": "integer"
+        },
+        "ausland": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "required": [
+        "min",
+        "max",
+        "ausland"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "min": 6,
+        "max": 8,
+        "ausland": 4
+      }
+    },
+    "starter-l2": {
+      "description": "Starter in einer Startliste (Level 2)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.StarterLevel2",
+      "properties": {
+        "id": {
+          "description": "ID des Starters (Solist, Paar, Duo, Formation, Small Group)",
+          "type": "integer",
+          "example": 224488
+        },
+        "team": {
+          "description": "Daten eines Teams bei Formations- und Gruppenwettbewerben",
+          "$ref": "#/definitions/team-l2"
+        },
+        "personen": {
+          "description": "Zum Starter zugehörige Personen; enthält bei Formations- und Gruppenwettbewerben alle Tänzer inkl. Ersatztänzer, bei Paaren und Duos die beiden Partner und bei Solisten die jeweilige Person.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/person-l2"
+          }
+        },
+        "club": {
+          "description": "Verein bei deutschen und Grenzverkehrsstartern, sonst optional",
+          "$ref": "#/definitions/verein"
+        },
+        "staat": {
+          "description": "Staat, für den der Starter starter (IOC-Code)",
+          "$ref": "#/definitions/ioc-code"
+        },
+        "meldungen": {
+          "description": "Alle Meldungen dieses Starters in der Veranstaltung",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/meldung"
+          }
+        },
+        "startbuch": {
+          "description": "Startbücher des Starters",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/startbuch"
+          }
+        },
+        "aufstellung": {
+          "description": "Regeln für die Aufstellung bei Formations- und Gruppenwettbewerben",
+          "$ref": "#/definitions/aufstellung-l2"
+        }
+      },
+      "required": [
+        "id",
+        "team",
+        "personen",
+        "club",
+        "meldungen",
+        "startbuch",
+        "aufstellung"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": 12345,
+        "team": {
+          "name": "A",
+          "kapitaen": "Max Mustermann"
+        },
+        "personen": [
+          {
+            "id": "DE10084",
+            "titel": null,
+            "vorname": "Max",
+            "nachname": "Mustermann",
+            "geschlecht": "m",
+            "wdsfMin": 12345,
+            "nationalitaet": "GER",
+            "startaufstellung": true
+          },
+          {
+            "id": "DE10092",
+            "titel": null,
+            "vorname": "Sabine",
+            "nachname": "Musterfrau",
+            "geschlecht": "w",
+            "wdsfMin": 12346,
+            "nationalitaet": "GER",
+            "startaufstellung": true
+          }
+        ],
+        "club": {
+          "id": 123,
+          "name": "TC Ocker-Umbra Musterstadt",
+          "ltv": {
+            "id": 1,
+            "name": "Hessischer Tanzsportverband e.V."
+          }
+        },
+        "staat": "GER",
+        "meldungen": [
+          {
+            "turnierId": 12345,
+            "meldung": true,
+            "bestaetigt": "2017-01-01T12:12+02:00",
+            "startNr": 3,
+            "startersperre": false
+          }
+        ],
+        "startbuch": [
+          {
+            "turnierart": "Lat",
+            "startgruppe": "Hgr",
+            "startliga": null,
+            "startklasse": "A",
+            "naechsteStartklasse": "S",
+            "punkte": 100,
+            "platzierungen": 7,
+            "regeln": {
+              "minPunkte": 2,
+              "platzierungBis": 3
+            }
+          }
+        ],
+        "aufstellung": {
+          "min": 6,
+          "max": 8,
+          "ausland": 4
+        }
+      }
+    },
+    "ranglisten-rang": {
+      "description": "Rang eines Starters in der Rangliste",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.rangliste.RanglisteRang",
+      "properties": {
+        "rl": {
+          "description": "Platz in der Rangliste",
+          "type": "integer"
+        },
+        "dm": {
+          "description": "Platz der vorhergehenden DM (sofern vorhanden)",
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "required": [
+        "rl",
+        "dm"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "rl": 10,
+        "dm": 12
+      }
+    },
+    "ranglisten-person": {
+      "description": "Person in einem Ranglisten-Starter",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.rangliste.RanglistePerson",
+      "properties": {
+        "id": {
+          "description": "DTV-Nummer der Person",
+          "type": "string"
+        },
+        "titel": {
+          "description": "Titel der Person sofern vorhanden",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "nachname": {
+          "description": "Nachname der Person",
+          "type": "string"
+        },
+        "vorname": {
+          "description": "Vorname der Person",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "titel",
+        "nachname",
+        "vorname"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": "DE10092",
+        "titel": "Dr.",
+        "nachname": "Mustermann",
+        "vorname": "Max"
+      }
+    },
+    "ranglisten-starter": {
+      "description": "Starter in einer Rangliste",
+      "$comment": "FIXME - Daten eines Teams können nicht übergeben werden",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.rangliste.RanglisteStarter",
+      "properties": {
+        "id": {
+          "description": "ID des Starters",
+          "type": "integer"
+        },
+        "rang": {
+          "description": "Rang des Starters",
+          "$ref": "#/definitions/ranglisten-rang"
+        },
+        "personen": {
+          "description": "Personen bei Einzelwettbewerben Standard/Latein/JMD, leer bei Formationen und Gruppen",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ranglisten-person"
+          }
+        },
+        "club": {
+          "description": "Club eines Ranglisten-Starters",
+          "$ref": "#/definitions/verein"
+        },
+        "punkte": {
+          "description": "Ranglisten-Punkte",
+          "type": "integer"
+        },
+        "anzahlTurniere": {
+          "description": "Anzahl der teilgenommenen Turniere in der Ranglistenwertung",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "rang",
+        "personen",
+        "club",
+        "punkte",
+        "anzahlTurniere"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": 1234,
+        "rang": {
+          "dm": 1,
+          "rl": 1
+        },
+        "personen": [
+          {
+            "id": "DE10092",
+            "titel": "Dr.",
+            "nachname": "Mustermann",
+            "vorname": "Max"
+          },
+          {
+            "id": "DE10106",
+            "titel": null,
+            "nachname": "Musterfrau",
+            "vorname": "Sabine"
+          }
+        ],
+        "club": {
+          "id": 1,
+          "name": "TC Ocker Umbra Musterstadt",
+          "ltv": {
+            "id": 1,
+            "name": "Hessicher Tanzsportverband"
+          }
+        },
+        "punkte": 270,
+        "anzahlTurniere": 4
+      }
+    },
+    "rangliste": {
+      "description": "Rangliste",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.rangliste.Rangliste",
+      "properties": {
+        "id": {
+          "description": "Ranglisten-ID",
+          "$ref": "#/definitions/ranglisten-id"
+        },
+        "stand": {
+          "description": "Stand der Rangliste",
+          "$ref": "#/definitions/iso8601-date-time"
+        },
+        "starter": {
+          "description": "Starter in der Rangliste",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ranglisten-starter"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "stand",
+        "starter"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": "Hgr-Std",
+        "stand": "2017-01-01T00:00:00+02:00",
+        "starter": []
+      }
+    },
+    "aufstiegstabelle-kriterien": {
+      "description": "Kriterien in einem Eintrag einer Aufstiegstabelle",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.aufstiegstabelle.AufstiegsTabelleKriterien",
+      "properties": {
+        "klasse": {
+          "description": "Ist-Startklasse",
+          "$ref": "#/definitions/startklasse"
+        },
+        "zielklasse": {
+          "description": "Ziel-Startklasse",
+          "$ref": "#/definitions/startklasse"
+        },
+        "punkte": {
+          "description": "Erforderliche Punkte für Aufstieg",
+          "$comment": "FIXME - ESV gibt aktuell String zurück",
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "plaetze": {
+          "description": "Erforderliche Platzierungen für Aufstieg",
+          "$comment": "FIXME - ESV gibt aktuell String zurück",
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "bisPlatz": {
+          "description": "Platzierung bis Platz",
+          "$comment": "FIXME - ESV gibt aktuell String zurück",
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "doppelstart": {
+          "description": "Kennzeichnet Aufstiege in Startklasse, die nur im Doppelstart genutzt werden können",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "klasse",
+        "zielklasse",
+        "punkte",
+        "plaetze",
+        "bisPlatz",
+        "doppelstart"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "klasse": "C",
+        "zielklasse": "B",
+        "punkte": 120,
+        "plaetze": 7,
+        "bisPlatz": 3,
+        "doppelstart": false
+      }
+    },
+    "aufstiegstabelle-eintrag": {
+      "description": "Eintrag in der Aufstiegstabelle",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.aufstiegstabelle.AufstiegstabelleEintrag",
+      "properties": {
+        "startgruppen": {
+          "description": "Startgruppen für diesen Eintrag",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/startgruppe"
+          }
+        },
+        "turnierart": {
+          "description": "Turnierart für diesen Eintrag",
+          "$ref": "#/definitions/turnierart"
+        },
+        "kriterien": {
+          "description": "Aufstiegskriterien für diesen Eintrag",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/aufstiegstabelle-kriterien"
+          }
+        }
+      },
+      "required": [
+        "startgruppen",
+        "turnierart",
+        "kriterien"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "startgruppen": [
+          "Hgr",
+          "HgrII"
+        ],
+        "turnierart": "Lat",
+        "kriterien": {
+          "klasse": "C",
+          "zielklasse": "B",
+          "punkte": 120,
+          "plaetze": 7,
+          "bisPlatz": 3,
+          "doppelstart": false
+        }
+      }
+    },
+    "ltv-schluessel": {
+      "description": "Schlüssel für Landesverbände",
+      "$comment": "FIXME - Kann nicht zu Startern gemappt werden!",
+      "enum": [
+        "HATV",
+        "HTV",
+        "LTVBerlin",
+        "LTVBr",
+        "LTVBremen",
+        "LTVB",
+        "LTVS",
+        "NTV",
+        "SLT",
+        "TBW",
+        "TMV",
+        "TNW",
+        "TRP",
+        "TSH",
+        "TTSV",
+        "LTVSA"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.LtvTyp"
+    },
+    "aufstiegstabelle": {
+      "description": "Aufstiegstabelle",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.aufstiegstabelle.AufstiegsTabelle",
+      "properties": {
+        "ltv": {
+          "description": "Landesverbände, für die Tabelle gilt",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ltv-schluessel"
+          }
+        },
+        "minPunkte": {
+          "description": "Mindestpunkte, die zum Erreichen einer Platzierung erforderlich sind",
+          "$comment": "FIXME - ESV gibt aktuell String zurück",
+          "type": [
+            "integer",
+            "string"
+          ]
+        },
+        "tabellen": {
+          "description": "Tabellen für Aufstiegspunkte und Platzierungen",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/aufstiegstabelle-eintrag"
+          }
+        }
+      },
+      "required": [
+        "ltv",
+        "minPunkte",
+        "tabellen"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "ltv": [
+          "LTVBerlin"
+        ],
+        "minPunkte": 2,
+        "tabellen": []
+      }
+    },
+    "startliste-l1": {
+      "description": "Startliste Veranstaltung oder Wettbewerbsart (Level1)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.StartlisteLevel1",
+      "properties": {
+        "status": {
+          "description": "Meldestand der Veranstaltung",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "nachmeldungen": {
+          "description": "IDs der Turniere mit Nachmeldeerlaubnis",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "starter": {
+          "description": "Starter der Veranstaltung",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/starter-l1"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "nachmeldungen",
+        "starter"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "status": 1,
+        "nachmeldungen": [],
+        "starter": []
+      }
+    },
+    "startliste-l2": {
+      "description": "Startliste Veranstaltung oder Wettbewerbsart (Level2)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.startliste.StartlisteLevel2",
+      "properties": {
+        "status": {
+          "description": "Meldestand der Veranstaltung",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "nachmeldungen": {
+          "description": "IDs der Turniere mit Nachmeldeerlaubnis",
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "starter": {
+          "description": "Starter der Veranstaltung",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/starter-l2"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "nachmeldungen",
+        "starter"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "status": 1,
+        "nachmeldungen": [],
+        "starter": []
+      }
+    },
+    "veranstaltung": {
+      "description": "JSON-Schema für die Response des Endpunktes /api/v1/turniere/:id",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.veranstaltung.Veranstaltung",
+      "properties": {
+        "id": {
+          "description": "ID der Veranstaltung",
+          "type": "integer"
+        },
+        "datumVon": {
+          "description": "Beginndatum der Veranstaltung",
+          "$ref": "#/definitions/iso8601-date-time"
+        },
+        "datumBis": {
+          "description": "Enddatum der Veranstaltung",
+          "$ref": "#/definitions/iso8601-date-time"
+        },
+        "turnierstaette": {
+          "$ref": "#/definitions/turnierstaette"
+        },
+        "veranstalter": {
+          "$ref": "#/definitions/veranstalter-ausrichter"
+        },
+        "ausrichter": {
+          "$ref": "#/definitions/veranstalter-ausrichter"
+        },
+        "titel": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "bemerkung": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "wertungsrichter": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/lizenztraeger"
+          }
+        },
+        "funktionaere": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/lizenztraeger"
+          }
+        },
+        "flaechen": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/flaeche"
+          }
+        },
+        "turniere": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/turnier"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "datumVon",
+        "datumBis",
+        "turnierstaette",
+        "veranstalter",
+        "ausrichter",
+        "titel",
+        "bemerkung",
+        "wertungsrichter",
+        "funktionaere",
+        "flaechen",
+        "turniere"
+      ],
+      "additionalProperties": false
+    },
+    "veranstaltungsliste-eintrag": {
+      "description": "Eintrag in der Veranstaltungsliste",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.veranstaltungsliste.Eintrag",
+      "properties": {
+        "id": {
+          "description": "ID der Veranstaltung",
+          "type": "integer",
+          "example": 12345
+        },
+        "datumVon": {
+          "description": "Enddatum der Veranstaltung",
+          "$ref": "#/definitions/iso8601-date-time"
+        },
+        "datumBis": {
+          "description": "Beginndatum der Veranstaltung",
+          "$ref": "#/definitions/iso8601-date-time"
+        },
+        "ort": {
+          "description": "Veranstaltungsort",
+          "type": "string",
+          "example": "Berlin"
+        },
+        "titel": {
+          "description": "Titel der Veranstaltung",
+          "type": "string",
+          "example": "25. Neujahrspokal"
+        }
+      },
+      "required": [
+        "id",
+        "datumVon",
+        "datumBis",
+        "ort"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

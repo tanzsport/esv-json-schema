@@ -1,0 +1,10 @@
+{
+  "verein": {
+    "id": 1,
+    "name": "verein",
+    "ltv": {
+      "id": 2,
+      "name": "ltv"
+    }
+  }
+}

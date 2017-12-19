@@ -1,0 +1,30 @@
+{
+  "turnier": {
+    "id": "abc",
+    "datumVon": 1,
+    "datumBis": 1,
+    "startzeitPlan": 1,
+    "startzeitPlanKorrigiert": 1,
+    "titel": 1,
+    "veranstalter": "abc",
+    "ausrichter": "abc",
+    "flaechenId": {},
+    "wettbewerbsart": 1,
+    "turnierform": 1,
+    "startgruppe": 1,
+    "startklasseLiga": 1,
+    "turnierart": 1,
+    "zulassung": "abc",
+    "wanderpokal": "abc",
+    "turnierrang": 1,
+    "aufstiegsturnier": 1,
+    "ranglistenId": 1,
+    "wdsfTurnierId": "abc",
+    "startgebuehr": {},
+    "bemerkungen": 1,
+    "wertungsrichter": "abc",
+    "turnierleiter": 1,
+    "beisitzer": 1,
+    "chairman": 1
+  }
+}
