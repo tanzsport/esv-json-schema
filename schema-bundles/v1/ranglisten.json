@@ -1,0 +1,257 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://schema.tanzsport.de/json/esv/v1/ranglisten.json",
+  "title": "Ranglisten V1",
+  "description": "JSON-Schema für die Response des Endpunktes /api/v1/ranglisten/:id1,:id2...",
+  "type": "array",
+  "items": {
+    "description": "Rangliste",
+    "type": "object",
+    "javaType": "de.tanzsport.esv.api.v1.model.rangliste.Rangliste",
+    "properties": {
+      "id": {
+        "description": "Ranglisten-ID",
+        "$comment": "FIXME: ESV gibt Leerstring, nicht null zurück",
+        "javaType": "de.tanzsport.esv.api.v1.model.RanglistenId",
+        "enum": [
+          null,
+          "",
+          "JunII-Std",
+          "JunII-Lat",
+          "Jug-Std",
+          "Jug-Lat",
+          "Hgr-Std",
+          "Hgr-RS-Std",
+          "Hgr-RS-Lat",
+          "SenI-Std",
+          "SenII-Std",
+          "G55-Std",
+          "LS66-Std",
+          "Jug-SoloM-JMD",
+          "Jug-SoloW-JMD",
+          "Jug-Duo-JMD",
+          "Jug-SG-JMD",
+          "Hgr-SoloM-JMD",
+          "Hgr-SoloW-JMD",
+          "Hgr-Duo-JMD",
+          "Hgr-SG-JMD"
+        ]
+      },
+      "stand": {
+        "description": "Stand der Rangliste",
+        "type": "string",
+        "javaType": "java.time.ZonedDateTime",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:Z|[\\+\\-]+\\d{2}(:\\d{2})?)$",
+        "example": "2014-04-18T00:00:00+02:00"
+      },
+      "starter": {
+        "description": "Starter in der Rangliste",
+        "type": "array",
+        "items": {
+          "description": "Starter in einer Rangliste",
+          "$comment": "FIXME - Daten eines Teams können nicht übergeben werden",
+          "type": "object",
+          "javaType": "de.tanzsport.esv.api.v1.model.rangliste.RanglisteStarter",
+          "properties": {
+            "id": {
+              "description": "ID des Starters",
+              "type": "integer"
+            },
+            "rang": {
+              "description": "Rang des Starters",
+              "type": "object",
+              "javaType": "de.tanzsport.esv.api.v1.model.rangliste.RanglisteRang",
+              "properties": {
+                "rl": {
+                  "description": "Platz in der Rangliste",
+                  "type": "integer"
+                },
+                "dm": {
+                  "description": "Platz der vorhergehenden DM (sofern vorhanden)",
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                }
+              },
+              "required": [
+                "rl",
+                "dm"
+              ],
+              "additionalProperties": false,
+              "example": {
+                "rl": 10,
+                "dm": 12
+              }
+            },
+            "personen": {
+              "description": "Personen bei Einzelwettbewerben Standard/Latein/JMD, leer bei Formationen und Gruppen",
+              "type": "array",
+              "items": {
+                "description": "Person in einem Ranglisten-Starter",
+                "type": "object",
+                "javaType": "de.tanzsport.esv.api.v1.model.rangliste.RanglistePerson",
+                "properties": {
+                  "id": {
+                    "description": "DTV-Nummer der Person",
+                    "type": "string"
+                  },
+                  "titel": {
+                    "description": "Titel der Person sofern vorhanden",
+                    "type": [
+                      "null",
+                      "string"
+                    ]
+                  },
+                  "nachname": {
+                    "description": "Nachname der Person",
+                    "type": "string"
+                  },
+                  "vorname": {
+                    "description": "Vorname der Person",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "titel",
+                  "nachname",
+                  "vorname"
+                ],
+                "additionalProperties": false,
+                "example": {
+                  "id": "DE10092",
+                  "titel": "Dr.",
+                  "nachname": "Mustermann",
+                  "vorname": "Max"
+                }
+              }
+            },
+            "club": {
+              "description": "Club eines Ranglisten-Starters",
+              "type": [
+                "null",
+                "object"
+              ],
+              "javaType": "de.tanzsport.esv.api.v1.model.Verein",
+              "properties": {
+                "id": {
+                  "description": "ID des Vereins, null bei ausländischen Vereinen",
+                  "type": [
+                    "null",
+                    "integer"
+                  ]
+                },
+                "name": {
+                  "description": "Name des Vereins",
+                  "type": "string"
+                },
+                "ltv": {
+                  "$comment": "Landesverband des Vereins, null bei ausländischen Vereinen",
+                  "description": "Daten eines Landesverbandes",
+                  "type": [
+                    "null",
+                    "object"
+                  ],
+                  "javaType": "de.tanzsport.esv.api.v1.model.Landesverband",
+                  "properties": {
+                    "id": {
+                      "description": "ID des Landesverbandes",
+                      "type": "integer"
+                    },
+                    "name": {
+                      "description": "Name des Landesverbandes",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name"
+                  ],
+                  "additionalProperties": false,
+                  "example": {
+                    "id": 1,
+                    "name": "Landestanzsportverband Berlin e.V."
+                  }
+                }
+              },
+              "required": [
+                "id",
+                "name",
+                "ltv"
+              ],
+              "additionalProperties": false,
+              "example": {
+                "id": 123,
+                "name": "TC Ocker-Umbra Musterstadt",
+                "ltv": {
+                  "id": 1,
+                  "name": "Hessischer Tanzsportverband e.V."
+                }
+              }
+            },
+            "punkte": {
+              "description": "Ranglisten-Punkte",
+              "type": "integer"
+            },
+            "anzahlTurniere": {
+              "description": "Anzahl der teilgenommenen Turniere in der Ranglistenwertung",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "id",
+            "rang",
+            "personen",
+            "club",
+            "punkte",
+            "anzahlTurniere"
+          ],
+          "additionalProperties": false,
+          "example": {
+            "id": 1234,
+            "rang": {
+              "dm": 1,
+              "rl": 1
+            },
+            "personen": [
+              {
+                "id": "DE10092",
+                "titel": "Dr.",
+                "nachname": "Mustermann",
+                "vorname": "Max"
+              },
+              {
+                "id": "DE10106",
+                "titel": null,
+                "nachname": "Musterfrau",
+                "vorname": "Sabine"
+              }
+            ],
+            "club": {
+              "id": 1,
+              "name": "TC Ocker Umbra Musterstadt",
+              "ltv": {
+                "id": 1,
+                "name": "Hessicher Tanzsportverband"
+              }
+            },
+            "punkte": 270,
+            "anzahlTurniere": 4
+          }
+        }
+      }
+    },
+    "required": [
+      "id",
+      "stand",
+      "starter"
+    ],
+    "additionalProperties": false,
+    "example": {
+      "id": "Hgr-Std",
+      "stand": "2017-01-01T00:00:00+02:00",
+      "starter": []
+    }
+  }
+}

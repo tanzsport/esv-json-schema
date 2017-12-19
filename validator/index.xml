@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Validators on ESV JSON Schema</title>
+    <link>https://tanzsport.github.io/esv-json-schema/validator/</link>
+    <description>Recent content in Validators on ESV JSON Schema</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-de</language>
+    <lastBuildDate>Tue, 19 Dec 2017 17:19:58 +0100</lastBuildDate>
+    
+	<atom:link href="https://tanzsport.github.io/esv-json-schema/validator/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Validator</title>
+      <link>https://tanzsport.github.io/esv-json-schema/validator/</link>
+      <pubDate>Tue, 19 Dec 2017 17:19:58 +0100</pubDate>
+      
+      <guid>https://tanzsport.github.io/esv-json-schema/validator/</guid>
+      <description>Schema
+&amp;mdash; bitte auswählen 
+JSON
+
+validieren
+ </description>
+    </item>
+    
+  </channel>
+</rss>

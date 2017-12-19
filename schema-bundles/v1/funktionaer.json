@@ -1,0 +1,178 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://schema.tanzsport.de/json/esv/v1/funktionaer.json",
+  "title": "Funktionär V1",
+  "description": "JSON-Schema für die Response des Endpunktes /api/v1/funktionaer/:id",
+  "type": "object",
+  "javaType": "de.tanzsport.esv.api.v1.model.Lizenztraeger",
+  "properties": {
+    "id": {
+      "description": "DTV-Nummer des Lizenzträgers",
+      "type": "string"
+    },
+    "wdsfMin": {
+      "description": "WDSF-MIN sofern vorhanden",
+      "$comment": "FIXME - ESV gibt aktuell String zurück",
+      "type": [
+        "null",
+        "integer",
+        "string"
+      ]
+    },
+    "lizenzNr": {
+      "description": "alte Lizenz-Nr. sofern vorhanden",
+      "$comment": "FIXME - ESV gibt aktuell String zurück",
+      "type": [
+        "null",
+        "integer",
+        "string"
+      ]
+    },
+    "titel": {
+      "description": "Titel sofern vorhanden",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "vorname": {
+      "description": "Vorname des Lizenzträgers",
+      "type": "string"
+    },
+    "nachname": {
+      "description": "Nachname des Lizenzträgers",
+      "type": "string"
+    },
+    "club": {
+      "description": "Verein des Lizenzträgers",
+      "javaName": "verein",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.Verein",
+      "properties": {
+        "id": {
+          "description": "ID des Vereins, null bei ausländischen Vereinen",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "name": {
+          "description": "Name des Vereins",
+          "type": "string"
+        },
+        "ltv": {
+          "$comment": "Landesverband des Vereins, null bei ausländischen Vereinen",
+          "description": "Daten eines Landesverbandes",
+          "type": [
+            "null",
+            "object"
+          ],
+          "javaType": "de.tanzsport.esv.api.v1.model.Landesverband",
+          "properties": {
+            "id": {
+              "description": "ID des Landesverbandes",
+              "type": "integer"
+            },
+            "name": {
+              "description": "Name des Landesverbandes",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "name"
+          ],
+          "additionalProperties": false,
+          "example": {
+            "id": 1,
+            "name": "Landestanzsportverband Berlin e.V."
+          }
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "ltv"
+      ],
+      "additionalProperties": false,
+      "example": {
+        "id": 123,
+        "name": "TC Ocker-Umbra Musterstadt",
+        "ltv": {
+          "id": 1,
+          "name": "Hessischer Tanzsportverband e.V."
+        }
+      }
+    },
+    "staat": {
+      "description": "Land, für das der Lizenzträger aktiv ist (IOC-Code)",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 3
+    },
+    "lizenzen": {
+      "description": "Lizenzen des Lizenzträgers",
+      "type": "array",
+      "items": {
+        "description": "Lizenztyp",
+        "enum": [
+          "TL",
+          "TL-JMD",
+          "WR-D",
+          "WR-C",
+          "WR-B-Std",
+          "WR-B-Lat",
+          "WR-A-Std",
+          "WR-A-Lat",
+          "WR-S-Std",
+          "WR-S-Lat",
+          "WR-S-RL-Std",
+          "WR-S-RL-Lat",
+          "WR-S-DM-Std",
+          "WR-S-DM-Lat",
+          "WR-F1",
+          "WR-F2",
+          "WR-F-BL",
+          "WR-F-DM",
+          "WR-J1",
+          "WR-J2",
+          "WR-J1-DM",
+          "WR-J2-DM"
+        ],
+        "javaType": "de.tanzsport.esv.api.v1.model.LizenzTyp"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "vorname",
+    "nachname",
+    "club",
+    "staat",
+    "lizenzen"
+  ],
+  "additionalProperties": false,
+  "example": {
+    "id": "DE10009",
+    "wdsfMin": 123456,
+    "lizenzNr": 998877,
+    "titel": "Dr.",
+    "vorname": "Max",
+    "nachname": "Mustermann",
+    "club": {
+      "id": 1,
+      "name": "TC Ocker-Umbra Musterstadt",
+      "ltv": {
+        "id": 1,
+        "name": "Hessischer Tanzsportverband e.V."
+      }
+    },
+    "staat": "GER",
+    "lizenzen": [
+      "TL"
+    ]
+  }
+}

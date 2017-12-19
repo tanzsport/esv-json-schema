@@ -1,0 +1,209 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://schema.tanzsport.de/json/esv/v1/aufstiegstabellen.json",
+  "title": "Ranglisten V1",
+  "description": "JSON-Schema für die Response des Endpunktes /api/v1/aufstiegstabelle/:wettbewerbsart/:jahr",
+  "type": "array",
+  "items": {
+    "description": "Aufstiegstabelle",
+    "type": "object",
+    "javaType": "de.tanzsport.esv.api.v1.model.aufstiegstabelle.AufstiegsTabelle",
+    "properties": {
+      "ltv": {
+        "description": "Landesverbände, für die Tabelle gilt",
+        "type": "array",
+        "items": {
+          "description": "Schlüssel für Landesverbände",
+          "$comment": "FIXME - Kann nicht zu Startern gemappt werden!",
+          "enum": [
+            "HATV",
+            "HTV",
+            "LTVBerlin",
+            "LTVBr",
+            "LTVBremen",
+            "LTVB",
+            "LTVS",
+            "NTV",
+            "SLT",
+            "TBW",
+            "TMV",
+            "TNW",
+            "TRP",
+            "TSH",
+            "TTSV",
+            "LTVSA"
+          ],
+          "javaType": "de.tanzsport.esv.api.v1.model.LtvTyp"
+        }
+      },
+      "minPunkte": {
+        "description": "Mindestpunkte, die zum Erreichen einer Platzierung erforderlich sind",
+        "$comment": "FIXME - ESV gibt aktuell String zurück",
+        "type": [
+          "integer",
+          "string"
+        ]
+      },
+      "tabellen": {
+        "description": "Tabellen für Aufstiegspunkte und Platzierungen",
+        "type": "array",
+        "items": {
+          "description": "Eintrag in der Aufstiegstabelle",
+          "type": "object",
+          "javaType": "de.tanzsport.esv.api.v1.model.aufstiegstabelle.AufstiegstabelleEintrag",
+          "properties": {
+            "startgruppen": {
+              "description": "Startgruppen für diesen Eintrag",
+              "type": "array",
+              "items": {
+                "description": "Startgruppe",
+                "enum": [
+                  "KinI",
+                  "KinII",
+                  "Kin",
+                  "JunI",
+                  "JunII",
+                  "Jug",
+                  "Hgr",
+                  "HgrII",
+                  "SenI",
+                  "SenII",
+                  "SenIII",
+                  "SenIV",
+                  "U21",
+                  "MCI",
+                  "MCII"
+                ],
+                "javaType": "de.tanzsport.esv.api.v1.model.StartgruppeTyp"
+              }
+            },
+            "turnierart": {
+              "description": "Turnierart für diesen Eintrag",
+              "enum": [
+                "Std",
+                "Lat",
+                "Kmb",
+                "JMD",
+                "SD-Std",
+                "SD-Lat"
+              ],
+              "javaType": "de.tanzsport.esv.api.v1.model.TurnierartTyp"
+            },
+            "kriterien": {
+              "description": "Aufstiegskriterien für diesen Eintrag",
+              "type": "array",
+              "items": {
+                "description": "Kriterien in einem Eintrag einer Aufstiegstabelle",
+                "type": "object",
+                "javaType": "de.tanzsport.esv.api.v1.model.aufstiegstabelle.AufstiegsTabelleKriterien",
+                "properties": {
+                  "klasse": {
+                    "description": "Ist-Startklasse",
+                    "type": [
+                      "null",
+                      "string"
+                    ],
+                    "enum": [
+                      null,
+                      "BSW",
+                      "D",
+                      "C",
+                      "B",
+                      "A",
+                      "S",
+                      "PD"
+                    ],
+                    "javaType": "de.tanzsport.esv.api.v1.model.StartklasseTyp"
+                  },
+                  "zielklasse": {
+                    "description": "Ziel-Startklasse",
+                    "$ref": "#/items/properties/tabellen/items/properties/kriterien/items/properties/klasse"
+                  },
+                  "punkte": {
+                    "description": "Erforderliche Punkte für Aufstieg",
+                    "$comment": "FIXME - ESV gibt aktuell String zurück",
+                    "type": [
+                      "integer",
+                      "string"
+                    ]
+                  },
+                  "plaetze": {
+                    "description": "Erforderliche Platzierungen für Aufstieg",
+                    "$comment": "FIXME - ESV gibt aktuell String zurück",
+                    "type": [
+                      "integer",
+                      "string"
+                    ]
+                  },
+                  "bisPlatz": {
+                    "description": "Platzierung bis Platz",
+                    "$comment": "FIXME - ESV gibt aktuell String zurück",
+                    "type": [
+                      "integer",
+                      "string"
+                    ]
+                  },
+                  "doppelstart": {
+                    "description": "Kennzeichnet Aufstiege in Startklasse, die nur im Doppelstart genutzt werden können",
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "klasse",
+                  "zielklasse",
+                  "punkte",
+                  "plaetze",
+                  "bisPlatz",
+                  "doppelstart"
+                ],
+                "additionalProperties": false,
+                "example": {
+                  "klasse": "C",
+                  "zielklasse": "B",
+                  "punkte": 120,
+                  "plaetze": 7,
+                  "bisPlatz": 3,
+                  "doppelstart": false
+                }
+              }
+            }
+          },
+          "required": [
+            "startgruppen",
+            "turnierart",
+            "kriterien"
+          ],
+          "additionalProperties": false,
+          "example": {
+            "startgruppen": [
+              "Hgr",
+              "HgrII"
+            ],
+            "turnierart": "Lat",
+            "kriterien": {
+              "klasse": "C",
+              "zielklasse": "B",
+              "punkte": 120,
+              "plaetze": 7,
+              "bisPlatz": 3,
+              "doppelstart": false
+            }
+          }
+        }
+      }
+    },
+    "required": [
+      "ltv",
+      "minPunkte",
+      "tabellen"
+    ],
+    "additionalProperties": false,
+    "example": {
+      "ltv": [
+        "LTVBerlin"
+      ],
+      "minPunkte": 2,
+      "tabellen": []
+    }
+  }
+}
