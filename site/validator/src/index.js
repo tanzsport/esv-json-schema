@@ -5,8 +5,8 @@ var schemas = {
     'Veranstaltungsliste V1': '../schema-bundles/v1/veranstaltungsliste.json',
     'Veranstaltung V1': '../schema-bundles/v1/veranstaltung.json',
     'Aufstiegstabellen V1': '../schema-bundles/v1/aufstiegstabellen.json',
-    'Funktionr V1': '../schema-bundles/v1/funktionaer.json',
-    'Funktionre V1': '../schema-bundles/v1/funktionaere.json',
+    'Funktion\u00e4r V1': '../schema-bundles/v1/funktionaer.json',
+    'Funktion\u00e4re V1': '../schema-bundles/v1/funktionaere.json',
     'Ranglisten V1': '../schema-bundles/v1/ranglisten.json',
     'Startliste V1, Level 1': '../schema-bundles/v1/startliste-level1.json',
     'Startliste V1, Level 2': '../schema-bundles/v1/startliste-level2.json'
@@ -47,7 +47,7 @@ window.onload = function () {
     for (var prop in schemas) {
         var opt = document.createElement('option');
         opt.value = prop;
-        opt.label = prop;
+        opt.innerHTML = prop;
         select.appendChild(opt);
     }
 
