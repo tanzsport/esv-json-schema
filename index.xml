@@ -32,9 +32,8 @@ validieren
       
       <guid>https://tanzsport.github.io/esv-json-schema/</guid>
       <description>Aktuell liegen die JSON-Schema-Definitionen im Format Draft-06 vor.
-API-Version 1 Gemeinsame Definitionen für die Endpunkte befinden sich im common-Schema mit der der Schema-URI http://schema.tanzsport.de/json/esv/v1/common.json (Schema).
-Die aufgeführten Schema-Dateien enthalten i.d.R. nur Referenzen auf das common-Schema. Die hier zur Verfügung gestellten Schema-Bundles enthalten alle Definitionen als inline-Elemente.
-Responses    Endpunkt Level Schema-URI Schema Bundle     Veranstaltungsliste 1, 2 http://schema.tanzsport.de/json/esv/json/v1/veranstaltungsliste.json Schema Bundle   Veranstaltung 1, 2 http://schema.</description>
+API-Version 1 Gemeinsame Definitionen für die Endpunkte befinden sich im common-Schema. Die aufgeführten Schema-Dateien enthalten i.d.R. nur Referenzen auf das common-Schema. Die Schema-Bundles hingegen enthalten alle Definitionen ohne externe Referenzen.
+Responses    Endpunkt Level Schema-URI Schema Bundle     (common) 1, 2 http://schema.tanzsport.de/json/esv/json/v1/common.json Schema    Veranstaltungsliste 1, 2 http://schema.tanzsport.de/json/esv/json/v1/veranstaltungsliste.json Schema Bundle   Veranstaltung 1, 2 http://schema.</description>
     </item>
     
   </channel>
