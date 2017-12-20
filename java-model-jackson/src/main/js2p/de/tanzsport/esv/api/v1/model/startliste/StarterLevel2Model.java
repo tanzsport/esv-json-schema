@@ -66,6 +66,7 @@ public class StarterLevel2Model implements Serializable
     private VereinModel club;
     /**
      * dreibuchstabiger IOC-Code, repräsentiert das Land, für das ein Starter startet oder die Staatsangehörigkeit einer Person
+     * (Required)
      * 
      */
     @JsonProperty("staat")
@@ -86,7 +87,7 @@ public class StarterLevel2Model implements Serializable
      */
     @JsonProperty("startbuch")
     @JsonPropertyDescription("Startb\u00fccher des Starters")
-    private List<StartbuchModel> startbuch = new ArrayList<StartbuchModel>();
+    private List<StartbuchLevel2Model> startbuch = new ArrayList<StartbuchLevel2Model>();
     /**
      * Regeln für die Aufstellungen bei Formations- und Gruppenwettbewerben
      * (Required)
@@ -95,7 +96,7 @@ public class StarterLevel2Model implements Serializable
     @JsonProperty("aufstellung")
     @JsonPropertyDescription("Regeln f\u00fcr die Aufstellungen bei Formations- und Gruppenwettbewerben")
     private AufstellungLevel2Model aufstellung;
-    private final static long serialVersionUID = -2743699158785393986L;
+    private final static long serialVersionUID = -8957565676809942463L;
 
     /**
      * ID des Starters (Solist, Paar, Duo, Formation, Small Group)
@@ -199,6 +200,7 @@ public class StarterLevel2Model implements Serializable
 
     /**
      * dreibuchstabiger IOC-Code, repräsentiert das Land, für das ein Starter startet oder die Staatsangehörigkeit einer Person
+     * (Required)
      * 
      */
     @JsonProperty("staat")
@@ -208,6 +210,7 @@ public class StarterLevel2Model implements Serializable
 
     /**
      * dreibuchstabiger IOC-Code, repräsentiert das Land, für das ein Starter startet oder die Staatsangehörigkeit einer Person
+     * (Required)
      * 
      */
     @JsonProperty("staat")
@@ -251,7 +254,7 @@ public class StarterLevel2Model implements Serializable
      * 
      */
     @JsonProperty("startbuch")
-    public List<StartbuchModel> getStartbuch() {
+    public List<StartbuchLevel2Model> getStartbuch() {
         return startbuch;
     }
 
@@ -261,11 +264,11 @@ public class StarterLevel2Model implements Serializable
      * 
      */
     @JsonProperty("startbuch")
-    public void setStartbuch(List<StartbuchModel> startbuch) {
+    public void setStartbuch(List<StartbuchLevel2Model> startbuch) {
         this.startbuch = startbuch;
     }
 
-    public StarterLevel2Model withStartbuch(List<StartbuchModel> startbuch) {
+    public StarterLevel2Model withStartbuch(List<StartbuchLevel2Model> startbuch) {
         this.startbuch = startbuch;
         return this;
     }

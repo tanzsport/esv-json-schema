@@ -16,7 +16,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 
 
 /**
- * Startbuch eines Starters in einer Startliste
+ * Startbuch eines Starters in einer Startliste (Level 1)
  * 
  */
 @JsonInclude(JsonInclude.Include.ALWAYS)
@@ -31,7 +31,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
     "regeln",
     "flags"
 })
-public class StartbuchModel implements Serializable
+public class StartbuchLevel1Model implements Serializable
 {
 
     /**
@@ -106,7 +106,7 @@ public class StartbuchModel implements Serializable
     @JsonProperty("flags")
     @JsonPropertyDescription("Flags f\u00fcr Startb\u00fccher")
     private StartbuchFlagsModel flags;
-    private final static long serialVersionUID = -3876518137430373546L;
+    private final static long serialVersionUID = -8354308512625900467L;
 
     /**
      * Turnierart
@@ -128,7 +128,7 @@ public class StartbuchModel implements Serializable
         this.turnierart = turnierart;
     }
 
-    public StartbuchModel withTurnierart(TurnierartTyp turnierart) {
+    public StartbuchLevel1Model withTurnierart(TurnierartTyp turnierart) {
         this.turnierart = turnierart;
         return this;
     }
@@ -153,7 +153,7 @@ public class StartbuchModel implements Serializable
         this.startgruppe = startgruppe;
     }
 
-    public StartbuchModel withStartgruppe(StartgruppeTyp startgruppe) {
+    public StartbuchLevel1Model withStartgruppe(StartgruppeTyp startgruppe) {
         this.startgruppe = startgruppe;
         return this;
     }
@@ -178,7 +178,7 @@ public class StartbuchModel implements Serializable
         this.startliga = startliga;
     }
 
-    public StartbuchModel withStartliga(StartligaTyp startliga) {
+    public StartbuchLevel1Model withStartliga(StartligaTyp startliga) {
         this.startliga = startliga;
         return this;
     }
@@ -203,7 +203,7 @@ public class StartbuchModel implements Serializable
         this.startklasse = startklasse;
     }
 
-    public StartbuchModel withStartklasse(StartklasseTyp startklasse) {
+    public StartbuchLevel1Model withStartklasse(StartklasseTyp startklasse) {
         this.startklasse = startklasse;
         return this;
     }
@@ -228,7 +228,7 @@ public class StartbuchModel implements Serializable
         this.naechsteStartklasse = naechsteStartklasse;
     }
 
-    public StartbuchModel withNaechsteStartklasse(StartklasseTyp naechsteStartklasse) {
+    public StartbuchLevel1Model withNaechsteStartklasse(StartklasseTyp naechsteStartklasse) {
         this.naechsteStartklasse = naechsteStartklasse;
         return this;
     }
@@ -253,7 +253,7 @@ public class StartbuchModel implements Serializable
         this.punkte = punkte;
     }
 
-    public StartbuchModel withPunkte(IstZielModel punkte) {
+    public StartbuchLevel1Model withPunkte(IstZielModel punkte) {
         this.punkte = punkte;
         return this;
     }
@@ -278,7 +278,7 @@ public class StartbuchModel implements Serializable
         this.platzierungen = platzierungen;
     }
 
-    public StartbuchModel withPlatzierungen(IstZielModel platzierungen) {
+    public StartbuchLevel1Model withPlatzierungen(IstZielModel platzierungen) {
         this.platzierungen = platzierungen;
         return this;
     }
@@ -303,7 +303,7 @@ public class StartbuchModel implements Serializable
         this.regeln = regeln;
     }
 
-    public StartbuchModel withRegeln(AufstiegsregelModel regeln) {
+    public StartbuchLevel1Model withRegeln(AufstiegsregelModel regeln) {
         this.regeln = regeln;
         return this;
     }
@@ -328,7 +328,7 @@ public class StartbuchModel implements Serializable
         this.flags = flags;
     }
 
-    public StartbuchModel withFlags(StartbuchFlagsModel flags) {
+    public StartbuchLevel1Model withFlags(StartbuchFlagsModel flags) {
         this.flags = flags;
         return this;
     }
@@ -348,10 +348,10 @@ public class StartbuchModel implements Serializable
         if (other == this) {
             return true;
         }
-        if ((other instanceof StartbuchModel) == false) {
+        if ((other instanceof StartbuchLevel1Model) == false) {
             return false;
         }
-        StartbuchModel rhs = ((StartbuchModel) other);
+        StartbuchLevel1Model rhs = ((StartbuchLevel1Model) other);
         return new EqualsBuilder().append(punkte, rhs.punkte).append(platzierungen, rhs.platzierungen).append(naechsteStartklasse, rhs.naechsteStartklasse).append(startgruppe, rhs.startgruppe).append(startklasse, rhs.startklasse).append(turnierart, rhs.turnierart).append(flags, rhs.flags).append(startliga, rhs.startliga).append(regeln, rhs.regeln).isEquals();
     }
 

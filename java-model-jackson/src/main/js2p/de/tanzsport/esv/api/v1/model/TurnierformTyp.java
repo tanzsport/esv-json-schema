@@ -24,7 +24,9 @@ public enum TurnierformTyp {
     LT("LT"),
     IMK("IMK"),
     MK("Mk"),
-    RM("RM");
+    RM("RM"),
+    AT("AT"),
+    RT("RT");
     private final String value;
     private final static Map<String, TurnierformTyp> CONSTANTS = new HashMap<String, TurnierformTyp>();
 

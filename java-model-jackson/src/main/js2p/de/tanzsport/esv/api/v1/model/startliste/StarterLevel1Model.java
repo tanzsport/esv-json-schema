@@ -65,6 +65,7 @@ public class StarterLevel1Model implements Serializable
     private VereinModel club;
     /**
      * dreibuchstabiger IOC-Code, repräsentiert das Land, für das ein Starter startet oder die Staatsangehörigkeit einer Person
+     * (Required)
      * 
      */
     @JsonProperty("staat")
@@ -85,8 +86,8 @@ public class StarterLevel1Model implements Serializable
      */
     @JsonProperty("startbuch")
     @JsonPropertyDescription("Startb\u00fccher des Starters")
-    private List<StartbuchModel> startbuch = new ArrayList<StartbuchModel>();
-    private final static long serialVersionUID = -5123398295419417872L;
+    private List<StartbuchLevel1Model> startbuch = new ArrayList<StartbuchLevel1Model>();
+    private final static long serialVersionUID = 5133844476991826909L;
 
     /**
      * ID des Starters (Solist, Paar, Duo, Formation, Small Group)
@@ -190,6 +191,7 @@ public class StarterLevel1Model implements Serializable
 
     /**
      * dreibuchstabiger IOC-Code, repräsentiert das Land, für das ein Starter startet oder die Staatsangehörigkeit einer Person
+     * (Required)
      * 
      */
     @JsonProperty("staat")
@@ -199,6 +201,7 @@ public class StarterLevel1Model implements Serializable
 
     /**
      * dreibuchstabiger IOC-Code, repräsentiert das Land, für das ein Starter startet oder die Staatsangehörigkeit einer Person
+     * (Required)
      * 
      */
     @JsonProperty("staat")
@@ -242,7 +245,7 @@ public class StarterLevel1Model implements Serializable
      * 
      */
     @JsonProperty("startbuch")
-    public List<StartbuchModel> getStartbuch() {
+    public List<StartbuchLevel1Model> getStartbuch() {
         return startbuch;
     }
 
@@ -252,11 +255,11 @@ public class StarterLevel1Model implements Serializable
      * 
      */
     @JsonProperty("startbuch")
-    public void setStartbuch(List<StartbuchModel> startbuch) {
+    public void setStartbuch(List<StartbuchLevel1Model> startbuch) {
         this.startbuch = startbuch;
     }
 
-    public StarterLevel1Model withStartbuch(List<StartbuchModel> startbuch) {
+    public StarterLevel1Model withStartbuch(List<StartbuchLevel1Model> startbuch) {
         this.startbuch = startbuch;
         return this;
     }
