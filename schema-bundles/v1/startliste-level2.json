@@ -474,6 +474,7 @@
               ],
               "additionalProperties": false,
               "example": {
+                "wettbewerbsart": "Einzel",
                 "turnierart": "Lat",
                 "startgruppe": "Hgr",
                 "startliga": null,
