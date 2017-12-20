@@ -1175,6 +1175,7 @@
         "team",
         "personen",
         "club",
+^^        "staat",
         "meldungen",
         "startbuch"
       ],
@@ -1326,6 +1327,7 @@
         "team",
         "personen",
         "club",
+        "staat",
         "meldungen",
         "startbuch",
         "aufstellung"
