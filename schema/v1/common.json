@@ -355,7 +355,9 @@
         "LT",
         "IMK",
         "Mk",
-        "RM"
+        "RM",
+        "AT",
+        "RT"
       ],
       "javaType": "de.tanzsport.esv.api.v1.model.TurnierformTyp"
     },
