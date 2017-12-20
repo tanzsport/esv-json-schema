@@ -278,10 +278,25 @@
             "description": "Startbücher des Starters",
             "type": "array",
             "items": {
-              "description": "Startbuch eines Starters in einer Startliste",
+              "description": "Startbuch eines Starters in einer Startliste (Level 2)",
               "type": "object",
-              "javaType": "de.tanzsport.esv.api.v1.model.startliste.Startbuch",
+              "javaType": "de.tanzsport.esv.api.v1.model.startliste.StartbuchLevel2",
               "properties": {
+                "wettbewerbsart": {
+                  "description": "Wettbewerbsart des Startbuchs",
+                  "enum": [
+                    "Einzel",
+                    "FormationStdLat",
+                    "Mannschaft",
+                    "Solo",
+                    "SoloMaennlich",
+                    "SoloWeiblich",
+                    "Duo",
+                    "SmallGroup",
+                    "FormationJMD"
+                  ],
+                  "javaType": "de.tanzsport.esv.api.v1.model.WettbewerbsartTyp"
+                },
                 "turnierart": {
                   "description": "Turnierart des Startbuchs",
                   "enum": [
@@ -317,6 +332,10 @@
                 },
                 "startliga": {
                   "description": "Ist-Startliga des Starters (nur Formationen und Gruppen)",
+                  "type": [
+                    "null",
+                    "string"
+                  ],
                   "enum": [
                     null,
                     "1BL",
@@ -352,6 +371,10 @@
                 },
                 "punkte": {
                   "description": "Punktestand für Einzelwettbewerbe Std/Lat, später ggf. JMD",
+                  "$ref": "#/properties/starter/items/properties/startbuch/items/properties/platzierungen"
+                },
+                "platzierungen": {
+                  "description": "Stand der Platzierungen für Einzelwettbewerbe Std/Lat, später ggf. JMD",
                   "type": [
                     "null",
                     "object"
@@ -374,10 +397,6 @@
                     "ist": 23,
                     "ziel": 100
                   }
-                },
-                "platzierungen": {
-                  "description": "Stand der Platzierungen für Einzelwettbewerbe Std/Lat, später ggf. JMD",
-                  "$ref": "#/properties/starter/items/properties/startbuch/items/properties/punkte"
                 },
                 "regeln": {
                   "description": "Aufstiegsregeln für Einzelwettbewerbe Std/Lat, später ggf. JMD",
@@ -442,6 +461,7 @@
                 }
               },
               "required": [
+                "wettbewerbsart",
                 "turnierart",
                 "startgruppe",
                 "startliga",
@@ -507,6 +527,7 @@
           "team",
           "personen",
           "club",
+          "staat",
           "meldungen",
           "startbuch",
           "aufstellung"

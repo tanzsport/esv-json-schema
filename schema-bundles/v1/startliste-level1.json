@@ -255,9 +255,9 @@
             "description": "Startbücher des Starters",
             "type": "array",
             "items": {
-              "description": "Startbuch eines Starters in einer Startliste",
+              "description": "Startbuch eines Starters in einer Startliste (Level 1)",
               "type": "object",
-              "javaType": "de.tanzsport.esv.api.v1.model.startliste.Startbuch",
+              "javaType": "de.tanzsport.esv.api.v1.model.startliste.StartbuchLevel1",
               "properties": {
                 "turnierart": {
                   "description": "Turnierart des Startbuchs",
@@ -294,6 +294,10 @@
                 },
                 "startliga": {
                   "description": "Ist-Startliga des Starters (nur Formationen und Gruppen)",
+                  "type": [
+                    "null",
+                    "string"
+                  ],
                   "enum": [
                     null,
                     "1BL",
@@ -451,6 +455,7 @@
           "team",
           "personen",
           "club",
+          "staat",
           "meldungen",
           "startbuch"
         ],
