@@ -12,14 +12,14 @@
     },
     "datumVon": {
       "description": "Beginndatum der Veranstaltung",
+      "$ref": "#/properties/datumBis"
+    },
+    "datumBis": {
+      "description": "Enddatum der Veranstaltung",
       "type": "string",
       "javaType": "java.time.ZonedDateTime",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:Z|[\\+\\-]+\\d{2}(:\\d{2})?)$",
       "example": "2014-04-18T00:00:00+02:00"
-    },
-    "datumBis": {
-      "description": "Enddatum der Veranstaltung",
-      "$ref": "#/properties/datumVon"
     },
     "turnierstaette": {
       "description": "Daten einer Turnierstätte",
@@ -86,8 +86,26 @@
               "type": "integer"
             },
             "name": {
-              "description": "Name des Landesverbandes",
-              "type": "string"
+              "description": "Abkürzung des Landesverbandes (gem. Schlüsselverzeichnis)",
+              "enum": [
+                "HATV",
+                "HTV",
+                "LTVBerlin",
+                "LTVBr",
+                "LTVBremen",
+                "LTVB",
+                "LTVS",
+                "NTV",
+                "SLT",
+                "TBW",
+                "TMV",
+                "TNW",
+                "TRP",
+                "TSH",
+                "TTSV",
+                "LTVSA"
+              ],
+              "javaType": "de.tanzsport.esv.api.v1.model.LtvTyp"
             }
           },
           "required": [
@@ -97,7 +115,7 @@
           "additionalProperties": false,
           "example": {
             "id": 1,
-            "name": "Landestanzsportverband Berlin e.V."
+            "name": "LTVBerlin"
           }
         },
         "kontaktTelefon": {
@@ -123,7 +141,7 @@
         "name": "TC Ocker-Umbra Musterstadt",
         "ltv": {
           "id": 1,
-          "name": "Hessicher Tanzsportverband e.V."
+          "name": "HTV"
         },
         "kontaktTelefon": "069 - 12345",
         "kontaktEmail": "ocker-umbra@email.de"
@@ -145,6 +163,12 @@
       ]
     },
     "wertungsrichter": {
+      "type": "array",
+      "items": {
+        "$ref": "#/properties/funktionaere/items"
+      }
+    },
+    "funktionaere": {
       "type": "array",
       "items": {
         "description": "Daten eines Lizenzträgers",
@@ -224,7 +248,7 @@
               "name": "TC Ocker-Umbra Musterstadt",
               "ltv": {
                 "id": 1,
-                "name": "Hessischer Tanzsportverband e.V."
+                "name": "HTV"
               }
             }
           },
@@ -288,7 +312,7 @@
             "name": "TC Ocker-Umbra Musterstadt",
             "ltv": {
               "id": 1,
-              "name": "Hessischer Tanzsportverband e.V."
+              "name": "HTV"
             }
           },
           "staat": "GER",
@@ -296,12 +320,6 @@
             "TL"
           ]
         }
-      }
-    },
-    "funktionaere": {
-      "type": "array",
-      "items": {
-        "$ref": "#/properties/wertungsrichter/items"
       }
     },
     "flaechen": {
@@ -356,11 +374,11 @@
           },
           "datumVon": {
             "description": "Beginndatum des Turniers",
-            "$ref": "#/properties/datumVon"
+            "$ref": "#/properties/datumBis"
           },
           "datumBis": {
             "description": "Enddatum des Turniers",
-            "$ref": "#/properties/datumVon"
+            "$ref": "#/properties/datumBis"
           },
           "startzeitPlan": {
             "description": "Geplante Startzeit des Turniers (veröffentlicht im Tanzspiegel)",
@@ -645,7 +663,7 @@
             "name": "TC Ocker Umbra Musterstadt",
             "ltv": {
               "id": 1,
-              "name": "Landestanzsportverband Berlin e.V."
+              "name": "LTVBerlin"
             }
           },
           "ausrichter": {
@@ -653,7 +671,7 @@
             "name": "TC Ocker Umbra Musterstadt",
             "ltv": {
               "id": 1,
-              "name": "Landestanzsportverband Berlin e.V."
+              "name": "LTVBerlin"
             }
           },
           "flaechenId": "Fläche 1",

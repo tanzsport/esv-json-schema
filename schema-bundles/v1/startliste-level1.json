@@ -164,8 +164,26 @@
                     "type": "integer"
                   },
                   "name": {
-                    "description": "Name des Landesverbandes",
-                    "type": "string"
+                    "description": "Abkürzung des Landesverbandes (gem. Schlüsselverzeichnis)",
+                    "enum": [
+                      "HATV",
+                      "HTV",
+                      "LTVBerlin",
+                      "LTVBr",
+                      "LTVBremen",
+                      "LTVB",
+                      "LTVS",
+                      "NTV",
+                      "SLT",
+                      "TBW",
+                      "TMV",
+                      "TNW",
+                      "TRP",
+                      "TSH",
+                      "TTSV",
+                      "LTVSA"
+                    ],
+                    "javaType": "de.tanzsport.esv.api.v1.model.LtvTyp"
                   }
                 },
                 "required": [
@@ -175,7 +193,7 @@
                 "additionalProperties": false,
                 "example": {
                   "id": 1,
-                  "name": "Landestanzsportverband Berlin e.V."
+                  "name": "LTVBerlin"
                 }
               }
             },
@@ -190,7 +208,7 @@
               "name": "TC Ocker-Umbra Musterstadt",
               "ltv": {
                 "id": 1,
-                "name": "Hessischer Tanzsportverband e.V."
+                "name": "HTV"
               }
             }
           },
@@ -333,10 +351,6 @@
                 },
                 "punkte": {
                   "description": "Punktestand für Einzelwettbewerbe Std/Lat, später ggf. JMD",
-                  "$ref": "#/properties/starter/items/properties/startbuch/items/properties/platzierungen"
-                },
-                "platzierungen": {
-                  "description": "Stand der Platzierungen für Einzelwettbewerbe Std/Lat, später ggf. JMD",
                   "type": [
                     "null",
                     "object"
@@ -359,6 +373,10 @@
                     "ist": 23,
                     "ziel": 100
                   }
+                },
+                "platzierungen": {
+                  "description": "Stand der Platzierungen für Einzelwettbewerbe Std/Lat, später ggf. JMD",
+                  "$ref": "#/properties/starter/items/properties/startbuch/items/properties/punkte"
                 },
                 "regeln": {
                   "description": "Aufstiegsregeln für Einzelwettbewerbe Std/Lat, später ggf. JMD",
@@ -491,7 +509,7 @@
             "name": "TC Ocker-Umbra Musterstadt",
             "ltv": {
               "id": 1,
-              "name": "Hessischer Tanzsportverband e.V."
+              "name": "HTV"
             }
           },
           "staat": "GER",

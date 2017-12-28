@@ -14,7 +14,6 @@
         "type": "array",
         "items": {
           "description": "Schlüssel für Landesverbände",
-          "$comment": "FIXME - Kann nicht zu Startern gemappt werden!",
           "enum": [
             "HATV",
             "HTV",

@@ -187,8 +187,26 @@
                     "type": "integer"
                   },
                   "name": {
-                    "description": "Name des Landesverbandes",
-                    "type": "string"
+                    "description": "Abkürzung des Landesverbandes (gem. Schlüsselverzeichnis)",
+                    "enum": [
+                      "HATV",
+                      "HTV",
+                      "LTVBerlin",
+                      "LTVBr",
+                      "LTVBremen",
+                      "LTVB",
+                      "LTVS",
+                      "NTV",
+                      "SLT",
+                      "TBW",
+                      "TMV",
+                      "TNW",
+                      "TRP",
+                      "TSH",
+                      "TTSV",
+                      "LTVSA"
+                    ],
+                    "javaType": "de.tanzsport.esv.api.v1.model.LtvTyp"
                   }
                 },
                 "required": [
@@ -198,7 +216,7 @@
                 "additionalProperties": false,
                 "example": {
                   "id": 1,
-                  "name": "Landestanzsportverband Berlin e.V."
+                  "name": "LTVBerlin"
                 }
               }
             },
@@ -213,7 +231,7 @@
               "name": "TC Ocker-Umbra Musterstadt",
               "ltv": {
                 "id": 1,
-                "name": "Hessischer Tanzsportverband e.V."
+                "name": "HTV"
               }
             }
           },
@@ -567,7 +585,7 @@
             "name": "TC Ocker-Umbra Musterstadt",
             "ltv": {
               "id": 1,
-              "name": "Hessischer Tanzsportverband e.V."
+              "name": "HTV"
             }
           },
           "staat": "GER",
