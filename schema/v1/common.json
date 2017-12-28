@@ -71,7 +71,7 @@
       "additionalProperties": false,
       "example": {
         "id": 1,
-        "name": "Landestanzsportverband Berlin e.V."
+        "name": "LTVBerlin"
       }
     },
     "veranstalter-ausrichter": {
@@ -117,7 +117,7 @@
         "name": "TC Ocker-Umbra Musterstadt",
         "ltv": {
           "id": 1,
-          "name": "Hessicher Tanzsportverband e.V."
+          "name": "HTV"
         },
         "kontaktTelefon": "069 - 12345",
         "kontaktEmail": "ocker-umbra@email.de"
@@ -158,7 +158,7 @@
         "name": "TC Ocker-Umbra Musterstadt",
         "ltv": {
           "id": 1,
-          "name": "Hessischer Tanzsportverband e.V."
+          "name": "HTV"
         }
       }
     },
@@ -276,7 +276,7 @@
           "name": "TC Ocker-Umbra Musterstadt",
           "ltv": {
             "id": 1,
-            "name": "Hessischer Tanzsportverband e.V."
+            "name": "HTV"
           }
         },
         "staat": "GER",
@@ -683,7 +683,7 @@
           "name": "TC Ocker Umbra Musterstadt",
           "ltv": {
             "id": 1,
-            "name": "Landestanzsportverband Berlin e.V."
+            "name": "LTVBerlin"
           }
         },
         "ausrichter": {
@@ -691,7 +691,7 @@
           "name": "TC Ocker Umbra Musterstadt",
           "ltv": {
             "id": 1,
-            "name": "Landestanzsportverband Berlin e.V."
+            "name": "LTVBerlin"
           }
         },
         "flaechenId": "Fläche 1",
@@ -1217,7 +1217,7 @@
           "name": "TC Ocker-Umbra Musterstadt",
           "ltv": {
             "id": 1,
-            "name": "Hessischer Tanzsportverband e.V."
+            "name": "HTV"
           }
         },
         "staat": "GER",
@@ -1446,7 +1446,7 @@
           "name": "TC Ocker-Umbra Musterstadt",
           "ltv": {
             "id": 1,
-            "name": "Hessischer Tanzsportverband e.V."
+            "name": "HTV"
           }
         },
         "staat": "GER",
@@ -1615,7 +1615,7 @@
           "name": "TC Ocker Umbra Musterstadt",
           "ltv": {
             "id": 1,
-            "name": "Hessicher Tanzsportverband"
+            "name": "HTV"
           }
         },
         "punkte": 270,
@@ -1763,7 +1763,6 @@
     },
     "ltv-schluessel": {
       "description": "Schlüssel für Landesverbände",
-      "$comment": "FIXME - Kann nicht zu Startern gemappt werden!",
       "enum": [
         "HATV",
         "HTV",
