@@ -32,14 +32,14 @@ public class LandesverbandModel implements Serializable
     @JsonPropertyDescription("ID des Landesverbandes")
     private Integer id;
     /**
-     * Name des Landesverbandes
+     * Schlüssel für Landesverbände
      * (Required)
      * 
      */
     @JsonProperty("name")
-    @JsonPropertyDescription("Name des Landesverbandes")
-    private String name;
-    private final static long serialVersionUID = -4020533486227881647L;
+    @JsonPropertyDescription("Schl\u00fcssel f\u00fcr Landesverb\u00e4nde")
+    private LtvTyp name;
+    private final static long serialVersionUID = -8371967517408040146L;
 
     /**
      * ID des Landesverbandes
@@ -67,26 +67,26 @@ public class LandesverbandModel implements Serializable
     }
 
     /**
-     * Name des Landesverbandes
+     * Schlüssel für Landesverbände
      * (Required)
      * 
      */
     @JsonProperty("name")
-    public String getName() {
+    public LtvTyp getName() {
         return name;
     }
 
     /**
-     * Name des Landesverbandes
+     * Schlüssel für Landesverbände
      * (Required)
      * 
      */
     @JsonProperty("name")
-    public void setName(String name) {
+    public void setName(LtvTyp name) {
         this.name = name;
     }
 
-    public LandesverbandModel withName(String name) {
+    public LandesverbandModel withName(LtvTyp name) {
         this.name = name;
         return this;
     }

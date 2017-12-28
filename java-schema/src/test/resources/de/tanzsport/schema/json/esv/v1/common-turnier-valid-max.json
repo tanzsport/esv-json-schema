@@ -11,7 +11,7 @@
       "name": "Landestanzsportverband Berlin e.V.",
       "ltv": {
         "id": 3,
-        "name": "LTV Berlin"
+        "name": "LTVBerlin"
       }
     },
     "ausrichter": {
@@ -19,7 +19,7 @@
       "name": "Ausrichtergemeinschaft Blaues Band der Spree",
       "ltv": {
         "id": 3,
-        "name": "LTV Berlin"
+        "name": "LTVBerlin"
       }
     },
     "flaechenId": "Fläche 1",

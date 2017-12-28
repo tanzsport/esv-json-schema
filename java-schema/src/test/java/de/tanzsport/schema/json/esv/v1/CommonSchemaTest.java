@@ -70,7 +70,7 @@ public class CommonSchemaTest extends AbstractV1SchemaTest {
                 },
                 {
                         DEF_LTV, true, "common-landesverband-invalid-types.json", 2,
-                        Arrays.asList(failureType("id", "Number"), failureType("name", "String"))
+                        Arrays.asList(failureType("id", "Number"), failureEnum("name", "1"))
                 },
                 {
                         DEF_VA_AU, true, "common-veranstalter-ausrichter-valid-max.json", 0, null

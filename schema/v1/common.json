@@ -60,8 +60,8 @@
           "type": "integer"
         },
         "name": {
-          "description": "Name des Landesverbandes",
-          "type": "string"
+          "description": "Abkürzung des Landesverbandes (gem. Schlüsselverzeichnis)",
+          "$ref": "#/definitions/ltv-schluessel"
         }
       },
       "required": [
