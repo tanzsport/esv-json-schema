@@ -111,7 +111,7 @@ public abstract class AbstractV1SchemaTest {
         }
     }
 
-    protected Schema createTestSchema(String property, String $ref, boolean required) {
+    protected Schema createTestSchema(String property, String $ref) {
         final JSONObject testSchemaJson = new JSONObject()
                 .put("$schema", "http://json-schema.org/draft-06/schema#")
                 .put("$id", "http://schema.tanzsport.de/json/esv/v1/test-" + property)
@@ -119,13 +119,10 @@ public abstract class AbstractV1SchemaTest {
                         new JSONObject().put(property,
                                 new JSONObject().put("$ref", $ref)
                         )
+                )
+                .put("required",
+                        new JSONArray().put(property)
                 );
-
-        if (required) {
-            testSchemaJson.put("required",
-                    new JSONArray().put(property)
-            );
-        }
 
         return Schemas.load(testSchemaJson);
     }

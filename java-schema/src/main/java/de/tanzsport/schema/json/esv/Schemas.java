@@ -22,6 +22,8 @@ public final class Schemas {
     public static final String V1_FUNKTIONAER = "v1/funktionaer.json";
     public static final String V1_FUNKTIONAERE = "v1/funktionaere.json";
     public static final String V1_RANGLISTEN = "v1/ranglisten.json";
+    public static final String V1_ERGEBNIS_LEVEL1 = "v1/ergebnis-level1.json";
+    public static final String V1_ERGEBNIS_LEVEL2 = "v1/ergebnis-level2.json";
 
     private static Map<String, String> locations = new HashMap<>();
 

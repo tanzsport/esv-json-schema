@@ -11,6 +11,16 @@
       "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:Z|[\\+\\-]+\\d{2}(:\\d{2})?)$",
       "example": "2014-04-18T00:00:00+02:00"
     },
+    "iso8601-date-time-nullable": {
+      "description": "ISO8601 Datum/Zeit (ggf. auch ohne Zeitzonenangabe)",
+      "type": [
+        "null",
+        "string"
+      ],
+      "javaType": "java.time.ZonedDateTime",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:Z|[\\+\\-]+\\d{2}(:\\d{2})?)?$",
+      "example": "2014-04-18T00:00:00+02:00"
+    },
     "turnierstaette": {
       "description": "Daten einer Turnierstätte",
       "type": "object",
@@ -336,6 +346,22 @@
       ],
       "javaType": "de.tanzsport.esv.api.v1.model.WettbewerbsartTyp"
     },
+    "wettbewerbsart-nullable": {
+      "description": "Wettbewerbsart (inkl. null)",
+      "enum": [
+        null,
+        "Einzel",
+        "FormationStdLat",
+        "Mannschaft",
+        "Solo",
+        "SoloMaennlich",
+        "SoloWeiblich",
+        "Duo",
+        "SmallGroup",
+        "FormationJMD"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.WettbewerbsartTyp"
+    },
     "turnierform": {
       "description": "Turnierform",
       "enum": [
@@ -382,12 +408,43 @@
       ],
       "javaType": "de.tanzsport.esv.api.v1.model.StartgruppeTyp"
     },
+    "startgruppe-nullable": {
+      "description": "Startgruppe (inkl. null)",
+      "enum": [
+        null,
+        "KinI",
+        "KinII",
+        "Kin",
+        "JunI",
+        "JunII",
+        "Jug",
+        "Hgr",
+        "HgrII",
+        "SenI",
+        "SenII",
+        "SenIII",
+        "SenIV",
+        "U21",
+        "MCI",
+        "MCII"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.StartgruppeTyp"
+    },
     "startklasse": {
       "description": "Startklasse",
-      "type": [
-        "null",
-        "string"
+      "enum": [
+        "BSW",
+        "D",
+        "C",
+        "B",
+        "A",
+        "S",
+        "PD"
       ],
+      "javaType": "de.tanzsport.esv.api.v1.model.StartklasseTyp"
+    },
+    "startklasse-nullable": {
+      "description": "Startklasse (inkl. null)",
       "enum": [
         null,
         "BSW",
@@ -400,12 +457,8 @@
       ],
       "javaType": "de.tanzsport.esv.api.v1.model.StartklasseTyp"
     },
-    "startliga": {
-      "description": "Startliga",
-      "type": [
-        "null",
-        "string"
-      ],
+    "startliga-nullable": {
+      "description": "Startliga (inkl. null)",
       "enum": [
         null,
         "1BL",
@@ -417,12 +470,8 @@
       ],
       "javaType": "de.tanzsport.esv.api.v1.model.StartligaTyp"
     },
-    "startklasse-liga": {
-      "description": "Startklasse oder -liga",
-      "type": [
-        "null",
-        "string"
-      ],
+    "startklasse-liga-nullable": {
+      "description": "Startklasse oder -liga (inkl. null)",
       "enum": [
         null,
         "BSW",
@@ -570,7 +619,7 @@
         },
         "startklasseLiga": {
           "description": "Startklasse oder -liga des Turniers",
-          "$ref": "#/definitions/startklasse-liga"
+          "$ref": "#/definitions/startklasse-liga-nullable"
         },
         "turnierart": {
           "description": "Turnierart des Turniers",
@@ -1079,15 +1128,15 @@
         },
         "startliga": {
           "description": "Ist-Startliga des Starters (nur Formationen und Gruppen)",
-          "$ref": "#/definitions/startliga"
+          "$ref": "#/definitions/startliga-nullable"
         },
         "startklasse": {
           "description": "Ist-Startklasse des Starters (nur Einzelwettbewerbe Std/Lat und JMD)",
-          "$ref": "#/definitions/startklasse"
+          "$ref": "#/definitions/startklasse-nullable"
         },
         "naechsteStartklasse": {
           "description": "Ziel-Startklasse für Einzelwettbewerbe",
-          "$ref": "#/definitions/startklasse"
+          "$ref": "#/definitions/startklasse-nullable"
         },
         "punkte": {
           "description": "Punktestand für Einzelwettbewerbe Std/Lat, später ggf. JMD",
@@ -1299,15 +1348,15 @@
         },
         "startliga": {
           "description": "Ist-Startliga des Starters (nur Formationen und Gruppen)",
-          "$ref": "#/definitions/startliga"
+          "$ref": "#/definitions/startliga-nullable"
         },
         "startklasse": {
           "description": "Ist-Startklasse des Starters (nur Einzelwettbewerbe Std/Lat und JMD)",
-          "$ref": "#/definitions/startklasse"
+          "$ref": "#/definitions/startklasse-nullable"
         },
         "naechsteStartklasse": {
           "description": "Ziel-Startklasse für Einzelwettbewerbe",
-          "$ref": "#/definitions/startklasse"
+          "$ref": "#/definitions/startklasse-nullable"
         },
         "punkte": {
           "description": "Punktestand für Einzelwettbewerbe Std/Lat, später ggf. JMD",
@@ -1783,6 +1832,29 @@
       ],
       "javaType": "de.tanzsport.esv.api.v1.model.LtvTyp"
     },
+    "ltv-schluessel-nullable": {
+      "description": "Schlüssel für Landesverbände (mit null)",
+      "enum": [
+        null,
+        "HATV",
+        "HTV",
+        "LTVBerlin",
+        "LTVBr",
+        "LTVBremen",
+        "LTVB",
+        "LTVS",
+        "NTV",
+        "SLT",
+        "TBW",
+        "TMV",
+        "TNW",
+        "TRP",
+        "TSH",
+        "TTSV",
+        "LTVSA"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.LtvTyp"
+    },
     "aufstiegstabelle": {
       "description": "Aufstiegstabelle",
       "type": "object",
@@ -2014,6 +2086,1087 @@
         "datumVon",
         "datumBis",
         "ort"
+      ],
+      "additionalProperties": false
+    },
+    "tanz": {
+      "description": "Tanz in einem Ergebnis",
+      "type": "string",
+      "javaType": "de.tanzsport.esv.api.v1.model.TanzTyp",
+      "enum": [
+        "LW",
+        "TG",
+        "WW",
+        "SF",
+        "QU",
+        "SB",
+        "CC",
+        "RB",
+        "PD",
+        "JV",
+        "STD",
+        "LAT",
+        "JMD",
+        "JAZZ",
+        "DF",
+        "SA"
+      ]
+    },
+    "ergebnis-funktionaer-verein": {
+      "description": "Verein eines Funktionärs im Ergebnis",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.FunktionaerVerein",
+      "properties": {
+        "name": {
+          "description": "Name des Vereins",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "ltv": {
+          "description": "LTV des Vereins",
+          "$ref": "#/definitions/ltv-schluessel-nullable"
+        }
+      },
+      "required": [
+        "name",
+        "ltv"
+      ],
+      "additionalProperties": false
+    },
+    "ergebnis-funktionaer-l1": {
+      "description": "Funktionär in einem Ergebnis (Level 1)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.FunktionaerLevel1",
+      "properties": {
+        "id": {
+          "description": "DTV-Nummer des Funktionärs (sofern vorhanden)",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "vorname": {
+          "description": "Vorname des Funktionärs",
+          "type": "string"
+        },
+        "nachname": {
+          "description": "Nachname des Funktionärs",
+          "type": "string"
+        },
+        "club": {
+          "description": "Verein des Funktionärs",
+          "type": [
+            "null",
+            "object"
+          ],
+          "$ref": "#/definitions/ergebnis-funktionaer-verein"
+        },
+        "staat": {
+          "description": "Staat des Funktionärs",
+          "type": "string",
+          "maxLength": 3
+        }
+      },
+      "required": [
+        "id",
+        "vorname",
+        "nachname",
+        "club",
+        "staat"
+      ],
+      "additionalProperties": false
+    },
+    "ergebnis-funktionaer-l2": {
+      "description": "Funktionär in einem Ergebnis (Level 2)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.FunktionaerLevel2",
+      "properties": {
+        "kuerzel": {
+          "description": "Buchstaben-Kürzel des Funktionärs",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 3
+        },
+        "id": {
+          "description": "DTV-Nummer des Funktionärs (sofern vorhanden)",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "vorname": {
+          "description": "Vorname des Funktionärs",
+          "type": "string"
+        },
+        "nachname": {
+          "description": "Nachname des Funktionärs",
+          "type": "string"
+        },
+        "club": {
+          "description": "Verein des Funktionärs",
+          "type": [
+            "null",
+            "object"
+          ],
+          "javaName": "verein",
+          "$ref": "#/definitions/ergebnis-funktionaer-verein"
+        },
+        "staat": {
+          "description": "Staat des Funktionärs",
+          "type": "string",
+          "maxLength": 3
+        }
+      },
+      "required": [
+        "kuerzel",
+        "id",
+        "vorname",
+        "nachname",
+        "club",
+        "staat"
+      ],
+      "additionalProperties": false
+    },
+    "rundentyp": {
+      "description": "Rundentyp in einem Ergebnis",
+      "javaType": "de.tanzsport.esv.api.v1.model.RundenTyp",
+      "enum": [
+        1,
+        "1A",
+        "1B",
+        "R",
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        "F",
+        "SR"
+      ],
+      "javaEnumNames": [
+        "RD_1",
+        "RD_1A",
+        "RD_1B",
+        "RD_R",
+        "RD_2",
+        "RD_3",
+        "RD_4",
+        "RD_5",
+        "RD_6",
+        "RD_7",
+        "RD_8",
+        "RD_9",
+        "RD_F",
+        "RD_SR"
+      ]
+    },
+    "wertungstyp": {
+      "description": "Wertungstyp in einer Runde",
+      "javaType": "de.tanzsport.esv.api.v1.model.RundenWertungsTyp",
+      "enum": [
+        "K",
+        "M",
+        "P",
+        "FK",
+        "FP",
+        "JK",
+        "JP",
+        "JS"
+      ]
+    },
+    "ergebnis-rundenablauf-l1": {
+      "description": "Eintrag im Rundenablauf eines Ergebnisses (Level 1)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.RundenablaufLevel1",
+      "properties": {
+        "runde": {
+          "description": "Runde",
+          "type": "string",
+          "$ref": "#/definitions/rundentyp"
+        },
+        "typ": {
+          "description": "Wertungstyp",
+          "type": "string",
+          "$ref": "#/definitions/wertungstyp"
+        }
+      },
+      "required": [
+        "runde",
+        "typ"
+      ],
+      "additionalProperties": false
+    },
+    "ergebnis-kreuzvorgabe-nullable": {
+      "description": "Kreuzvorgabe in einem Ergebnis",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.Kreuzvorgabe",
+      "properties": {
+        "von": {
+          "description": "Minimal-Anzahl Kreuze",
+          "type": "integer"
+        },
+        "bis": {
+          "description": "Maximal-Anzahl Kreuze",
+          "type": "integer"
+        }
+      }
+    },
+    "ergebnis-rundenablauf-l2": {
+      "description": "Eintrag im Rundenablauf eines Ergebnisses (Level 2)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.RundenablaufLevel2",
+      "properties": {
+        "runde": {
+          "description": "Runde",
+          "type": "string",
+          "$ref": "#/definitions/rundentyp"
+        },
+        "typ": {
+          "description": "Wertungstyp",
+          "type": "string",
+          "$ref": "#/definitions/wertungstyp"
+        },
+        "platz": {
+          "description": "Platz für den eine Stichrunde durchgeführt wurde",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "startreihenfolge": {
+          "description": "Startnummern der Starter in der Reihenfolge des Starts in der Runde",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "type": "integer"
+          }
+        },
+        "kreuzvorgabe": {
+          "description": "Kreuzvorgabe dieser Runde bei Wertungstypen K, FK, JK",
+          "$ref": "#/definitions/ergebnis-kreuzvorgabe-nullable"
+        }
+      },
+      "required": [
+        "runde",
+        "typ",
+        "platz",
+        "startreihenfolge"
+      ],
+      "additionalProperties": false
+    },
+    "ergebnis-person": {
+      "description": "Person in einem Ergebnis",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.ErgebnisPerson",
+      "properties": {
+        "id": {
+          "description": "DTV-Nummer der Person sofern vorhanden",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "vorname": {
+          "description": "Vorname der Person",
+          "type": "string"
+        },
+        "nachname": {
+          "description": "Nachname der Person",
+          "type": "string"
+        },
+        "wdsfMin": {
+          "description": "WDSF-MIN der Person",
+          "$comment": "FIXME - keine Strings!",
+          "type": [
+            "null",
+            "string",
+            "integer"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "vorname",
+        "nachname",
+        "wdsfMin"
+      ],
+      "additionalProperties": false
+    },
+    "ergebnis-teilnahmetyp": {
+      "description": "Teilnahme-Status eines Starters im Ergebnis",
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.TeilnahmeTyp",
+      "javaEnumNames": [
+        "T",
+        "FE",
+        "FU"
+      ]
+    },
+    "ergebnis-meldungstyp": {
+      "description": "Meldungstyp eines Starters im Ergebnis",
+      "enum": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.MeldungsTyp",
+      "javaEnumNames": [
+        "R",
+        "NM",
+        "NMS",
+        "NMA"
+      ]
+    },
+    "ergebnis-aufstiegstyp": {
+      "description": "Typ eines Aufstiegs im Ergebnis",
+      "enum": [
+        0,
+        1,
+        2
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.AufstiegsTyp",
+      "javaEnumNames": [
+        "KEIN",
+        "REGULAER",
+        "BESCHLUSS"
+      ]
+    },
+    "ergebnis-verwarnung-disqualifikation": {
+      "description": "Typ einer Verwarnung / Disqualifikation",
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.VerwarnungDisqualifikationsTyp",
+      "javaEnumNames": [
+        "OHNE",
+        "VSB",
+        "DSB",
+        "DSQ"
+      ]
+    },
+    "starter-wertung-vr": {
+      "title": "Vorrunden-Wertung eines Starters (Kreuz- oder Mannschaftswertung)",
+      "description": "Array über alle Wertungsrichter in der Reihenfolge der Nennung im Ergebnis",
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "array",
+            "titel": "Wertungen eines Wertungsrichters",
+            "description": "Array über alle Tänze des Turniers in der Reihenfolge der Nennung im Ergebnis sowie ein Zusatzelement für die Summe über die Tänze; Tanzwertungen sind null, wenn keine Einzelkreuze übertragen werden",
+            "items": {
+              "type": [
+                "null",
+                "number"
+              ]
+            }
+          },
+          {
+            "type": "number",
+            "title": "Summe",
+            "description": "Summe der Wertungen über alle Wertungsrichter; muss immer das letzte Element im Array sein; dies lässt sich über ein JSON-Schema nicht validieren"
+          }
+        ]
+      }
+    },
+    "starter-wertung-js": {
+      "title": "JS-Wertung eines Starters",
+      "description": "JS-Score (alle JS-Versionen inkl. AJS)",
+      "type": "number"
+    },
+    "starter-wertung-er": {
+      "title": "End- oder Stichrundenwertung eines Starters (Platzwertung)",
+      "description": "Array über alle Tänze in der Reihenfolge der Nennung im Ergebnis",
+      "type": "array",
+      "items": {
+        "type": "array",
+        "title": "Wertungen eines Tanzes und Ausrechnung",
+        "description": "Wertungen der Wertungsrichter in der Reihenfolge der Nennung im Ergebnis sowie zwei Zusatzelemente: Platzziffer im Tanz, Platzziffer Summe",
+        "items": {
+          "type": "number"
+        }
+      }
+    },
+    "starter-ergebnis": {
+      "description": "Ergebnis eines Starters",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.StarterErgebnis",
+      "properties": {
+        "platzGesamtVon": {
+          "description": "Platz Gesamtergebnis von",
+          "type": "integer"
+        },
+        "platzGesamtBis": {
+          "description": "Platz Gesamtergebnis bis",
+          "type": "integer"
+        },
+        "platzTurnierVon": {
+          "description": "Platz eigenes Turnier bis sofern benötigt",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "platzTurnierBis": {
+          "description": "Platz eigenes Turnier bis sofern benötigt",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "punkte": {
+          "description": "Punkte",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "platzierungenGesamt": {
+          "description": "Platzierungen Gesamt nach Ausscheiden",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "punkteGesamt": {
+          "description": "Punkte Gesamt nach Ausscheiden",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "aufstieg": {
+          "description": "Typ des Aufstiegs",
+          "$ref": "#/definitions/ergebnis-aufstiegstyp"
+        },
+        "laufzettel": {
+          "description": "Flag Laufzettel",
+          "type": "boolean"
+        },
+        "vd": {
+          "description": "Verwarnung oder Disqualifikation",
+          "$ref": "#/definitions/ergebnis-verwarnung-disqualifikation"
+        }
+      },
+      "required": [
+        "platzGesamtVon",
+        "platzGesamtBis",
+        "platzTurnierVon",
+        "punkte",
+        "platzierungenGesamt",
+        "punkteGesamt",
+        "aufstieg",
+        "laufzettel",
+        "vd"
+      ],
+      "additionalProperties": false
+    },
+    "ergebnis-starter-l1": {
+      "description": "Starter in einem Ergebnis (Level 1)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.ErgebnisStarterLevel1",
+      "properties": {
+        "id": {
+          "description": "Starter-ID",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "startNr": {
+          "description": "Start-Nummer",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "personen": {
+          "description": "Personen dieses Starters",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ergebnis-person"
+          }
+        },
+        "staat": {
+          "description": "Staat für den der Starter startet (IOC-Code)",
+          "$ref": "#/definitions/ioc-code"
+        },
+        "status": {
+          "description": "Teilnahmetyp",
+          "$ref": "#/definitions/ergebnis-teilnahmetyp"
+        },
+        "meldungsTyp": {
+          "description": "Meldungstyp",
+          "$ref": "#/definitions/ergebnis-meldungstyp"
+        },
+        "sterne": {
+          "description": "Anzahl Sterne",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "ergebnis": {
+          "description": "Ergebnis dieses Starters",
+          "$ref": "#/definitions/starter-ergebnis"
+        },
+        "wertung": {
+          "description": "Wertungen des Starters",
+          "type": [
+            "null",
+            "array"
+          ],
+          "javaType": "java.util.List<de.tanzsport.esv.api.v1.model.ergebnis.WertungModel>",
+          "items": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/definitions/starter-wertung-vr"
+              },
+              {
+                "$ref": "#/definitions/starter-wertung-js"
+              },
+              {
+                "$ref": "#/definitions/starter-wertung-er"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "startNr",
+        "personen",
+        "staat",
+        "status",
+        "meldungsTyp",
+        "sterne",
+        "ergebnis",
+        "wertung"
+      ],
+      "additionalProperties": false
+    },
+    "ergebnis-starter-l2": {
+      "description": "Starter in einem Ergebnis (Level 2)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.ErgebnisStarterLevel2",
+      "properties": {
+        "id": {
+          "description": "Starter-ID",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "startNr": {
+          "description": "Start-Nummer",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "personen": {
+          "description": "Personen dieses Starters",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ergebnis-person"
+          }
+        },
+        "staat": {
+          "description": "Staat für den der Starter startet (IOC-Code)",
+          "$ref": "#/definitions/ioc-code"
+        },
+        "status": {
+          "description": "Teilnahmetyp",
+          "$ref": "#/definitions/ergebnis-teilnahmetyp"
+        },
+        "meldungsTyp": {
+          "description": "Meldungstyp",
+          "$ref": "#/definitions/ergebnis-meldungstyp"
+        },
+        "sterne": {
+          "description": "Anzahl Sterne",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "startgruppe": {
+          "title": "Startgruppe des Starters",
+          "description": "Ursprüngliche Startgruppe des Starters aus der Startliste",
+          "$ref": "#/definitions/startgruppe-nullable"
+        },
+        "startklasse": {
+          "title": "Startklasse des Starters",
+          "description": "Zum Zeitpunkt des Turniers gültige Startklasse des Starters",
+          "$ref": "#/definitions/startklasse-nullable"
+        },
+        "wettbewerbsart": {
+          "title": "Wettbewerbsart des Starters",
+          "description": "Ursprüngliche Wettbewerbsart des Starters aus der Startliste",
+          "$ref": "#/definitions/wettbewerbsart-nullable"
+        },
+        "ergebnis": {
+          "description": "Ergebnis dieses Starters",
+          "$ref": "#/definitions/starter-ergebnis"
+        },
+        "wertung": {
+          "description": "Wertungen des Starters",
+          "type": [
+            "null",
+            "array"
+          ],
+          "javaType": "java.util.List<de.tanzsport.esv.api.v1.model.ergebnis.WertungModel>",
+          "items": {
+            "anyOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "#/definitions/starter-wertung-vr"
+              },
+              {
+                "$ref": "#/definitions/starter-wertung-js"
+              },
+              {
+                "$ref": "#/definitions/starter-wertung-er"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "id",
+        "startNr",
+        "personen",
+        "staat",
+        "status",
+        "meldungsTyp",
+        "sterne",
+        "startgruppe",
+        "startklasse",
+        "wettbewerbsart",
+        "ergebnis",
+        "wertung"
+      ],
+      "additionalProperties": false
+    },
+    "tabelle-ausrechnung": {
+      "title": "Ausrechnung in einer Endrunden oder Skating-Tabelle",
+      "type": [
+        "null",
+        "object"
+      ],
+      "properties": {
+        "anzahl": {
+          "type": "integer"
+        },
+        "summe": {
+          "type": [
+            "null",
+            "integer"
+          ]
+        }
+      },
+      "required": [
+        "anzahl",
+        "summe"
+      ],
+      "additionalProperties": false
+    },
+    "ergebnis-endrundentabelle": {
+      "title": "Endrunden- oder Stichrundentabelle in einem Ergebnis",
+      "description": "Array über alle Tänze der jeweiligen Runde in der Reihenfolge der Nennung im Ergebnis",
+      "type": "array",
+      "items": {
+        "title": "Ausrechnungszeilen für einen Endrundentanz im Ergebnis",
+        "description": "Array über alle Starter der Runde in der Reigenfolgt der Nennung im Ergebnis",
+        "type": "array",
+        "items": {
+          "title": "Ausrechnungsspalten für einen Starter in einem Endrundentanzt",
+          "description": "Array über alle Plätze",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/tabelle-ausrechnung"
+          }
+        }
+      }
+    },
+    "ergebnis-skatingtabelle-starter": {
+      "title": "Starter in einer Skatingtabelle",
+      "description": "Array über alle Starter in der Reihenfolge der Nennung im Ergebnis",
+      "type": [
+        "array"
+      ],
+      "items": {
+        "anyOf": [
+          {
+            "title": "Ausrechnung je Platz",
+            "description": "Tabellenzellen (wenn in der Ausrechnung benötigt)",
+            "type": [
+              "null",
+              "array"
+            ],
+            "items": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/definitions/tabelle-ausrechnung"
+                }
+              ]
+            }
+          },
+          {
+            "title": "Platz",
+            "description": "Sofern in der jeweiligen Regel bestimmt; muss immer das letzte Element des Arrays sein (nicht validierbar über JSON-Schema)",
+            "type": "number"
+          }
+        ]
+      }
+    },
+    "ergebnis-skatingtabelle": {
+      "description": "Skatingtabelle in einem Ergebnis",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.SkatingTabelle",
+      "properties": {
+        "regel10": {
+          "title": "Ausrechnung Regel 10",
+          "description": "Array über alle Starter der Runde in der Reihenfolge der Nennung im Ergebnis",
+          "type": [
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ergebnis-skatingtabelle-starter"
+          }
+        },
+        "regel11": {
+          "title": "Ausrechnung Regel 11",
+          "description": "Array über alle Starter der Runde in der Reihenfolge der Nennung im Ergebnis",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ergebnis-skatingtabelle-starter"
+          }
+        }
+      },
+      "required": [
+        "regel10",
+        "regel11"
+      ],
+      "additionalProperties": false
+    },
+    "ergebnis-l1": {
+      "description": "Ergebnis (Level 1)",
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.ErgebnisLevel1",
+      "properties": {
+        "taenze": {
+          "description": "Tänze des Turniers",
+          "type": "array",
+          "maxItems": 10,
+          "items": {
+            "$ref": "#/definitions/tanz"
+          }
+        },
+        "wr": {
+          "description": "Wertungsrichter des Turniers",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/ergebnis-funktionaer-l1"
+          }
+        },
+        "tl": {
+          "description": "Turnierleiter des Turniers",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/ergebnis-funktionaer-l1"
+          }
+        },
+        "bs": {
+          "description": "Beisitzer des Turniers",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/ergebnis-funktionaer-l1"
+          }
+        },
+        "ch": {
+          "description": "Chairpersonen des Turniers",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ergebnis-funktionaer-l1"
+          }
+        },
+        "vorkommnisse": {
+          "description": "Besondere Vorkommnisse",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "beginn": {
+          "description": "Beginnzeit des Turniers",
+          "$ref": "#/definitions/iso8601-date-time-nullable"
+        },
+        "ende": {
+          "description": "Endzeit des Turniers",
+          "$ref": "#/definitions/iso8601-date-time-nullable"
+        },
+        "ablauf": {
+          "description": "Rundenablauf",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ergebnis-rundenablauf-l1"
+          }
+        },
+        "kombiniertMit": {
+          "description": "ID des Turniers, mit dem das Turnier dieses Ergebnisses kombiniert wurde",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "zuschauer": {
+          "description": "Anzahl der Zuschauer",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "starter": {
+          "description": "Starter mit Ergebnis",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ergebnis-starter-l1"
+          }
+        },
+        "endrundentabellen": {
+          "description": "Endrundentabellen dieses Ergebnisses",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ergebnis-endrundentabelle"
+          }
+        },
+        "skatingtabellen": {
+          "description": "Skatingtabellen dieses Ergebnisses",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ergebnis-skatingtabelle"
+          }
+        }
+      },
+      "required": [
+        "taenze",
+        "wr",
+        "tl",
+        "bs",
+        "ch",
+        "vorkommnisse",
+        "beginn",
+        "ende",
+        "ablauf",
+        "kombiniertMit",
+        "zuschauer",
+        "starter",
+        "endrundentabellen",
+        "skatingtabellen"
+      ],
+      "additionalProperties": false
+    },
+    "ergebnis-l2": {
+      "type": "object",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.ErgebnisLevel2",
+      "properties": {
+        "endergebnis": {
+          "description": "Flag für Endergebnis",
+          "type": "boolean"
+        },
+        "taenze": {
+          "description": "Tänze des Turniers",
+          "type": "array",
+          "maxItems": 10,
+          "items": {
+            "$ref": "#/definitions/tanz"
+          }
+        },
+        "wr": {
+          "description": "Wertungsrichter des Turniers",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/ergebnis-funktionaer-l2"
+          }
+        },
+        "tl": {
+          "description": "Turnierleiter des Turniers",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/ergebnis-funktionaer-l2"
+          }
+        },
+        "bs": {
+          "description": "Beisitzer des Turniers",
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/ergebnis-funktionaer-l2"
+          }
+        },
+        "ch": {
+          "description": "Chairpersonen des Turniers",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ergebnis-funktionaer-l2"
+          }
+        },
+        "moderatoren": {
+          "description": "Moderatoren des Turniers",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ergebnis-funktionaer-l2"
+          }
+        },
+        "protokoll": {
+          "description": "Protokollführer des Turniers",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ergebnis-funktionaer-l2"
+          }
+        },
+        "vorkommnisse": {
+          "description": "Besondere Vorkommnisse",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "beginn": {
+          "description": "Beginnzeit des Turniers",
+          "$ref": "#/definitions/iso8601-date-time-nullable"
+        },
+        "ende": {
+          "description": "Endzeit des Turniers",
+          "$ref": "#/definitions/iso8601-date-time-nullable"
+        },
+        "ablauf": {
+          "description": "Rundenablauf",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ergebnis-rundenablauf-l2"
+          }
+        },
+        "kombiniertMit": {
+          "description": "ID des Turniers, mit dem das Turnier dieses Ergebnisses kombiniert wurde",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "zuschauer": {
+          "description": "Anzahl der Zuschauer",
+          "type": [
+            "null",
+            "integer"
+          ]
+        },
+        "starter": {
+          "description": "Starter mit Ergebnis",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ergebnis-starter-l2"
+          }
+        },
+        "endrundentabellen": {
+          "description": "Endrundentabellen dieses Ergebnisses",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ergebnis-endrundentabelle"
+          }
+        },
+        "skatingtabellen": {
+          "description": "Skatingtabellen dieses Ergebnisses",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ergebnis-skatingtabelle"
+          }
+        },
+        "stichrundentabellen": {
+          "description": "Finaltabellen der Stichrunden dieses Ergebnisses",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ergebnis-endrundentabelle"
+          }
+        }
+      },
+      "required": [
+        "endergebnis",
+        "taenze",
+        "wr",
+        "tl",
+        "bs",
+        "ch",
+        "moderatoren",
+        "protokoll",
+        "vorkommnisse",
+        "beginn",
+        "ende",
+        "ablauf",
+        "kombiniertMit",
+        "zuschauer",
+        "starter",
+        "endrundentabellen",
+        "skatingtabellen",
+        "stichrundentabellen"
       ],
       "additionalProperties": false
     }

@@ -1,152 +1,154 @@
 {
-  "id": 2001,
-  "datumVon": "2014-04-18T00:00:00+02:00",
-  "datumBis": "2014-04-21T00:00:00+02:00",
-  "turnierstaette": {
-    "name": "Sport- und Freizeitzentrum Siemensstadt",
-    "anschrift": "Buolstr. 14",
-    "plz": "13629",
-    "ort": "Berlin"
-  },
-  "veranstalter": {
-    "id": 8000,
-    "name": "Verein X",
-    "ltv": {
-      "id": 9000,
-      "name": "LTV Y"
+  "veranstaltung": {
+    "id": 2001,
+    "datumVon": "2014-04-18T00:00:00+02:00",
+    "datumBis": "2014-04-21T00:00:00+02:00",
+    "turnierstaette": {
+      "name": "Sport- und Freizeitzentrum Siemensstadt",
+      "anschrift": "Buolstr. 14",
+      "plz": "13629",
+      "ort": "Berlin"
     },
-    "kontaktTelefon": "bla",
-    "kontaktEmail": "bla"
-  },
-  "ausrichter": {
-    "id": 8000,
-    "name": "Verein X",
-    "ltv": {
-      "id": 9000,
-      "name": "LTV Y"
-    },
-    "kontaktTelefon": "bla",
-    "kontaktEmail": "bla"
-  },
-  "titel": "Blaues Band der Spree",
-  "bemerkung": "Bemerkungen",
-  "wertungsrichter": [
-    {
-      "id": "DE1004",
-      "wdsfMin": 12345,
-      "lizenzNr": 67890,
-      "titel": "Dr.",
-      "vorname": "Max",
-      "nachname": "Mustermann",
-      "club": {
-        "id": 12345,
-        "name": "Verein A",
-        "ltv": {
-          "id": 8000,
-          "name": "LTV Y"
-        }
-      },
-      "staat": "GER",
-      "lizenzen": [
-        "WR-S-Std"
-      ]
-    }
-  ],
-  "funktionaere": [
-    {
-      "id": "DE1004",
-      "wdsfMin": 12345,
-      "lizenzNr": 67890,
-      "titel": "Dr.",
-      "vorname": "Max",
-      "nachname": "Mustermann",
-      "club": {
-        "id": 12345,
-        "name": "Verein A",
-        "ltv": {
-          "id": 8000,
-          "name": "LTV Y"
-        }
-      },
-      "staat": "GER",
-      "lizenzen": [
-        "TL"
-      ]
-    }
-  ],
-  "flaechen": [
-    {
-      "id": "Fläche 1",
-      "typ": "Parkett",
-      "laenge": 18.0,
-      "breite": 10.0
-    },
-    {
-      "id": "Fläche 2",
-      "typ": "Parkett",
-      "laenge": 18.0,
-      "breite": 10.0
-    },
-    {
-      "id": "Fläche 1+2",
-      "typ": "Parkett",
-      "laenge": 18.0,
-      "breite": 20.0
-    },
-    {
-      "id": "Fläche 4",
-      "typ": "Parkett",
-      "laenge": 12.0,
-      "breite": 9.0
-    }
-  ],
-  "turniere": [
-    {
-      "id": 10000,
-      "datumVon": "2014-04-18T00:00:00+02:00",
-      "datumBis": "2014-04-18T00:00:00+02:00",
-      "startzeitPlan": "10:00",
-      "startzeitPlanKorrigiert": "11:10",
-      "titel": "Titel",
-      "veranstalter": {
-        "id": 8000,
-        "name": "Landestanzsportverband Berlin e.V.",
-        "ltv": {
-          "id": 3,
-          "name": "LTV Berlin"
-        }
-      },
-      "ausrichter": {
+    "veranstalter": {
+      "id": 8000,
+      "name": "Verein X",
+      "ltv": {
         "id": 9000,
-        "name": "Ausrichtergemeinschaft Blaues Band der Spree",
-        "ltv": {
-          "id": 3,
-          "name": "LTV Berlin"
-        }
+        "name": "SLT"
       },
-      "flaechenId": "Fläche 1",
-      "wettbewerbsart": "Einzel",
-      "turnierform": "OT",
-      "startgruppe": "Hgr",
-      "startklasseLiga": "D",
-      "turnierart": "Lat",
-      "zulassung": [
-        "LTVBerlin",
-        "TRP"
-      ],
-      "wanderpokal": false,
-      "turnierrang": 1,
-      "aufstiegsturnier": true,
-      "ranglistenId": "Hgr-Std",
-      "wdsfTurnierId": 12356,
-      "startgebuehr": "10€ pro Paar für das 1. Turnier, 6€ für jedes weitere Turnier; WDSF-Turniere 25€",
-      "bemerkungen": "Bemerkungen",
-      "wertungsrichter": [
-        "DE10014"
-      ],
-      "turnierleiter": "DE10014",
-      "beisitzer": "DE10014",
-      "chairman": "DE10014"
-    }
-  ]
+      "kontaktTelefon": "bla",
+      "kontaktEmail": "bla"
+    },
+    "ausrichter": {
+      "id": 8000,
+      "name": "Verein X",
+      "ltv": {
+        "id": 9000,
+        "name": "HTV"
+      },
+      "kontaktTelefon": "bla",
+      "kontaktEmail": "bla"
+    },
+    "titel": "Blaues Band der Spree",
+    "bemerkung": "Bemerkungen",
+    "wertungsrichter": [
+      {
+        "id": "DE1004",
+        "wdsfMin": 12345,
+        "lizenzNr": 67890,
+        "titel": "Dr.",
+        "vorname": "Max",
+        "nachname": "Mustermann",
+        "club": {
+          "id": 12345,
+          "name": "Verein A",
+          "ltv": {
+            "id": 8000,
+            "name": "SLT"
+          }
+        },
+        "staat": "GER",
+        "lizenzen": [
+          "WR-S-Std"
+        ]
+      }
+    ],
+    "funktionaere": [
+      {
+        "id": "DE1004",
+        "wdsfMin": 12345,
+        "lizenzNr": 67890,
+        "titel": "Dr.",
+        "vorname": "Max",
+        "nachname": "Mustermann",
+        "club": {
+          "id": 12345,
+          "name": "Verein A",
+          "ltv": {
+            "id": 8000,
+            "name": "HTV"
+          }
+        },
+        "staat": "GER",
+        "lizenzen": [
+          "TL"
+        ]
+      }
+    ],
+    "flaechen": [
+      {
+        "id": "Fläche 1",
+        "typ": "Parkett",
+        "laenge": 18.0,
+        "breite": 10.0
+      },
+      {
+        "id": "Fläche 2",
+        "typ": "Parkett",
+        "laenge": 18.0,
+        "breite": 10.0
+      },
+      {
+        "id": "Fläche 1+2",
+        "typ": "Parkett",
+        "laenge": 18.0,
+        "breite": 20.0
+      },
+      {
+        "id": "Fläche 4",
+        "typ": "Parkett",
+        "laenge": 12.0,
+        "breite": 9.0
+      }
+    ],
+    "turniere": [
+      {
+        "id": 10000,
+        "datumVon": "2014-04-18T00:00:00+02:00",
+        "datumBis": "2014-04-18T00:00:00+02:00",
+        "startzeitPlan": "10:00",
+        "startzeitPlanKorrigiert": "11:10",
+        "titel": "Titel",
+        "veranstalter": {
+          "id": 8000,
+          "name": "Landestanzsportverband Berlin e.V.",
+          "ltv": {
+            "id": 3,
+            "name": "LTVBerlin"
+          }
+        },
+        "ausrichter": {
+          "id": 9000,
+          "name": "Ausrichtergemeinschaft Blaues Band der Spree",
+          "ltv": {
+            "id": 3,
+            "name": "LTVBerlin"
+          }
+        },
+        "flaechenId": "Fläche 1",
+        "wettbewerbsart": "Einzel",
+        "turnierform": "OT",
+        "startgruppe": "Hgr",
+        "startklasseLiga": "D",
+        "turnierart": "Lat",
+        "zulassung": [
+          "LTVBerlin",
+          "TRP"
+        ],
+        "wanderpokal": false,
+        "turnierrang": 1,
+        "aufstiegsturnier": true,
+        "ranglistenId": "Hgr-Std",
+        "wdsfTurnierId": 12356,
+        "startgebuehr": "10€ pro Paar für das 1. Turnier, 6€ für jedes weitere Turnier; WDSF-Turniere 25€",
+        "bemerkungen": "Bemerkungen",
+        "wertungsrichter": [
+          "DE10014"
+        ],
+        "turnierleiter": "DE10014",
+        "beisitzer": "DE10014",
+        "chairman": "DE10014"
+      }
+    ]
+  }
 }

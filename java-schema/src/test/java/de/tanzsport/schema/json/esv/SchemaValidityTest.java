@@ -26,7 +26,9 @@ public class SchemaValidityTest {
                 {Schemas.V1_AUFSTIEGSTABELLEN},
                 {Schemas.V1_FUNKTIONAER},
                 {Schemas.V1_FUNKTIONAERE},
-                {Schemas.V1_RANGLISTEN}
+                {Schemas.V1_RANGLISTEN},
+                {Schemas.V1_ERGEBNIS_LEVEL1},
+                {Schemas.V1_ERGEBNIS_LEVEL2},
         });
     }
 

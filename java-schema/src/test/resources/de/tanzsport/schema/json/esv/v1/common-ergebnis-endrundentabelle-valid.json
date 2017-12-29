@@ -1,0 +1,334 @@
+{
+  "ergebnis-endrundentabelle": [
+    [
+      [
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 2,
+          "summe": null
+        },
+        {
+          "anzahl": 5,
+          "summe": null
+        },
+        null,
+        null
+      ],
+      [
+        {
+          "anzahl": 3,
+          "summe": null
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 3,
+          "summe": null
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 3,
+          "summe": 8
+        },
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 3,
+          "summe": null
+        },
+        null
+      ],
+      [
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 2,
+          "summe": null
+        },
+        {
+          "anzahl": 3,
+          "summe": 6
+        },
+        null,
+        null,
+        null
+      ]
+    ],
+    [
+      [
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 5,
+          "summe": null
+        },
+        null,
+        null
+      ],
+      [
+        {
+          "anzahl": 3,
+          "summe": null
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "anzahl": 2,
+          "summe": null
+        },
+        {
+          "anzahl": 4,
+          "summe": null
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 2,
+          "summe": null
+        },
+        {
+          "anzahl": 4,
+          "summe": null
+        },
+        null
+      ],
+      [
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 5,
+          "summe": null
+        }
+      ],
+      [
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 3,
+          "summe": null
+        },
+        null,
+        null,
+        null
+      ]
+    ],
+    [
+      [
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 2,
+          "summe": null
+        },
+        {
+          "anzahl": 5,
+          "summe": null
+        },
+        null,
+        null
+      ],
+      [
+        {
+          "anzahl": 2,
+          "summe": null
+        },
+        {
+          "anzahl": 4,
+          "summe": null
+        },
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "anzahl": 3,
+          "summe": null
+        },
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 4,
+          "summe": null
+        },
+        null
+      ],
+      [
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 1,
+          "summe": null
+        },
+        {
+          "anzahl": 5,
+          "summe": null
+        }
+      ],
+      [
+        {
+          "anzahl": 0,
+          "summe": null
+        },
+        {
+          "anzahl": 2,
+          "summe": null
+        },
+        {
+          "anzahl": 3,
+          "summe": null
+        },
+        null,
+        null,
+        null
+      ]
+    ]
+  ]
+}

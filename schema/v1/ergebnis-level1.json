@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://schema.tanzsport.de/json/esv/v1/ergebnis-level1.json",
+  "title": "Ergebnis V1, Level 1",
+  "description": "JSON-Schema Level 1 für die Response des Endpunktes /api/v1/ergebnis/:id",
+  "type": "object",
+  "$ref": "common.json#/definitions/ergebnis-l1"
+}

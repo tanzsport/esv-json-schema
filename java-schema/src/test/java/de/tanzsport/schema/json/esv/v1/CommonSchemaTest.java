@@ -24,9 +24,11 @@ public class CommonSchemaTest extends AbstractV1SchemaTest {
     private static final String DEF_IOC = "common.json#/definitions/ioc-code";
     private static final String DEF_TEAM_L1 = "common.json#/definitions/team-l1";
     private static final String DEF_PERSON_L1 = "common.json#/definitions/person-l1";
-    private static final String DEF_STARTLIGA = "common.json#/definitions/startliga";
+    private static final String DEF_STARTLIGA = "common.json#/definitions/startliga-nullable";
     private static final String DEF_VERANSTALTUNG = "common.json#/definitions/veranstaltung";
     private static final String DEF_EINTRAG = "common.json#/definitions/veranstaltungsliste-eintrag";
+    private static final String DEF_ENDRUNDENTABELLE = "common.json#/definitions/ergebnis-endrundentabelle";
+    private static final String DEF_SKATINGTABELLE = "common.json#/definitions/ergebnis-skatingtabelle";
 
     @Parameterized.Parameters(name = "{2}")
     public static Collection<Object[]> data() {
@@ -183,15 +185,15 @@ public class CommonSchemaTest extends AbstractV1SchemaTest {
                         DEF_IOC, true, "common-ioc-code-valid.json", 0, null
                 },
                 {
-                        DEF_IOC, false, "common-ioc-code-invalid-longer.json", 1,
+                        DEF_IOC, true, "common-ioc-code-invalid-longer.json", 1,
                         Arrays.asList(failureMaxLength("ioc-code", 3))
                 },
                 {
-                        DEF_IOC, false, "common-ioc-code-invalid-shorter.json", 1,
+                        DEF_IOC, true, "common-ioc-code-invalid-shorter.json", 1,
                         Arrays.asList(failureMinLength("ioc-code", 3))
                 },
                 {
-                        DEF_IOC, false, "common-ioc-code-invalid-types.json", 1,
+                        DEF_IOC, true, "common-ioc-code-invalid-types.json", 1,
                         Arrays.asList(failureType("ioc-code", "String"))
                 },
                 {
@@ -201,41 +203,46 @@ public class CommonSchemaTest extends AbstractV1SchemaTest {
                         DEF_TEAM_L1, true, "common-team-l1-valid-null.json", 0, null
                 },
                 {
-                        DEF_TEAM_L1, false, "common-team-l1-invalid-empty.json", 2,
+                        DEF_TEAM_L1, true, "common-team-l1-invalid-empty.json", 2,
                         failuresRequired("name", "kapitaen")
                 },
                 {
-                        DEF_TEAM_L1, false, "common-team-l1-invalid-types.json", 2,
+                        DEF_TEAM_L1, true, "common-team-l1-invalid-types.json", 2,
                         Arrays.asList(failureType("name", "String"), failureType("kapitaen", "String"))
                 },
                 {
                         DEF_PERSON_L1, true, "common-person-l1-valid.json", 0, null
                 },
                 {
-                        DEF_PERSON_L1, false, "common-person-l1-invalid-empty.json", 7,
+                        DEF_PERSON_L1, true, "common-person-l1-invalid-empty.json", 7,
                         failuresRequired("id", "titel", "vorname", "nachname", "geschlecht", "wdsfMin", "nationalitaet")
                 },
                 {
-                        DEF_STARTLIGA, false, "common-startliga-valid.json", 0, null
+                        DEF_STARTLIGA, true, "common-startliga-valid.json", 0, null
                 },
                 {
-                        DEF_STARTLIGA, false, "common-startliga-valid-null.json", 0, null
+                        DEF_STARTLIGA, true, "common-startliga-valid-null.json", 0, null
                 },
                 {
-                        DEF_VERANSTALTUNG, false, "common-veranstaltung-valid-max.json", 0, null
+                        DEF_VERANSTALTUNG, true, "common-veranstaltung-valid-max.json", 0, null
                 },
                 {
-                        DEF_EINTRAG, false, "common-veranstaltungsliste-eintrag-valid.json", 0, null
+                        DEF_EINTRAG, true, "common-veranstaltungsliste-eintrag-valid.json", 0, null
+                },
+                {
+                        DEF_ENDRUNDENTABELLE, true, "common-ergebnis-endrundentabelle-valid.json", 0, null
+                },
+                {
+                        DEF_SKATINGTABELLE, true, "common-ergebnis-skatingtabelle-valid.json", 0, null
                 }
         });
     }
 
     private final String $ref;
     private final String name;
-    private final boolean required;
-    private final JSONObject objectToValidate;
+    private final Object objectToValidate;
 
-    public CommonSchemaTest(String $ref, boolean required, String resource, int expectedFailures,
+    public CommonSchemaTest(String $ref, boolean isObject, String resource, int expectedFailures,
             List<String> expectedMessages) {
         super(expectedFailures, expectedMessages);
         Objects.requireNonNull($ref, "$ref required!");
@@ -243,12 +250,11 @@ public class CommonSchemaTest extends AbstractV1SchemaTest {
 
         this.$ref = $ref;
         this.name = $ref.substring($ref.lastIndexOf("/") + 1);
-        this.required = required;
         this.objectToValidate = readObject(resource);
     }
 
     @Test
     public void commonSchema() {
-        testSchema(createTestSchema(name, $ref, required), objectToValidate);
+        testSchema(createTestSchema(name, $ref), objectToValidate);
     }
 }

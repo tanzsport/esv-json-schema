@@ -1,0 +1,68 @@
+{
+  "ergebnis-skatingtabelle": {
+    "regel10": [
+      [
+        [
+          null,
+          null,
+          null
+        ],
+        null
+      ],
+      [
+        [
+          null,
+          {
+            "anzahl": 2,
+            "summe": 4
+          },
+          null
+        ],
+        null
+      ],
+      [
+        [
+          null,
+          {
+            "anzahl": 2,
+            "summe": 4
+          },
+          null
+        ],
+        null
+      ]
+    ],
+    "regel11": [
+      [
+        [
+          null,
+          null,
+          null
+        ],
+        null
+      ],
+      [
+        [
+          null,
+          {
+            "anzahl": 8,
+            "summe": null
+          },
+          null
+        ],
+        3
+      ],
+      [
+        [
+          null,
+          {
+            "anzahl": 12,
+            "summe": null
+          },
+          null
+        ],
+        2
+      ]
+    ]
+  }
+}
