@@ -1715,7 +1715,7 @@
         },
         "zielklasse": {
           "description": "Ziel-Startklasse",
-          "$ref": "#/definitions/startklasse"
+          "$ref": "#/definitions/startklasse-nullable"
         },
         "punkte": {
           "description": "Erforderliche Punkte für Aufstieg",
