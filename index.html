@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>ESV JSON Schema</title>
+    <title>Übersicht - ESV JSON Schema</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -67,9 +67,6 @@
     <script src="https://tanzsport.github.io/esv-json-schema/javascripts/modernizr.js"></script>
 
     
-    <link href="https://tanzsport.github.io/esv-json-schema/index.xml" rel="alternate" type="application/rss+xml" title="ESV JSON Schema" />
-    <link href="https://tanzsport.github.io/esv-json-schema/index.xml" rel="feed" type="application/rss+xml" title="ESV JSON Schema" />
-    
 
   </head>
   <body class="palette-primary-blue palette-accent-cyan">
@@ -95,7 +92,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        ESV JSON Schema
+        Übersicht
       </div>
     </div>
 
@@ -215,10 +212,9 @@
 
 	<article class="article">
 		<div class="wrapper">
-			
-				<h1>Übersicht </h1>
+			<h1>Übersicht </h1>
 
-				
+			
 
 <p>Aktuell liegen die <a href="http://json-schema.org">JSON-Schema</a>-Definitionen im Format <em>Draft-06</em> vor.</p>
 
@@ -316,9 +312,44 @@
 
 <h3 id="requests">Requests</h3>
 
-<p><em>Noch keines Schemas vorhanden.</em></p>
+<table>
+<thead>
+<tr>
+<th>Endpunkt</th>
+<th>Level</th>
+<th>Schema-URI</th>
+<th>Schema</th>
+<th>Bundle</th>
+</tr>
+</thead>
 
-			
+<tbody>
+<tr>
+<td>(<em>common</em>)</td>
+<td>1, 2</td>
+<td>http<nolink>://schema.tanzsport.de/json/esv/json/v1/common.json</td>
+<td><a href="https://raw.githubusercontent.com/tanzsport/esv-json-schema/master/schema/v1/common.json">Schema</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Ergebnis</td>
+<td>1</td>
+<td>http<nolink>://schema.tanzsport.de/json/esv/json/v1/ergebnis-level1.json</td>
+<td><a href="https://raw.githubusercontent.com/tanzsport/esv-json-schema/master/schema/v1/ergebnis-level1.json">Schema</a></td>
+<td><a href="schema-bundles/v1/ergebnis-level1.json">Bundle</a></td>
+</tr>
+
+<tr>
+<td>Ergebnis</td>
+<td>2</td>
+<td>http<nolink>://schema.tanzsport.de/json/esv/json/v1/ergebnis-level2.json</td>
+<td><a href="https://raw.githubusercontent.com/tanzsport/esv-json-schema/master/schema/v1/ergebnis-level2.json">Schema</a></td>
+<td><a href="schema-bundles/v1/ergebnis-level2.json">Bundle</a></td>
+</tr>
+</tbody>
+</table>
+
 
 			<aside class="copyright" role="note">
 				
@@ -331,32 +362,33 @@
 			<footer class="footer">
 				
 
-
-
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
-  </div>
-
   
-  
-  <div class="next">
-      <a href="https://tanzsport.github.io/esv-json-schema/tags/" title="Tags">
+      <a href="https://tanzsport.github.io/esv-json-schema/validator/" title="Validator">
         <span class="direction">
-          Next
+          Previous
         </span>
         <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
           <div class="stretch">
             <div class="title">
-              Tags
+              Validator
             </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
           </div>
         </div>
       </a>
+  
+  </div>
+
+  <div class="next">
+  
   </div>
 </nav>
+
+
 
 
 
