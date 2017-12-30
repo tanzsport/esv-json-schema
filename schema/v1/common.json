@@ -2285,12 +2285,10 @@
       "properties": {
         "runde": {
           "description": "Runde",
-          "type": "string",
           "$ref": "#/definitions/rundentyp"
         },
         "typ": {
           "description": "Wertungstyp",
-          "type": "string",
           "$ref": "#/definitions/wertungstyp"
         }
       },
@@ -2325,12 +2323,10 @@
       "properties": {
         "runde": {
           "description": "Runde",
-          "type": "string",
           "$ref": "#/definitions/rundentyp"
         },
         "typ": {
           "description": "Wertungstyp",
-          "type": "string",
           "$ref": "#/definitions/wertungstyp"
         },
         "platz": {
