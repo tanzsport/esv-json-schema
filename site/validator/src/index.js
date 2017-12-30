@@ -9,7 +9,9 @@ var schemas = {
     'Funktion\u00e4re V1': '../schema-bundles/v1/funktionaere.json',
     'Ranglisten V1': '../schema-bundles/v1/ranglisten.json',
     'Startliste V1, Level 1': '../schema-bundles/v1/startliste-level1.json',
-    'Startliste V1, Level 2': '../schema-bundles/v1/startliste-level2.json'
+    'Startliste V1, Level 2': '../schema-bundles/v1/startliste-level2.json',
+    'Ergebnis V1, Level 1': '../schema-bundles/v1/ergebnis-level1.json',
+    'Ergebnis V1, Level 2': '../schema-bundles/v1/ergebnis-level2.json',
 };
 
 var cache = {};

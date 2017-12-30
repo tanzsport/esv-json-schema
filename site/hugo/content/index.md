@@ -27,4 +27,8 @@ Gemeinsame Definitionen für die Endpunkte befinden sich im *common*-Schema. Die
 
 ### Requests
 
-*Noch keines Schemas vorhanden.*
+|Endpunkt|Level|Schema-URI|Schema|Bundle|
+|---|---|---|---|---|
+|(_common_)|1, 2|http<nolink>://schema.tanzsport.de/json/esv/json/v1/common.json|[Schema](https://raw.githubusercontent.com/tanzsport/esv-json-schema/master/schema/v1/common.json)||
+|Ergebnis|1|http<nolink>://schema.tanzsport.de/json/esv/json/v1/ergebnis-level1.json|[Schema](https://raw.githubusercontent.com/tanzsport/esv-json-schema/master/schema/v1/ergebnis-level1.json)|[Bundle](schema-bundles/v1/ergebnis-level1.json)|
+|Ergebnis|2|http<nolink>://schema.tanzsport.de/json/esv/json/v1/ergebnis-level2.json|[Schema](https://raw.githubusercontent.com/tanzsport/esv-json-schema/master/schema/v1/ergebnis-level2.json)|[Bundle](schema-bundles/v1/ergebnis-level2.json)|

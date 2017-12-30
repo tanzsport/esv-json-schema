@@ -9,7 +9,9 @@ var schemas = [
     "../schema/v1/ranglisten.json",
     "../schema/v1/funktionaer.json",
     "../schema/v1/funktionaere.json",
-    "../schema/v1/aufstiegstabellen.json"
+    "../schema/v1/aufstiegstabellen.json",
+    "../schema/v1/ergebnis-level1.json",
+    "../schema/v1/ergebnis-level2.json",
 ];
 
 function targetFile(schema) {
