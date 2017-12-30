@@ -51,28 +51,28 @@ public class StartbuchLevel1Model implements Serializable
     @JsonPropertyDescription("Startgruppe")
     private StartgruppeTyp startgruppe;
     /**
-     * Startliga
+     * Startliga (inkl. null)
      * (Required)
      * 
      */
     @JsonProperty("startliga")
-    @JsonPropertyDescription("Startliga")
+    @JsonPropertyDescription("Startliga (inkl. null)")
     private StartligaTyp startliga;
     /**
-     * Startklasse
+     * Startklasse (inkl. null)
      * (Required)
      * 
      */
     @JsonProperty("startklasse")
-    @JsonPropertyDescription("Startklasse")
+    @JsonPropertyDescription("Startklasse (inkl. null)")
     private StartklasseTyp startklasse;
     /**
-     * Startklasse
+     * Startklasse (inkl. null)
      * (Required)
      * 
      */
     @JsonProperty("naechsteStartklasse")
-    @JsonPropertyDescription("Startklasse")
+    @JsonPropertyDescription("Startklasse (inkl. null)")
     private StartklasseTyp naechsteStartklasse;
     /**
      * Ist- und Zielpunkte bzw. -platzierungen
@@ -159,7 +159,7 @@ public class StartbuchLevel1Model implements Serializable
     }
 
     /**
-     * Startliga
+     * Startliga (inkl. null)
      * (Required)
      * 
      */
@@ -169,7 +169,7 @@ public class StartbuchLevel1Model implements Serializable
     }
 
     /**
-     * Startliga
+     * Startliga (inkl. null)
      * (Required)
      * 
      */
@@ -184,7 +184,7 @@ public class StartbuchLevel1Model implements Serializable
     }
 
     /**
-     * Startklasse
+     * Startklasse (inkl. null)
      * (Required)
      * 
      */
@@ -194,7 +194,7 @@ public class StartbuchLevel1Model implements Serializable
     }
 
     /**
-     * Startklasse
+     * Startklasse (inkl. null)
      * (Required)
      * 
      */
@@ -209,7 +209,7 @@ public class StartbuchLevel1Model implements Serializable
     }
 
     /**
-     * Startklasse
+     * Startklasse (inkl. null)
      * (Required)
      * 
      */
@@ -219,7 +219,7 @@ public class StartbuchLevel1Model implements Serializable
     }
 
     /**
-     * Startklasse
+     * Startklasse (inkl. null)
      * (Required)
      * 
      */

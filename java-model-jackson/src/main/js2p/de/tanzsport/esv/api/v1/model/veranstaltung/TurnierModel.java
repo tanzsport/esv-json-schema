@@ -149,12 +149,12 @@ public class TurnierModel implements Serializable
     @JsonPropertyDescription("Startgruppe")
     private StartgruppeTyp startgruppe;
     /**
-     * Startklasse oder -liga
+     * Startklasse oder -liga (inkl. null)
      * (Required)
      * 
      */
     @JsonProperty("startklasseLiga")
-    @JsonPropertyDescription("Startklasse oder -liga")
+    @JsonPropertyDescription("Startklasse oder -liga (inkl. null)")
     private StartklasseLigaTyp startklasseLiga;
     /**
      * Turnierart
@@ -544,7 +544,7 @@ public class TurnierModel implements Serializable
     }
 
     /**
-     * Startklasse oder -liga
+     * Startklasse oder -liga (inkl. null)
      * (Required)
      * 
      */
@@ -554,7 +554,7 @@ public class TurnierModel implements Serializable
     }
 
     /**
-     * Startklasse oder -liga
+     * Startklasse oder -liga (inkl. null)
      * (Required)
      * 
      */

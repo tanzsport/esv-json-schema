@@ -37,12 +37,12 @@ public class AufstiegsTabelleKriterienModel implements Serializable
     @JsonPropertyDescription("Startklasse")
     private StartklasseTyp klasse;
     /**
-     * Startklasse
+     * Startklasse (inkl. null)
      * (Required)
      * 
      */
     @JsonProperty("zielklasse")
-    @JsonPropertyDescription("Startklasse")
+    @JsonPropertyDescription("Startklasse (inkl. null)")
     private StartklasseTyp zielklasse;
     /**
      * Erforderliche Punkte für Aufstieg
@@ -104,7 +104,7 @@ public class AufstiegsTabelleKriterienModel implements Serializable
     }
 
     /**
-     * Startklasse
+     * Startklasse (inkl. null)
      * (Required)
      * 
      */
@@ -114,7 +114,7 @@ public class AufstiegsTabelleKriterienModel implements Serializable
     }
 
     /**
-     * Startklasse
+     * Startklasse (inkl. null)
      * (Required)
      * 
      */
