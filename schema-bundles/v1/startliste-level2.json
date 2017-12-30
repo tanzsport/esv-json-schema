@@ -350,10 +350,6 @@
                 },
                 "startliga": {
                   "description": "Ist-Startliga des Starters (nur Formationen und Gruppen)",
-                  "type": [
-                    "null",
-                    "string"
-                  ],
                   "enum": [
                     null,
                     "1BL",
@@ -367,10 +363,6 @@
                 },
                 "startklasse": {
                   "description": "Ist-Startklasse des Starters (nur Einzelwettbewerbe Std/Lat und JMD)",
-                  "type": [
-                    "null",
-                    "string"
-                  ],
                   "enum": [
                     null,
                     "BSW",

@@ -476,10 +476,6 @@
           },
           "startklasseLiga": {
             "description": "Startklasse oder -liga des Turniers",
-            "type": [
-              "null",
-              "string"
-            ],
             "enum": [
               null,
               "BSW",

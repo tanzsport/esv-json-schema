@@ -98,12 +98,7 @@
                 "properties": {
                   "klasse": {
                     "description": "Ist-Startklasse",
-                    "type": [
-                      "null",
-                      "string"
-                    ],
                     "enum": [
-                      null,
                       "BSW",
                       "D",
                       "C",
@@ -116,7 +111,17 @@
                   },
                   "zielklasse": {
                     "description": "Ziel-Startklasse",
-                    "$ref": "#/items/properties/tabellen/items/properties/kriterien/items/properties/klasse"
+                    "enum": [
+                      null,
+                      "BSW",
+                      "D",
+                      "C",
+                      "B",
+                      "A",
+                      "S",
+                      "PD"
+                    ],
+                    "javaType": "de.tanzsport.esv.api.v1.model.StartklasseTyp"
                   },
                   "punkte": {
                     "description": "Erforderliche Punkte für Aufstieg",
