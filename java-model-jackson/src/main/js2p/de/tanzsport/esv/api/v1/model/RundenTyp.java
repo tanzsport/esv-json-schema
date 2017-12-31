@@ -21,6 +21,8 @@ public enum RundenTyp {
     RD_8("8"),
     RD_9("9"),
     RD_F("F"),
+    RD_FA("FA"),
+    RD_FB("FB"),
     RD_SR("SR");
     private final String value;
     private final static Map<String, RundenTyp> CONSTANTS = new HashMap<String, RundenTyp>();
