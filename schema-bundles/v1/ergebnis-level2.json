@@ -217,6 +217,8 @@
               8,
               9,
               "F",
+              "FA",
+              "FB",
               "SR"
             ],
             "javaEnumNames": [
@@ -233,6 +235,8 @@
               "RD_8",
               "RD_9",
               "RD_F",
+              "RD_FA",
+              "RD_FB",
               "RD_SR"
             ]
           },
