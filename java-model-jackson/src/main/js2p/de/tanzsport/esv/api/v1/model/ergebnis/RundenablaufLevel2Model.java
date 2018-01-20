@@ -64,6 +64,7 @@ public class RundenablaufLevel2Model implements Serializable
     private List<Integer> startreihenfolge = new ArrayList<Integer>();
     /**
      * Kreuzvorgabe in einem Ergebnis
+     * (Required)
      * 
      */
     @JsonProperty("kreuzvorgabe")
@@ -173,6 +174,7 @@ public class RundenablaufLevel2Model implements Serializable
 
     /**
      * Kreuzvorgabe in einem Ergebnis
+     * (Required)
      * 
      */
     @JsonProperty("kreuzvorgabe")
@@ -182,6 +184,7 @@ public class RundenablaufLevel2Model implements Serializable
 
     /**
      * Kreuzvorgabe in einem Ergebnis
+     * (Required)
      * 
      */
     @JsonProperty("kreuzvorgabe")
