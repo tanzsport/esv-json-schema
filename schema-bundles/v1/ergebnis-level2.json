@@ -294,7 +294,8 @@
           "runde",
           "typ",
           "platz",
-          "startreihenfolge"
+          "startreihenfolge",
+          "kreuzvorgabe"
         ],
         "additionalProperties": false
       }
