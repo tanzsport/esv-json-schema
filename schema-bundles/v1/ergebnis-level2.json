@@ -440,7 +440,9 @@
               "SenIV",
               "U21",
               "MCI",
-              "MCII"
+              "MCII",
+              "G55",
+              "Ls66"
             ],
             "javaType": "de.tanzsport.esv.api.v1.model.StartgruppeTyp"
           },
