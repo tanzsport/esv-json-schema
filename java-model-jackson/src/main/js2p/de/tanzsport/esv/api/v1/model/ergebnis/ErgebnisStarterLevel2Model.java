@@ -33,7 +33,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
     "startklasse",
     "wettbewerbsart",
     "ergebnis",
-    "wertung"
+    "wertung",
+    "stichrundenwertung"
 })
 public class ErgebnisStarterLevel2Model implements Serializable
 {
@@ -134,7 +135,17 @@ public class ErgebnisStarterLevel2Model implements Serializable
     @JsonProperty("wertung")
     @JsonPropertyDescription("Wertungen des Starters")
     private List<WertungModel> wertung = new ArrayList<WertungModel>();
-    private final static long serialVersionUID = 436111573021926254L;
+    /**
+     * Stichrundenwertung eines Starters
+     * <p>
+     * Stichrundenwertung eines Starters (nur eine möglich), null falls nicht vorhanden
+     * (Required)
+     * 
+     */
+    @JsonProperty("stichrundenwertung")
+    @JsonPropertyDescription("Stichrundenwertung eines Starters (nur eine m\u00f6glich), null falls nicht vorhanden")
+    private StarterStichrundenWertungModel stichrundenwertung;
+    private final static long serialVersionUID = -7733487032730811070L;
 
     /**
      * Starter-ID
@@ -436,14 +447,43 @@ public class ErgebnisStarterLevel2Model implements Serializable
         return this;
     }
 
+    /**
+     * Stichrundenwertung eines Starters
+     * <p>
+     * Stichrundenwertung eines Starters (nur eine möglich), null falls nicht vorhanden
+     * (Required)
+     * 
+     */
+    @JsonProperty("stichrundenwertung")
+    public StarterStichrundenWertungModel getStichrundenwertung() {
+        return stichrundenwertung;
+    }
+
+    /**
+     * Stichrundenwertung eines Starters
+     * <p>
+     * Stichrundenwertung eines Starters (nur eine möglich), null falls nicht vorhanden
+     * (Required)
+     * 
+     */
+    @JsonProperty("stichrundenwertung")
+    public void setStichrundenwertung(StarterStichrundenWertungModel stichrundenwertung) {
+        this.stichrundenwertung = stichrundenwertung;
+    }
+
+    public ErgebnisStarterLevel2Model withStichrundenwertung(StarterStichrundenWertungModel stichrundenwertung) {
+        this.stichrundenwertung = stichrundenwertung;
+        return this;
+    }
+
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("id", id).append("startNr", startNr).append("personen", personen).append("staat", staat).append("status", status).append("meldungsTyp", meldungsTyp).append("sterne", sterne).append("startgruppe", startgruppe).append("startklasse", startklasse).append("wettbewerbsart", wettbewerbsart).append("ergebnis", ergebnis).append("wertung", wertung).toString();
+        return new ToStringBuilder(this).append("id", id).append("startNr", startNr).append("personen", personen).append("staat", staat).append("status", status).append("meldungsTyp", meldungsTyp).append("sterne", sterne).append("startgruppe", startgruppe).append("startklasse", startklasse).append("wettbewerbsart", wettbewerbsart).append("ergebnis", ergebnis).append("wertung", wertung).append("stichrundenwertung", stichrundenwertung).toString();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(wertung).append(startklasse).append(sterne).append(meldungsTyp).append(startNr).append(personen).append(wettbewerbsart).append(startgruppe).append(staat).append(id).append(ergebnis).append(status).toHashCode();
+        return new HashCodeBuilder().append(wertung).append(startklasse).append(sterne).append(meldungsTyp).append(stichrundenwertung).append(startNr).append(personen).append(wettbewerbsart).append(startgruppe).append(staat).append(id).append(ergebnis).append(status).toHashCode();
     }
 
     @Override
@@ -455,7 +495,7 @@ public class ErgebnisStarterLevel2Model implements Serializable
             return false;
         }
         ErgebnisStarterLevel2Model rhs = ((ErgebnisStarterLevel2Model) other);
-        return new EqualsBuilder().append(wertung, rhs.wertung).append(startklasse, rhs.startklasse).append(sterne, rhs.sterne).append(meldungsTyp, rhs.meldungsTyp).append(startNr, rhs.startNr).append(personen, rhs.personen).append(wettbewerbsart, rhs.wettbewerbsart).append(startgruppe, rhs.startgruppe).append(staat, rhs.staat).append(id, rhs.id).append(ergebnis, rhs.ergebnis).append(status, rhs.status).isEquals();
+        return new EqualsBuilder().append(wertung, rhs.wertung).append(startklasse, rhs.startklasse).append(sterne, rhs.sterne).append(meldungsTyp, rhs.meldungsTyp).append(stichrundenwertung, rhs.stichrundenwertung).append(startNr, rhs.startNr).append(personen, rhs.personen).append(wettbewerbsart, rhs.wettbewerbsart).append(startgruppe, rhs.startgruppe).append(staat, rhs.staat).append(id, rhs.id).append(ergebnis, rhs.ergebnis).append(status, rhs.status).isEquals();
     }
 
 }
