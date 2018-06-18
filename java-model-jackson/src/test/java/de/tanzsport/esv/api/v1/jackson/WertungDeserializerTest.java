@@ -102,7 +102,7 @@ public class WertungDeserializerTest {
 
     @Test
     public void deserializesTestPojo() throws Exception {
-        TestPojo o = mapper.readValue(getClass().getResourceAsStream("test-pojo.json"), TestPojo.class);
+        TestPojoWertungen o = mapper.readValue(getClass().getResourceAsStream("test-pojo.json"), TestPojoWertungen.class);
         assertThat(o).isNotNull();
         assertThat(o.getWertungen()).isNotNull();
         assertThat(o.getWertungen()).hasSize(4);

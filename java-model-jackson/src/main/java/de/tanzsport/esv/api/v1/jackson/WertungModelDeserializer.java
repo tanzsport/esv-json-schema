@@ -10,7 +10,6 @@ import de.tanzsport.esv.api.v1.model.ergebnis.JudgingSystemWertungModel;
 import de.tanzsport.esv.api.v1.model.ergebnis.KreuzWertungModel;
 import de.tanzsport.esv.api.v1.model.ergebnis.KreuzWertungWrModel;
 import de.tanzsport.esv.api.v1.model.ergebnis.PlatzWertungModel;
-import de.tanzsport.esv.api.v1.model.ergebnis.PlatzWertungTanzModel;
 import de.tanzsport.esv.api.v1.model.ergebnis.WertungModel;
 
 import java.io.IOException;
@@ -19,6 +18,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class WertungModelDeserializer extends StdDeserializer<WertungModel> {
+
+    private PlatzWertungModelDeserializer platzWertungModelDeserializer = new PlatzWertungModelDeserializer();
 
     public WertungModelDeserializer() {
         super(WertungModel.class);
@@ -64,7 +65,7 @@ public class WertungModelDeserializer extends StdDeserializer<WertungModel> {
             }
             else {
                 try {
-                    return new PlatzWertungModel(readPlatzwertungenTaenze(values));
+                    return new PlatzWertungModel(platzWertungModelDeserializer.readPlatzwertungenTaenze(values));
                 }
                 catch (RuntimeException e) {
                     throw new JsonParseException(p, e.getMessage());
@@ -93,27 +94,6 @@ public class WertungModelDeserializer extends StdDeserializer<WertungModel> {
                     final List<Number> wertungen = raw.stream().map(w -> (Number) w).collect(Collectors.toList());
                     return new KreuzWertungWrModel(wertungen.subList(0, wertungen.size() - 1),
                             wertungen.get(wertungen.size() - 1));
-                })
-                .collect(Collectors.toList());
-    }
-
-    private List<PlatzWertungTanzModel> readPlatzwertungenTaenze(final List<?> values) {
-        return values.stream()
-                .map(tanz -> {
-                    if (!(tanz instanceof List)) {
-                        throw new RuntimeException("Platzwertungen müssen als Liste vorliegen.");
-                    }
-
-                    final List<?> raw = (List) tanz;
-                    raw.forEach(wertung -> {
-                        if (wertung == null || !Number.class.isAssignableFrom(wertung.getClass())) {
-                            throw new RuntimeException("Platzwertungen dürfen nur Zahlen enthalten.");
-                        }
-                    });
-
-                    final List<Number> wertungen = raw.stream().map(w -> (Number) w).collect(Collectors.toList());
-                    return new PlatzWertungTanzModel(wertungen.subList(0, wertungen.size() - 2),
-                            wertungen.get(wertungen.size() - 2), wertungen.get(wertungen.size() - 1));
                 })
                 .collect(Collectors.toList());
     }

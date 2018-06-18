@@ -4,7 +4,7 @@ import de.tanzsport.esv.api.v1.model.ergebnis.WertungModel;
 
 import java.util.List;
 
-public class TestPojo {
+public class TestPojoWertungen {
 
     private String property;
     private List<WertungModel> wertungen;
