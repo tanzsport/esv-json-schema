@@ -2499,6 +2499,7 @@
     "starter-wertung-er": {
       "title": "End- oder Stichrundenwertung eines Starters (Platzwertung)",
       "description": "Array über alle Tänze in der Reihenfolge der Nennung im Ergebnis",
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.PlatzWertungModel",
       "type": "array",
       "items": {
         "type": "array",
