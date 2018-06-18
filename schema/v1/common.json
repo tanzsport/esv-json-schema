@@ -2509,6 +2509,30 @@
         }
       }
     },
+    "starter-stichrundenwertung": {
+      "title": "Stichrundenwertung eines Starters",
+      "description": "Stichrundenwertung eines Starters (nur eine möglich), null falls nicht vorhanden",
+      "type": [
+        "null",
+        "object"
+      ],
+      "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.StarterStichrundenWertung",
+      "properties": {
+        "stichrunde": {
+          "title": "Index der Stichrunde aus dem Stichrundenablauf",
+          "description": "0-basierter Index der Stichrunde aus dem Array [stichrunden] im Ergebnis",
+          "type": "integer"
+        },
+        "wertung": {
+          "$ref": "#/definitions/starter-wertung-er"
+        }
+      },
+      "required": [
+        "stichrunde",
+        "wertung"
+      ],
+      "additionalProperties": false
+    },
     "starter-ergebnis": {
       "description": "Ergebnis eines Starters",
       "type": [
@@ -2760,6 +2784,10 @@
               }
             ]
           }
+        },
+        "stichrundenwertung": {
+          "description": "Stichrundenwertungen des Starters",
+          "$ref": "#/definitions/starter-stichrundenwertung"
         }
       },
       "required": [
@@ -2774,7 +2802,8 @@
         "startklasse",
         "wettbewerbsart",
         "ergebnis",
-        "wertung"
+        "wertung",
+        "stichrundenwertung"
       ],
       "additionalProperties": false
     },
