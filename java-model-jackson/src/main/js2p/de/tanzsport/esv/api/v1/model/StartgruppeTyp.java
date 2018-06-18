@@ -22,7 +22,9 @@ public enum StartgruppeTyp {
     SEN_IV("SenIV"),
     U_21("U21"),
     MCI("MCI"),
-    MCII("MCII");
+    MCII("MCII"),
+    G_55("G55"),
+    LS_66("Ls66");
     private final String value;
     private final static Map<String, StartgruppeTyp> CONSTANTS = new HashMap<String, StartgruppeTyp>();
 
