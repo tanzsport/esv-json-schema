@@ -1,6 +1,5 @@
 package de.tanzsport.schema.json.esv.v1;
 
-import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -29,6 +28,7 @@ public class CommonSchemaTest extends AbstractV1SchemaTest {
     private static final String DEF_EINTRAG = "common.json#/definitions/veranstaltungsliste-eintrag";
     private static final String DEF_ENDRUNDENTABELLE = "common.json#/definitions/ergebnis-endrundentabelle";
     private static final String DEF_SKATINGTABELLE = "common.json#/definitions/ergebnis-skatingtabelle";
+    private static final String DEF_STICHRUNDENWERTUNG = "common.json#/definitions/starter-stichrundenwertung";
 
     @Parameterized.Parameters(name = "{2}")
     public static Collection<Object[]> data() {
@@ -234,6 +234,20 @@ public class CommonSchemaTest extends AbstractV1SchemaTest {
                 },
                 {
                         DEF_SKATINGTABELLE, true, "common-ergebnis-skatingtabelle-valid.json", 0, null
+                },
+                {
+                        DEF_STICHRUNDENWERTUNG, true, "common-stichrundenwertung-valid-null.json", 0, null
+                },
+                {
+                        DEF_STICHRUNDENWERTUNG, true, "common-stichrundenwertung-valid-full.json", 0, null
+                },
+                {
+                        DEF_STICHRUNDENWERTUNG, true, "common-stichrundenwertung-invalid-empty.json", 2,
+                        failuresRequired("stichrunde", "wertung")
+                },
+                {
+                        DEF_STICHRUNDENWERTUNG, true, "common-stichrundenwertung-invalid-types.json", 2,
+                        Arrays.asList(failureType("stichrunde", "Number"), failureType("wertung", "JSONArray"))
                 }
         });
     }
