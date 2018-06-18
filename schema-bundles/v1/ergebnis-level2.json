@@ -620,20 +620,45 @@
                   "type": "number"
                 },
                 {
-                  "title": "End- oder Stichrundenwertung eines Starters (Platzwertung)",
-                  "description": "Array über alle Tänze in der Reihenfolge der Nennung im Ergebnis",
-                  "type": "array",
-                  "items": {
-                    "type": "array",
-                    "title": "Wertungen eines Tanzes und Ausrechnung",
-                    "description": "Wertungen der Wertungsrichter in der Reihenfolge der Nennung im Ergebnis sowie zwei Zusatzelemente: Platzziffer im Tanz, Platzziffer Summe",
-                    "items": {
-                      "type": "number"
-                    }
-                  }
+                  "$ref": "#/properties/starter/items/properties/stichrundenwertung/properties/wertung"
                 }
               ]
             }
+          },
+          "stichrundenwertung": {
+            "description": "Stichrundenwertungen des Starters",
+            "title": "Stichrundenwertung eines Starters",
+            "type": [
+              "null",
+              "object"
+            ],
+            "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.StarterStichrundenWertung",
+            "properties": {
+              "stichrunde": {
+                "title": "Index der Stichrunde aus dem Stichrundenablauf",
+                "description": "0-basierter Index der Stichrunde aus dem Array [stichrunden] im Ergebnis",
+                "type": "integer"
+              },
+              "wertung": {
+                "title": "End- oder Stichrundenwertung eines Starters (Platzwertung)",
+                "description": "Array über alle Tänze in der Reihenfolge der Nennung im Ergebnis",
+                "javaType": "de.tanzsport.esv.api.v1.model.ergebnis.PlatzWertungModel",
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "title": "Wertungen eines Tanzes und Ausrechnung",
+                  "description": "Wertungen der Wertungsrichter in der Reihenfolge der Nennung im Ergebnis sowie zwei Zusatzelemente: Platzziffer im Tanz, Platzziffer Summe",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "required": [
+              "stichrunde",
+              "wertung"
+            ],
+            "additionalProperties": false
           }
         },
         "required": [
@@ -648,7 +673,8 @@
           "startklasse",
           "wettbewerbsart",
           "ergebnis",
-          "wertung"
+          "wertung",
+          "stichrundenwertung"
         ],
         "additionalProperties": false
       }
