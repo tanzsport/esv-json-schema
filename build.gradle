@@ -1,6 +1,6 @@
 plugins {
-    id 'org.ajoberstar.grgit' version '2.1.0'
-    id 'org.ajoberstar.reckon' version '0.3.0'
+    id 'org.ajoberstar.grgit' version '2.2.1'
+    id 'org.ajoberstar.reckon' version '0.7.0'
 }
 
 allprojects {
@@ -12,6 +12,6 @@ allprojects {
 }
 
 reckon {
-    normal = scopeFromProp()
-    preRelease = stageFromProp('dev', 'milestone', 'rc')
+    scopeFromProp()
+    stageFromProp('dev', 'milestone', 'rc')
 }
