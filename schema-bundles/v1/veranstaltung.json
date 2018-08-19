@@ -504,7 +504,8 @@
               "Kmb",
               "JMD",
               "SD-Std",
-              "SD-Lat"
+              "SD-Lat",
+              "Jazz"
             ],
             "javaType": "de.tanzsport.esv.api.v1.model.TurnierartTyp"
           },
