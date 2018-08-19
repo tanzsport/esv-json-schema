@@ -13,7 +13,8 @@ public enum TurnierartTyp {
     KMB("Kmb"),
     JMD("JMD"),
     SD_STD("SD-Std"),
-    SD_LAT("SD-Lat");
+    SD_LAT("SD-Lat"),
+    JAZZ("Jazz");
     private final String value;
     private final static Map<String, TurnierartTyp> CONSTANTS = new HashMap<String, TurnierartTyp>();
 
