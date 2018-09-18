@@ -2252,7 +2252,8 @@
         "F",
         "FA",
         "FB",
-        "SR"
+        "PSR",
+        "RSR"
       ],
       "javaEnumNames": [
         "RD_1",
@@ -2270,7 +2271,8 @@
         "RD_F",
         "RD_FA",
         "RD_FB",
-        "RD_SR"
+        "RD_PSR",
+        "RD_RSR"
       ]
     },
     "wertungstyp": {
@@ -2339,7 +2341,7 @@
           "$ref": "#/definitions/wertungstyp"
         },
         "platz": {
-          "description": "Platz für den eine Stichrunde durchgeführt wurde",
+          "description": "Platz für den eine Stichrunde durchgeführt wurde, ansonsten NULL",
           "type": [
             "null",
             "integer"
@@ -3132,6 +3134,16 @@
             "$ref": "#/definitions/ergebnis-rundenablauf-l2"
           }
         },
+        "stichrunden": {
+          "description": "Stichrundenablauf",
+          "type": [
+            "null",
+            "array"
+          ],
+          "items": {
+            "$ref": "#/definitions/ergebnis-rundenablauf-l2"
+          }
+        },
         "kombiniertMit": {
           "description": "ID des Turniers, mit dem das Turnier dieses Ergebnisses kombiniert wurde",
           "type": [
@@ -3197,6 +3209,7 @@
         "beginn",
         "ende",
         "ablauf",
+        "stichrunden",
         "kombiniertMit",
         "zuschauer",
         "starter",
