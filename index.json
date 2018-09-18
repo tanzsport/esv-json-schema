@@ -1,0 +1,36 @@
+[
+{
+	"uri": "https://tanzsport.github.io/esv-json-schema/validator/",
+	"title": "Validator",
+	"tags": [],
+	"description": "",
+	"content": "Schema\n\u0026mdash; bitte auswählen \nJSON\n\nvalidieren\n "
+},
+{
+	"uri": "https://tanzsport.github.io/esv-json-schema/",
+	"title": "Übersicht",
+	"tags": [],
+	"description": "",
+	"content": " Aktuell liegen die JSON-Schema-Definitionen im Format Draft-06 vor.\nAPI-Version 1 Gemeinsame Definitionen für die Endpunkte befinden sich im common-Schema. Die aufgeführten Schema-Dateien enthalten i.d.R. nur Referenzen auf das common-Schema. Die Schema-Bundles hingegen enthalten alle Definitionen ohne externe Referenzen.\nResponses    Endpunkt Level Schema-URI Schema Bundle     (common) 1, 2 http://schema.tanzsport.de/json/esv/json/v1/common.json Schema    Veranstaltungsliste 1, 2 http://schema.tanzsport.de/json/esv/json/v1/veranstaltungsliste.json Schema Bundle   Veranstaltung 1, 2 http://schema.tanzsport.de/json/esv/json/v1/veranstaltung.json Schema Bundle   Funktionär 1, 2 http://schema.tanzsport.de/json/esv/json/v1/funktionaer.json Schema Bundle   Funktionäre 1, 2 http://schema.tanzsport.de/json/esv/json/v1/funktionaere.json Schema Bundle   Aufstiegstabellen 1, 2 http://schema.tanzsport.de/json/esv/json/v1/aufstiegstabellen.json Schema Bundle   Ranglisten 1, 2 http://schema.tanzsport.de/json/esv/json/v1/ranglisten.json Schema Bundle   Startlisten 1 http://schema.tanzsport.de/json/esv/json/v1/startliste-level1.json Schema Bundle   Startlisten 2 http://schema.tanzsport.de/json/esv/json/v1/startliste-level2.json Schema Bundle    Requests    Endpunkt Level Schema-URI Schema Bundle     (common) 1, 2 http://schema.tanzsport.de/json/esv/json/v1/common.json Schema    Ergebnis 1 http://schema.tanzsport.de/json/esv/json/v1/ergebnis-level1.json Schema Bundle   Ergebnis 2 http://schema.tanzsport.de/json/esv/json/v1/ergebnis-level2.json Schema Bundle    "
+},
+{
+	"uri": "https://tanzsport.github.io/esv-json-schema/_footer/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://tanzsport.github.io/esv-json-schema/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://tanzsport.github.io/esv-json-schema/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

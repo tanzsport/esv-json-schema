@@ -193,7 +193,8 @@
               "F",
               "FA",
               "FB",
-              "SR"
+              "PSR",
+              "RSR"
             ],
             "javaEnumNames": [
               "RD_1",
@@ -211,7 +212,8 @@
               "RD_F",
               "RD_FA",
               "RD_FB",
-              "RD_SR"
+              "RD_PSR",
+              "RD_RSR"
             ]
           },
           "typ": {

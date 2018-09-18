@@ -219,7 +219,8 @@
               "F",
               "FA",
               "FB",
-              "SR"
+              "PSR",
+              "RSR"
             ],
             "javaEnumNames": [
               "RD_1",
@@ -237,7 +238,8 @@
               "RD_F",
               "RD_FA",
               "RD_FB",
-              "RD_SR"
+              "RD_PSR",
+              "RD_RSR"
             ]
           },
           "typ": {
@@ -255,7 +257,7 @@
             ]
           },
           "platz": {
-            "description": "Platz für den eine Stichrunde durchgeführt wurde",
+            "description": "Platz für den eine Stichrunde durchgeführt wurde, ansonsten NULL",
             "type": [
               "null",
               "integer"
@@ -298,6 +300,16 @@
           "kreuzvorgabe"
         ],
         "additionalProperties": false
+      }
+    },
+    "stichrunden": {
+      "description": "Stichrundenablauf",
+      "type": [
+        "null",
+        "array"
+      ],
+      "items": {
+        "$ref": "#/properties/ablauf/items"
       }
     },
     "kombiniertMit": {
@@ -819,6 +831,7 @@
     "beginn",
     "ende",
     "ablauf",
+    "stichrunden",
     "kombiniertMit",
     "zuschauer",
     "starter",
