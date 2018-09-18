@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>ESV JSON Schema</title>
+    <title>Übersicht - ESV JSON Schema</title>
     <meta name="generator" content="Hugo 0.48" />
 
     
@@ -67,9 +67,6 @@
     <script src="https://tanzsport.github.io/esv-json-schema/javascripts/modernizr.js"></script>
 
     
-    <link href="https://tanzsport.github.io/esv-json-schema/index.xml" rel="alternate" type="application/rss+xml" title="ESV JSON Schema" />
-    <link href="https://tanzsport.github.io/esv-json-schema/index.xml" rel="feed" type="application/rss+xml" title="ESV JSON Schema" />
-    
 
   </head>
   <body class="palette-primary-blue palette-accent-cyan">
@@ -95,7 +92,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        ESV JSON Schema
+        Übersicht
       </div>
     </div>
 
@@ -215,10 +212,9 @@
 
 	<article class="article">
 		<div class="wrapper">
-			
-				<h1>Übersicht </h1>
+			<h1>Übersicht </h1>
 
-				
+			
 
 <p>Aktuell liegen die <a href="http://json-schema.org">JSON-Schema</a>-Definitionen im Format <em>Draft-06</em> vor.</p>
 
@@ -354,7 +350,6 @@
 </tbody>
 </table>
 
-			
 
 			<aside class="copyright" role="note">
 				
@@ -368,31 +363,6 @@
 				
 
 
-
-<nav class="pagination" aria-label="Footer">
-  <div class="previous">
-  </div>
-
-  
-  
-  <div class="next">
-      <a href="https://tanzsport.github.io/esv-json-schema/tags/" title="Tags">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              Tags
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
-  </div>
-</nav>
 
 
 
@@ -437,6 +407,37 @@
             a.setAttribute("href", "#" + headers[i].id);
             a.setAttribute("title", headers[i].innerHTML);
             a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
+ML = headers[i].innerHTML;
 
             li.appendChild(a)
             scrollspy.appendChild(li);
