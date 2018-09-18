@@ -28,6 +28,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
     "beginn",
     "ende",
     "ablauf",
+    "stichrunden",
     "kombiniertMit",
     "zuschauer",
     "starter",
@@ -135,6 +136,14 @@ public class ErgebnisLevel2Model implements Serializable
     @JsonPropertyDescription("Rundenablauf")
     private List<RundenablaufLevel2Model> ablauf = new ArrayList<RundenablaufLevel2Model>();
     /**
+     * Stichrundenablauf
+     * (Required)
+     * 
+     */
+    @JsonProperty("stichrunden")
+    @JsonPropertyDescription("Stichrundenablauf")
+    private List<RundenablaufLevel2Model> stichrunden = new ArrayList<RundenablaufLevel2Model>();
+    /**
      * ID des Turniers, mit dem das Turnier dieses Ergebnisses kombiniert wurde
      * (Required)
      * 
@@ -182,7 +191,7 @@ public class ErgebnisLevel2Model implements Serializable
     @JsonProperty("stichrundentabellen")
     @JsonPropertyDescription("Finaltabellen der Stichrunden dieses Ergebnisses")
     private List<List<List<List<EndrundentabellenModel>>>> stichrundentabellen = new ArrayList<List<List<List<EndrundentabellenModel>>>>();
-    private final static long serialVersionUID = -9004566305048924695L;
+    private final static long serialVersionUID = -6215021173929519256L;
 
     /**
      * Flag für Endergebnis
@@ -485,6 +494,31 @@ public class ErgebnisLevel2Model implements Serializable
     }
 
     /**
+     * Stichrundenablauf
+     * (Required)
+     * 
+     */
+    @JsonProperty("stichrunden")
+    public List<RundenablaufLevel2Model> getStichrunden() {
+        return stichrunden;
+    }
+
+    /**
+     * Stichrundenablauf
+     * (Required)
+     * 
+     */
+    @JsonProperty("stichrunden")
+    public void setStichrunden(List<RundenablaufLevel2Model> stichrunden) {
+        this.stichrunden = stichrunden;
+    }
+
+    public ErgebnisLevel2Model withStichrunden(List<RundenablaufLevel2Model> stichrunden) {
+        this.stichrunden = stichrunden;
+        return this;
+    }
+
+    /**
      * ID des Turniers, mit dem das Turnier dieses Ergebnisses kombiniert wurde
      * (Required)
      * 
@@ -636,12 +670,12 @@ public class ErgebnisLevel2Model implements Serializable
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this).append("endergebnis", endergebnis).append("taenze", taenze).append("wr", wr).append("tl", tl).append("bs", bs).append("ch", ch).append("moderatoren", moderatoren).append("protokoll", protokoll).append("vorkommnisse", vorkommnisse).append("beginn", beginn).append("ende", ende).append("ablauf", ablauf).append("kombiniertMit", kombiniertMit).append("zuschauer", zuschauer).append("starter", starter).append("endrundentabellen", endrundentabellen).append("skatingtabellen", skatingtabellen).append("stichrundentabellen", stichrundentabellen).toString();
+        return new ToStringBuilder(this).append("endergebnis", endergebnis).append("taenze", taenze).append("wr", wr).append("tl", tl).append("bs", bs).append("ch", ch).append("moderatoren", moderatoren).append("protokoll", protokoll).append("vorkommnisse", vorkommnisse).append("beginn", beginn).append("ende", ende).append("ablauf", ablauf).append("stichrunden", stichrunden).append("kombiniertMit", kombiniertMit).append("zuschauer", zuschauer).append("starter", starter).append("endrundentabellen", endrundentabellen).append("skatingtabellen", skatingtabellen).append("stichrundentabellen", stichrundentabellen).toString();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(kombiniertMit).append(moderatoren).append(starter).append(ch).append(ende).append(protokoll).append(endrundentabellen).append(vorkommnisse).append(bs).append(zuschauer).append(tl).append(stichrundentabellen).append(taenze).append(ablauf).append(wr).append(endergebnis).append(skatingtabellen).append(beginn).toHashCode();
+        return new HashCodeBuilder().append(kombiniertMit).append(moderatoren).append(starter).append(ch).append(ende).append(protokoll).append(endrundentabellen).append(vorkommnisse).append(bs).append(stichrunden).append(zuschauer).append(tl).append(stichrundentabellen).append(taenze).append(ablauf).append(wr).append(endergebnis).append(skatingtabellen).append(beginn).toHashCode();
     }
 
     @Override
@@ -653,7 +687,7 @@ public class ErgebnisLevel2Model implements Serializable
             return false;
         }
         ErgebnisLevel2Model rhs = ((ErgebnisLevel2Model) other);
-        return new EqualsBuilder().append(kombiniertMit, rhs.kombiniertMit).append(moderatoren, rhs.moderatoren).append(starter, rhs.starter).append(ch, rhs.ch).append(ende, rhs.ende).append(protokoll, rhs.protokoll).append(endrundentabellen, rhs.endrundentabellen).append(vorkommnisse, rhs.vorkommnisse).append(bs, rhs.bs).append(zuschauer, rhs.zuschauer).append(tl, rhs.tl).append(stichrundentabellen, rhs.stichrundentabellen).append(taenze, rhs.taenze).append(ablauf, rhs.ablauf).append(wr, rhs.wr).append(endergebnis, rhs.endergebnis).append(skatingtabellen, rhs.skatingtabellen).append(beginn, rhs.beginn).isEquals();
+        return new EqualsBuilder().append(kombiniertMit, rhs.kombiniertMit).append(moderatoren, rhs.moderatoren).append(starter, rhs.starter).append(ch, rhs.ch).append(ende, rhs.ende).append(protokoll, rhs.protokoll).append(endrundentabellen, rhs.endrundentabellen).append(vorkommnisse, rhs.vorkommnisse).append(bs, rhs.bs).append(stichrunden, rhs.stichrunden).append(zuschauer, rhs.zuschauer).append(tl, rhs.tl).append(stichrundentabellen, rhs.stichrundentabellen).append(taenze, rhs.taenze).append(ablauf, rhs.ablauf).append(wr, rhs.wr).append(endergebnis, rhs.endergebnis).append(skatingtabellen, rhs.skatingtabellen).append(beginn, rhs.beginn).isEquals();
     }
 
 }

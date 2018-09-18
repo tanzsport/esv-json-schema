@@ -47,12 +47,12 @@ public class RundenablaufLevel2Model implements Serializable
     @JsonPropertyDescription("Wertungstyp in einer Runde")
     private RundenWertungsTyp typ;
     /**
-     * Platz für den eine Stichrunde durchgeführt wurde
+     * Platz für den eine Stichrunde durchgeführt wurde, ansonsten NULL
      * (Required)
      * 
      */
     @JsonProperty("platz")
-    @JsonPropertyDescription("Platz f\u00fcr den eine Stichrunde durchgef\u00fchrt wurde")
+    @JsonPropertyDescription("Platz f\u00fcr den eine Stichrunde durchgef\u00fchrt wurde, ansonsten NULL")
     private Integer platz;
     /**
      * Startnummern der Starter in der Reihenfolge des Starts in der Runde
@@ -123,7 +123,7 @@ public class RundenablaufLevel2Model implements Serializable
     }
 
     /**
-     * Platz für den eine Stichrunde durchgeführt wurde
+     * Platz für den eine Stichrunde durchgeführt wurde, ansonsten NULL
      * (Required)
      * 
      */
@@ -133,7 +133,7 @@ public class RundenablaufLevel2Model implements Serializable
     }
 
     /**
-     * Platz für den eine Stichrunde durchgeführt wurde
+     * Platz für den eine Stichrunde durchgeführt wurde, ansonsten NULL
      * (Required)
      * 
      */
