@@ -1,38 +1,51 @@
 plugins {
     id 'org.ajoberstar.git-publish' version '1.0.1'
+    id 'org.jbake.site' version '1.2.0'
 }
 
 task bundleSchemas(type: Exec) {
+    doFirst {
+        mkdir "${project.buildDir}/output/schema-bundles/v1"
+    }
     commandLine 'node', 'bundle.js'
 }
 
-task buildValidator(type: Exec) {
-    commandLine 'yarn', 'build-validator'
+task buildJs(type: Exec) {
+    commandLine 'yarn', 'build-js'
 }
 
 task buildSite(type: Exec) {
-    workingDir 'hugo'
-    commandLine 'hugo'
     doFirst {
         bundleSchemas.execute()
-        buildValidator.execute()
+        buildJs.execute()
     }
+    workingDir 'src/main/jbake'
+    commandLine 'jbake', '-b'
 }
 
 task serveSite(type: Exec) {
-    workingDir 'hugo'
-    commandLine 'hugo', 'server'
     doFirst {
         bundleSchemas.execute()
-        buildValidator.execute()
+        buildJs.execute()
     }
+    workingDir 'src/main/jbake'
+    commandLine 'jbake', '-s'
+}
+
+jbake {
+    srcDirName  = 'src/main/jbake'
+    destDirName = 'output'
+}
+bake.doLast {
+    bundleSchemas.execute()
+    buildJs.execute()
 }
 
 gitPublish {
     repoUri = 'ssh://git@github.com/tanzsport/esv-json-schema.git'
     branch = 'gh-pages'
     contents {
-        from 'hugo/public'
+        from "${project.buildDir}/output"
     }
 }
-gitPublishCopy.dependsOn buildSite
+gitPublishCopy.dependsOn bake

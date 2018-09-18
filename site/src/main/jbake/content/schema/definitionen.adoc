@@ -1,0 +1,101 @@
+= Schema-Definitionen
+Hendrik Heneke
+2018-09-18
+:jbake-type: page
+:jbake-tags: documentation, manual
+:jbake-status: published
+:schema-base: https://raw.githubusercontent.com/tanzsport/esv-json-schema
+
+## API-Version 1
+
+Aktuell liegen die http://json-schema.org[JSON-Schema]-Definitionen im Format *Draft-06* vor.
+
+Gemeinsame Definitionen für die Endpunkte befinden sich im *common*-Schema. Die aufgeführten Schema-Dateien enthalten i.d.R. nur Referenzen auf das *common*-Schema. Die Schema-Bundles hingegen enthalten alle Definitionen ohne externe Referenzen.
+
+### Requests
+
+[.w-100,cols="2,1,5,1,1"]
+|===
+|Endpunkt|Level|Schema-URI|Schema|Bundle
+
+|(_common_)
+|1, 2
+|\http://schema.tanzsport.de/json/esv/json/v1/common.json
+|link:{schema-base}/master/schema/v1/common.json[Schema]
+|
+
+|Veranstaltungsliste
+|1, 2
+|\http://schema.tanzsport.de/json/esv/json/v1/veranstaltungsliste.json
+|link:{schema-base}/master/schema/v1/veranstaltungsliste.json[Schema]
+|link:../schema-bundles/v1/veranstaltungsliste.json[Bundle]
+
+|Veranstaltung
+|1, 2
+|\http://schema.tanzsport.de/json/esv/json/v1/veranstaltung.json
+|link:{schema-base}/master/schema/v1/veranstaltung.json[Schema]
+|link:../schema-bundles/v1/veranstaltung.json[Bundle]
+
+|Funktionär
+|1, 2
+|\http://schema.tanzsport.de/json/esv/json/v1/funktionaer.json
+|link:{schema-base}/master/schema/v1/funktionaer.json[Schema]
+|link:../schema-bundles/v1/funktionaer.json[Bundle]
+
+|Funktionäre
+|1, 2
+|\http://schema.tanzsport.de/json/esv/json/v1/funktionaere.json
+|link:{schema-base}/master/schema/v1/funktionaere.json[Schema]
+|link:../schema-bundles/v1/funktionaere.json[Bundle]
+
+|Aufstiegstabellen
+|1, 2
+|\http://schema.tanzsport.de/json/esv/json/v1/aufstiegstabellen.json
+|link:{schema-base}/master/schema/v1/aufstiegstabellen.json[Schema]
+|link:../schema-bundles/v1/aufstiegstabellen.json[Bundle]
+
+|Ranglisten
+|1, 2
+|\http://schema.tanzsport.de/json/esv/json/v1/ranglisten.json
+|link:{schema-base}/master/schema/v1/ranglisten.json[Schema]
+|link:../schema-bundles/v1/ranglisten.json[Bundle]
+
+|Startlisten
+|1
+|\http://schema.tanzsport.de/json/esv/json/v1/startliste-level1.json
+|link:{schema-base}/master/schema/v1/startliste-level1.json[Schema]
+|link:../schema-bundles/v1/startliste-level1.json[Bundle]
+
+|Startlisten
+|2
+|\http://schema.tanzsport.de/json/esv/json/v1/startliste-level2.json
+|link:{schema-base}/master/schema/v1/startliste-level2.json[Schema]
+|link:../schema-bundles/v1/startliste-level2.json[Bundle]
+
+|===
+
+### Responses
+
+[.w-100,cols="2,1,5,1,1"]
+|===
+|Endpunkt|Level|Schema-URI|Schema|Bundle
+
+|(_common_)
+|1, 2
+|\http://schema.tanzsport.de/json/esv/json/v1/common.json
+|link:{schema-base}/master/schema/v1/common.json[Schema]
+|
+
+|Ergebnis
+|1
+|\http://schema.tanzsport.de/json/esv/json/v1/ergebnis-level1.json
+|link:{schema-base}/master/schema/v1/ergebnis-level1.json[Schema]
+|link:../schema-bundles/v1/ergebnis-level1.json[Bundle]
+
+|Ergebnis
+|2
+|\http://schema.tanzsport.de/json/esv/json/v1/ergebnis-level2.json
+|link:{schema-base}/master/schema/v1/ergebnis-level2.json[Schema]
+|link:../schema-bundles/v1/ergebnis-level2.json[Bundle]
+
+|===

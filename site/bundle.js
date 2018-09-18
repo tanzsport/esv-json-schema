@@ -15,7 +15,7 @@ var schemas = [
 ];
 
 function targetFile(schema) {
-    return schema.replace("../schema/v1/", "hugo/static/schema-bundles/v1/")
+    return schema.replace("../schema/v1/", "build/output/schema-bundles/v1/")
 }
 
 Promise.all(schemas.map(function (schema) {

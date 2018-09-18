@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build-validator": "webpack --hide-modules --config validator/webpack.config.js"
+    "build-js": "webpack --hide-modules --config webpack.config.js"
   },
   "dependencies": {
     "ajv": "^5.5.2",

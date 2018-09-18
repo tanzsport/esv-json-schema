@@ -32,12 +32,18 @@ var select;
 var src;
 var submit;
 var result;
+var success;
+var error;
 var compiledSchema;
+var details;
 
 function reset() {
     compiledSchema = undefined;
     result.innerText = undefined;
     result.classList.add('hidden');
+    success.classList.add('hidden');
+    error.classList.add('hidden');
+    details.innerText = '';
 }
 
 window.onload = function () {
@@ -45,6 +51,9 @@ window.onload = function () {
     src = document.getElementById('src');
     submit = document.getElementById('submit');
     result = document.getElementById('result');
+    success = document.getElementById('success-message');
+    error = document.getElementById('error-message');
+    details = document.getElementById('details');
 
     for (var prop in schemas) {
         var opt = document.createElement('option');
@@ -58,6 +67,7 @@ window.onload = function () {
             loadSchema(select.value)
                 .then(function (schema) {
                     compiledSchema = ajv.compile(schema);
+                    submit.classList.remove('disabled');
                 })
                 .catch(function (error) {
                     reset();
@@ -71,15 +81,21 @@ window.onload = function () {
 
     submit.onclick = function (e) {
         if (compiledSchema) {
+            success.classList.add('hidden');
+            error.classList.add('hidden');
+            result.classList.add('hidden');
+            details.innerText = '';
             try {
                 var objectToValidate = JSON.parse(src.value);
                 var valid = compiledSchema(objectToValidate);
                 if (valid) {
-                    result.innerText = 'JSON ist gültig.';
+                    success.classList.remove('hidden');
                 } else {
-                    result.innerText = 'JSON ist ungültig:\n\n' + JSON.stringify(compiledSchema.errors, null, 2);
+                    error.classList.remove('hidden')
+                    result.classList.remove('hidden');
+                    details.innerText = JSON.stringify(compiledSchema.errors, null, 2);
+                    console.warn(compiledSchema.errors);
                 }
-                result.classList.remove('hidden');
             } catch (e) {
                 reset();
                 console.error(e);

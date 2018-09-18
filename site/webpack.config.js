@@ -3,10 +3,10 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        validator: './validator/src/index.js'
+        validator: './src/main/js/validator.js'
     },
     output: {
-        path: path.resolve(__dirname, '../hugo/static/js/validator'),
+        path: path.resolve(__dirname, 'build/output/js'),
         filename: '[name].js',
     },
     plugins: [

@@ -1,0 +1,8 @@
+= Schema aktualisiert
+Hendrik Heneke
+2018-09-18
+:jbake-type: post
+:jbake-status: published
+
+Die link:schema/definitionen.html[Schema-Dateien] wurden aktualisiert und entsprechen nun dem den letzten Stand gemäß
+Dokumentation: Die fehlende Property `stichrunden` im Ergebnis (Level 2) wurde inkl. Rundentypen `PSR` und `RSR` ergänzt.
