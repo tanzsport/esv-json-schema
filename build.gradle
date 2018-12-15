@@ -3,6 +3,10 @@ plugins {
     id 'org.ajoberstar.reckon' version '0.7.0'
 }
 
+project.ext {
+    jacksonVersion = '2.9.7'
+}
+
 allprojects {
     repositories {
         jcenter()

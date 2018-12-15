@@ -4,7 +4,7 @@ apply plugin: 'maven'
 dependencies {
     compile 'com.github.everit-org.json-schema:org.everit.json.schema:1.9.2'
     compile 'org.apache.commons:commons-lang3:3.7'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.8'
+    compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
     testCompile 'junit:junit:4.12'
     testCompile 'org.assertj:assertj-core:3.8.0'
 }
